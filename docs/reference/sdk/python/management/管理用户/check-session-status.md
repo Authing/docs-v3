@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_session_status`
+`ManagementClient.check_session_status`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckSessionStatusRespDto`

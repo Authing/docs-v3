@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.sendEnrollFactorRequest`
+`ManagementClient.sendEnrollFactorRequest`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ public class SendEnrollFactorRequestTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SendEnrollFactorRequestRespDto`

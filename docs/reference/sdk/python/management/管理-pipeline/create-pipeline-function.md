@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.create_pipeline_function`
+`ManagementClient.create_pipeline_function`
 
 ## 请求参数
 
@@ -39,7 +39,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `PipelineFunctionSingleRespDto`

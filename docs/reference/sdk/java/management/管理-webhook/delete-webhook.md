@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteWebhook`
+`ManagementClient.deleteWebhook`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class DeleteWebhookTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DeleteWebhookRespDto`

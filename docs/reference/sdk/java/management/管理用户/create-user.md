@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createUser`
+`ManagementClient.createUser`
 
 ## 请求参数
 
@@ -99,7 +99,7 @@ public class CreateUserTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

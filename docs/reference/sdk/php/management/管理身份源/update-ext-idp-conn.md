@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateExtIdpConn`
+`ManagementClient.updateExtIdpConn`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpConnDetailSingleRespDto`

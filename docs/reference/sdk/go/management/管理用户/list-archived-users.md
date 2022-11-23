@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListArchivedUsers`
+`ManagementClient.ListArchivedUsers`
 
 ## 请求参数
 
@@ -60,7 +60,7 @@ func main() {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ListArchivedUsersSingleRespDto`

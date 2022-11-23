@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_user_action_logs`
+`ManagementClient.get_user_action_logs`
 
 ## 请求参数
 
@@ -31,7 +31,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserActionLogRespDto`

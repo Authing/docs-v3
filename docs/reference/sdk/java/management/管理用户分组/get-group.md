@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getGroup`
+`ManagementClient.getGroup`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetGroupTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GroupSingleRespDto`

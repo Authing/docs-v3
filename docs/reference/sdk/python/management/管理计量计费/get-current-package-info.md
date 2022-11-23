@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_current_package_info`
+`ManagementClient.get_current_package_info`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetCurrentPackageRespDto`

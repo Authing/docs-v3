@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.BindEmail`
+`ManagementClient.BindEmail`
 
 ## 请求参数
 
@@ -77,7 +77,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

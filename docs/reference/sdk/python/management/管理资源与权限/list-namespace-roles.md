@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_namespace_roles`
+`ManagementClient.list_namespace_roles`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `NamespaceRolesListPaginatedRespDto`

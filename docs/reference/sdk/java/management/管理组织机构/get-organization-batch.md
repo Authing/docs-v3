@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getOrganizationsBatch`
+`ManagementClient.getOrganizationsBatch`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetOrganizationsBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `OrganizationListRespDto`

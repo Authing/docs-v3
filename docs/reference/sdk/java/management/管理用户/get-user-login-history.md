@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserLoginHistory`
+`ManagementClient.getUserLoginHistory`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class GetUserLoginHistoryTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserLoginHistoryPaginatedRespDto`

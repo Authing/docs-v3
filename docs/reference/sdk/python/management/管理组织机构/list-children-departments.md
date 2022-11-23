@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_children_departments`
+`ManagementClient.list_children_departments`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `DepartmentPaginatedRespDto`

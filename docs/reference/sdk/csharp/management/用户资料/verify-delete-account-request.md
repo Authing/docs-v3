@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.VerifyDeleteAccountRequest`
+`ManagementClient.VerifyDeleteAccountRequest`
 
 ## 请求参数
 
@@ -78,7 +78,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `VerifyDeleteAccountRequestRespDto`

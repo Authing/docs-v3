@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.exchangeTokenSetWithQrCodeTicket`
+`ManagementClient.exchangeTokenSetWithQrCodeTicket`
 
 ## 请求参数
 
@@ -73,7 +73,7 @@ JS 代码示例：
 
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

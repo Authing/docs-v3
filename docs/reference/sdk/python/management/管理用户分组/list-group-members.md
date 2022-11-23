@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_group_members`
+`ManagementClient.list_group_members`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

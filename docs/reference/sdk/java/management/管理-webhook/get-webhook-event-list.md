@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getWebhookEventList`
+`ManagementClient.getWebhookEventList`
 
 ## 请求参数
 
@@ -58,7 +58,7 @@ public class GetWebhookEventListTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `WebhookEventListRespDto`

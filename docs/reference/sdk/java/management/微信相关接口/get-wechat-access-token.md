@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getWechatMpAccessToken`
+`ManagementClient.getWechatMpAccessToken`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class GetWechatMpAccessTokenTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetWechatAccessTokenRespDto`

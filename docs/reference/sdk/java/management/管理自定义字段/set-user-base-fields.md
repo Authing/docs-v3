@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.setUserBaseFields`
+`ManagementClient.setUserBaseFields`
 
 ## 请求参数
 
@@ -69,7 +69,7 @@ public class SetUserBaseFieldsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CustomFieldListRespDto`

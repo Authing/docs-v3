@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createGroup`
+`ManagementClient.createGroup`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class CreateGroupTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GroupSingleRespDto`

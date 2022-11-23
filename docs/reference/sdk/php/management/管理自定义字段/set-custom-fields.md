@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.setCustomFields`
+`ManagementClient.setCustomFields`
 
 ## 请求参数
 
@@ -75,7 +75,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `CustomFieldListRespDto`

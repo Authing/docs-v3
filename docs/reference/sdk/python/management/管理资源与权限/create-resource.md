@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.create_resource`
+`ManagementClient.create_resource`
 
 ## 请求参数
 
@@ -29,7 +29,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getRole`
+`ManagementClient.getRole`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetRoleTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleSingleRespDto`

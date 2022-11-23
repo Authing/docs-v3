@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listSyncJobLogs`
+`ManagementClient.listSyncJobLogs`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ public class ListSyncJobLogsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `TriggerSyncTaskRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_user`
+`ManagementClient.update_user`
 
 ## 请求参数
 
@@ -58,7 +58,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.triggerSyncRiskOperations`
+`ManagementClient.triggerSyncRiskOperations`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class TriggerSyncRiskOperationsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `TriggerSyncRiskOperationsRespDto`

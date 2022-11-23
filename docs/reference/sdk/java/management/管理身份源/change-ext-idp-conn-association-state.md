@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.changeExtIdpConnAssociationState`
+`ManagementClient.changeExtIdpConnAssociationState`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class ChangeExtIdpConnAssociationStateTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

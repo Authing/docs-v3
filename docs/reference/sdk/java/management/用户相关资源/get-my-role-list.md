@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getRoleList`
+`ManagementClient.getRoleList`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class GetRoleListTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleListRespDto`

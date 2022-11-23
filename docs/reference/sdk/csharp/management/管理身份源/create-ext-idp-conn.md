@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.CreateExtIdpConn`
+`ManagementClient.CreateExtIdpConn`
 
 ## 请求参数
 
@@ -79,7 +79,7 @@ namespace ConsoleManagement
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpConnDetailSingleRespDto`

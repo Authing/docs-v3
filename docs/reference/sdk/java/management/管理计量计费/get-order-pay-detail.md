@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getOrderPayDetail`
+`ManagementClient.getOrderPayDetail`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetOrderPayDetailTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetOrderPayDetailRespDto`

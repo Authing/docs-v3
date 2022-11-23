@@ -13,7 +13,7 @@ Authing 目前支持四种类型的 MFA 认证要素：手机短信、邮件验�
 
 ## 方法名称
 
-`AuthenticationClient.listEnrolledFactors`
+`ManagementClient.listEnrolledFactors`
 
 ## 请求参数
 
@@ -50,7 +50,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `ListEnrolledFactorsRespDto`

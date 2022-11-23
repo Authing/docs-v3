@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListGroupMembers`
+`ManagementClient.ListGroupMembers`
 
 ## 请求参数
 
@@ -69,7 +69,7 @@ namespace ConsoleManagement
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

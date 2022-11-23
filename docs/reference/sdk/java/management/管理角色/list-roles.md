@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listRoles`
+`ManagementClient.listRoles`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class ListRolesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RolePaginatedRespDto`

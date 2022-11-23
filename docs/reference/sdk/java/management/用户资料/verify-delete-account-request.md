@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verifyDeleteAccountRequest`
+`ManagementClient.verifyDeleteAccountRequest`
 
 ## 请求参数
 
@@ -74,7 +74,7 @@ public class VerifyDeleteAccountRequestTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `VerifyDeleteAccountRequestRespDto`

@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.SignInByCredentials`
+`ManagementClient.SignInByCredentials`
 
 ## 请求参数
 
@@ -123,7 +123,7 @@ respDto := client.SignInByCredentials(reqDto)
 
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

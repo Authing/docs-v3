@@ -14,7 +14,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.UpdateEmail`
+`ManagementClient.UpdateEmail`
 
 ## 请求参数
 
@@ -92,7 +92,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.change_ext_idp_conn_association_state`
+`ManagementClient.change_ext_idp_conn_association_state`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

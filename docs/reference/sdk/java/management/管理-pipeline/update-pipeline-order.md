@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updatePipelineOrder`
+`ManagementClient.updatePipelineOrder`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class UpdatePipelineOrderTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

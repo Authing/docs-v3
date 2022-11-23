@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.bindPhone`
+`ManagementClient.bindPhone`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class BindPhoneTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

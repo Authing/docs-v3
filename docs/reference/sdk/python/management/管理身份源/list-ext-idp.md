@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_ext_idp`
+`ManagementClient.list_ext_idp`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpListPaginatedRespDto`

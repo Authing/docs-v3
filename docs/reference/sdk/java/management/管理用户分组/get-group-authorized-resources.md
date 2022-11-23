@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getGroupAuthorizedResources`
+`ManagementClient.getGroupAuthorizedResources`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class GetGroupAuthorizedResourcesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `AuthorizedResourceListRespDto`

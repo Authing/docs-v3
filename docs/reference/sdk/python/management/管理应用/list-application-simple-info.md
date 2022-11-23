@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_application_simple_info`
+`ManagementClient.list_application_simple_info`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationSimpleInfoPaginatedRespDto`

@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.signInByCredentials`
+`ManagementClient.signInByCredentials`
 
 ## 请求参数
 
@@ -111,7 +111,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

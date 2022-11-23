@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_resources_batch`
+`ManagementClient.get_resources_batch`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceListRespDto`

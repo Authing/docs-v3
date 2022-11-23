@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updatePassword`
+`ManagementClient.updatePassword`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class UpdatePasswordTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

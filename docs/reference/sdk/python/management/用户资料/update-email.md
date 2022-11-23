@@ -14,7 +14,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_email`
+`ManagementClient.update_email`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

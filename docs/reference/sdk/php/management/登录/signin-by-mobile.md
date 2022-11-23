@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.signInByMobile`
+`ManagementClient.signInByMobile`
 
 ## 请求参数
 
@@ -127,7 +127,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

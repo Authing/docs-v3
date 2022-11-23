@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserGroups`
+`ManagementClient.getUserGroups`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetUserGroupsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GroupPaginatedRespDto`

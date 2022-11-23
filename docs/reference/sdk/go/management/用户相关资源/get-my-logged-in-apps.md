@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.GetLoggedInApps`
+`ManagementClient.GetLoggedInApps`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetLoggedInAppsRespDto`

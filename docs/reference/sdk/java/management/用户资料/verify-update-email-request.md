@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verifyUpdateEmailRequest`
+`ManagementClient.verifyUpdateEmailRequest`
 
 ## 请求参数
 
@@ -71,7 +71,7 @@ public class VerifyUpdateEmailRequestTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `VerifyUpdateEmailRequestRespDto`

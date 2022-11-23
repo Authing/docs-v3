@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_params_namespace`
+`ManagementClient.check_params_namespace`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleCheckParamsRespDto`

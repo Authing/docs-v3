@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getResource`
+`ManagementClient.getResource`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetResourceTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.resignUserBatch`
+`ManagementClient.resignUserBatch`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class ResignUserBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResignUserRespDto`

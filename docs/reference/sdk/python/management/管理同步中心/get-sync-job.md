@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_sync_job`
+`ManagementClient.get_sync_job`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncJobSingleRespDto`

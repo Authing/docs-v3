@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.authorizeApplicationAccess`
+`ManagementClient.authorizeApplicationAccess`
 
 ## 请求参数
 
@@ -74,7 +74,7 @@ public class AuthorizeApplicationAccessTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

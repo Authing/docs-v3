@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateOrganization`
+`ManagementClient.updateOrganization`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class UpdateOrganizationTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `OrganizationSingleRespDto`

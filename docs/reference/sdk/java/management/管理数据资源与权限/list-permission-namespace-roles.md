@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listPermissionNamespaceRoles`
+`ManagementClient.listPermissionNamespaceRoles`
 
 ## 请求参数
 
@@ -26,7 +26,48 @@
 
 
 
-  
+
+## 示例代码
+
+```java
+package test.management;
+
+import cn.authing.sdk.java.client.ManagementClient;
+import cn.authing.sdk.java.dto.ListPermissionNamespaceRolesDto;
+import cn.authing.sdk.java.dto.PermissionNamespaceRolesListPaginatedRespDto;
+import cn.authing.sdk.java.model.ManagementClientOptions;
+import cn.authing.sdk.java.util.JsonUtils;
+
+
+public class ListPermissionNamespaceRolesTest {
+    // 需要替换成你的 Authing Access Key ID
+    private static final String ACCESS_KEY_ID = "AUTHING_ACCESS_KEY_ID";
+    // 需要替换成你的 Authing Access Key Secret
+    private static final String ACCESS_KEY_SECRET = "AUTHING_ACCESS_KEY_SECRET";
+
+    public static void main(String[] args) throws Throwable {
+        ManagementClientOptions clientOptions = new ManagementClientOptions();
+        clientOptions.setAccessKeyId(ACCESS_KEY_ID);
+        clientOptions.setAccessKeySecret(ACCESS_KEY_SECRET);
+        // 如果是私有化部署的客户，需要设置 Authing 服务域名
+        // clientOptions.setHost("https://api.your-authing-service.com");
+        ManagementClient client = new ManagementClient(clientOptions);
+
+        ListPermissionNamespaceRolesDto request = new ListPermissionNamespaceRolesDto();
+        request.setPage(1);
+        request.setLimit(10);
+        request.setCode("examplePermissionNamespace");
+        request.setQuery("exampleRole");
+        PermissionNamespaceRolesListPaginatedRespDto response = client.listPermissionNamespaceRoles(request);
+        System.out.println(JsonUtils.serialize(response));
+    }
+
+}
+```
+
+
+
+
 ## 请求响应
 
 类型： `PermissionNamespaceRolesListPaginatedRespDto`

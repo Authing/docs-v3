@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.cancelSyncRiskOperation`
+`ManagementClient.cancelSyncRiskOperation`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class CancelSyncRiskOperationTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CancelSyncRiskOperationsRespDto`

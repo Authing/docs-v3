@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getLoginHistory`
+`ManagementClient.getLoginHistory`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `GetLoginHistoryRespDto`

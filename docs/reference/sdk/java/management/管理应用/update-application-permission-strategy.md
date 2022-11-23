@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateApplicationPermissionStrategy`
+`ManagementClient.updateApplicationPermissionStrategy`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class UpdateApplicationPermissionStrategyTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

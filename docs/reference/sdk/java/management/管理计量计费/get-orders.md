@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getOrders`
+`ManagementClient.getOrders`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetOrdersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetOrdersRespDto`

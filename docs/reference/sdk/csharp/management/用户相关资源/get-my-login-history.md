@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.GetLoginHistory`
+`ManagementClient.GetLoginHistory`
 
 ## 请求参数
 
@@ -73,7 +73,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetLoginHistoryRespDto`

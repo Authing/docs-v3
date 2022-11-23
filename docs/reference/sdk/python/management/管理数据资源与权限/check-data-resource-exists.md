@@ -88,7 +88,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_data_resource_exists`
+`ManagementClient.check_data_resource_exists`
 
 ## 请求参数
 
@@ -100,7 +100,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckParamsDataResourceResponseDto`

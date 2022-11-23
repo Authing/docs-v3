@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_email_provider`
+`ManagementClient.get_email_provider`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `EmailProviderRespDto`

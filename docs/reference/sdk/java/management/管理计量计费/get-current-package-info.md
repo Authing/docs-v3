@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getCurrentPackageInfo`
+`ManagementClient.getCurrentPackageInfo`
 
 ## 请求参数
 
@@ -58,7 +58,7 @@ public class GetCurrentPackageInfoTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetCurrentPackageRespDto`

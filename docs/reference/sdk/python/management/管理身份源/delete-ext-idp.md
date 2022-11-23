@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.delete_ext_idp`
+`ManagementClient.delete_ext_idp`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

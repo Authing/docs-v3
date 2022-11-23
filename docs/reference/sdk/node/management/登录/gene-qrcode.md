@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.geneQrCode`
+`ManagementClient.geneQrCode`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GeneQRCodeRespDto`

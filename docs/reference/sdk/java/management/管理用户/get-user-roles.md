@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserRoles`
+`ManagementClient.getUserRoles`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class GetUserRolesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RolePaginatedRespDto`

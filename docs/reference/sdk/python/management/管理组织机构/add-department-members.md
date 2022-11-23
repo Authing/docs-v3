@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.add_department_members`
+`ManagementClient.add_department_members`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

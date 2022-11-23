@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateExtIdp`
+`ManagementClient.updateExtIdp`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class UpdateExtIdpTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpSingleRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.has_any_role`
+`ManagementClient.has_any_role`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `HasAnyRoleRespDto`

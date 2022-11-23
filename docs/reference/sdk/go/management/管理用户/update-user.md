@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.UpdateUser`
+`ManagementClient.UpdateUser`
 
 ## 请求参数
 
@@ -93,7 +93,7 @@ func main() {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

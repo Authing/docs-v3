@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getLoginHistory`
+`ManagementClient.getLoginHistory`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetLoginHistoryRespDto`

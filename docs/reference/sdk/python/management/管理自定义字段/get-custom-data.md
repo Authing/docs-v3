@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_custom_data`
+`ManagementClient.get_custom_data`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetCustomDataRespDto`

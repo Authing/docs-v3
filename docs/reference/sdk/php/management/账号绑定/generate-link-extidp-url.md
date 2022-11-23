@@ -15,7 +15,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.generateLinkExtIdpUrl`
+`ManagementClient.generateLinkExtIdpUrl`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `GenerateBindExtIdpLinkRespDto`

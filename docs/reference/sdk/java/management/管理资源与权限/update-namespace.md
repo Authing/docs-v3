@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateNamespace`
+`ManagementClient.updateNamespace`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class UpdateNamespaceTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UpdateNamespaceRespDto`

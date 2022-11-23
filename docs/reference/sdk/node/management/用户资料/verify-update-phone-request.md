@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verifyUpdatePhoneRequest`
+`ManagementClient.verifyUpdatePhoneRequest`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `VerifyUpdatePhoneRequestRespDto`

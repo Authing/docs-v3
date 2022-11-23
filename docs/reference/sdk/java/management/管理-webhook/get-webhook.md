@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getWebhook`
+`ManagementClient.getWebhook`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetWebhookTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetWebhookRespDto`

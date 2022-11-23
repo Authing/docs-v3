@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteUsersBatch`
+`ManagementClient.deleteUsersBatch`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class DeleteUsersBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

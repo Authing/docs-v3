@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.reset_password`
+`ManagementClient.reset_password`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

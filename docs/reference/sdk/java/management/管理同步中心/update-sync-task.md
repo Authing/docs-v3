@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateSyncTask`
+`ManagementClient.updateSyncTask`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ public class UpdateSyncTaskTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncTaskPaginatedRespDto`

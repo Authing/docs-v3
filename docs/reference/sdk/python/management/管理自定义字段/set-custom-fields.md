@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.set_custom_fields`
+`ManagementClient.set_custom_fields`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CustomFieldListRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getCustomData`
+`ManagementClient.getCustomData`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class GetCustomDataTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetCustomDataRespDto`

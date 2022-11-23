@@ -14,7 +14,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updatePhone`
+`ManagementClient.updatePhone`
 
 ## 请求参数
 
@@ -60,7 +60,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

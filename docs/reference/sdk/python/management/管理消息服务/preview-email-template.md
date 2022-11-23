@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.preview_email_template`
+`ManagementClient.preview_email_template`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `PreviewEmailTemplateRespDto`

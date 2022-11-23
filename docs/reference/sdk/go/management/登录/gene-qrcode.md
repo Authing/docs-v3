@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.GeneQrCode`
+`ManagementClient.GeneQrCode`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ func main() {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GeneQRCodeRespDto`

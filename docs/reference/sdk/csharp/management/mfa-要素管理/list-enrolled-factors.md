@@ -13,7 +13,7 @@ Authing 目前支持四种类型的 MFA 认证要素：手机短信、邮件验�
 
 ## 方法名称
 
-`AuthenticationClient.ListEnrolledFactors`
+`ManagementClient.ListEnrolledFactors`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `ListEnrolledFactorsRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.removeGroupMembers`
+`ManagementClient.removeGroupMembers`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class RemoveGroupMembersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

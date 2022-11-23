@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getPipelineFunction`
+`ManagementClient.getPipelineFunction`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetPipelineFunctionTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `PipelineFunctionSingleRespDto`

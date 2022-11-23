@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_security_settings`
+`ManagementClient.get_security_settings`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `SecuritySettingsRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.removeDepartmentMembers`
+`ManagementClient.removeDepartmentMembers`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class RemoveDepartmentMembersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.associate_tenant_resource`
+`ManagementClient.associate_tenant_resource`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

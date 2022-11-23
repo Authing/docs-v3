@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteExtIdpConn`
+`ManagementClient.deleteExtIdpConn`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class DeleteExtIdpConnTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

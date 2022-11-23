@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getFactor`
+`ManagementClient.getFactor`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class GetFactorTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetFactorRespDto`

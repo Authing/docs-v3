@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteAccount`
+`ManagementClient.deleteAccount`
 
 ## 请求参数
 
@@ -54,7 +54,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

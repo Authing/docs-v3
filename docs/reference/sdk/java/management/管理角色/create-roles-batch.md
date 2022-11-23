@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createRolesBatch`
+`ManagementClient.createRolesBatch`
 
 ## 请求参数
 
@@ -69,7 +69,7 @@ public class CreateRolesBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.changeQrCodeStatus`
+`ManagementClient.changeQrCodeStatus`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class ChangeQrCodeStatusTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

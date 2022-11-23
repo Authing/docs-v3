@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserAuthorizedApps`
+`ManagementClient.getUserAuthorizedApps`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetUserAuthorizedAppsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `AppListRespDto`

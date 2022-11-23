@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getCustomFields`
+`ManagementClient.getCustomFields`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetCustomFieldsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CustomFieldListRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteExtIdp`
+`ManagementClient.deleteExtIdp`
 
 ## 请求参数
 
@@ -54,7 +54,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

@@ -48,7 +48,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_identities`
+`ManagementClient.get_identities`
 
 ## 请求参数
 
@@ -57,7 +57,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetIdentitiesRespDto`

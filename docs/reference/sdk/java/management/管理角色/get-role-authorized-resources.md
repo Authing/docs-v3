@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getRoleAuthorizedResources`
+`ManagementClient.getRoleAuthorizedResources`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class GetRoleAuthorizedResourcesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleAuthorizedResourcePaginatedRespDto`

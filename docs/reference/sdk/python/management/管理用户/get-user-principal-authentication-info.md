@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_user_principal_authentication_info`
+`ManagementClient.get_user_principal_authentication_info`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `PrincipalAuthenticationInfoPaginatedRespDto`

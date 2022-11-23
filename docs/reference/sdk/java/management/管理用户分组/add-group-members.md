@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.addGroupMembers`
+`ManagementClient.addGroupMembers`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class AddGroupMembersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

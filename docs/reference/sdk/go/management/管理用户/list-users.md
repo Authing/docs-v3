@@ -186,7 +186,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListUsers`
+`ManagementClient.ListUsers`
 
 ## 请求参数
 
@@ -235,7 +235,7 @@ respDto := client.ListUsers(reqDto)
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

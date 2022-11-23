@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listArchivedUsers`
+`ManagementClient.listArchivedUsers`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class ListArchivedUsersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ListArchivedUsersSingleRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateProfile`
+`ManagementClient.updateProfile`
 
 ## 请求参数
 
@@ -76,7 +76,7 @@ public class UpdateProfileTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

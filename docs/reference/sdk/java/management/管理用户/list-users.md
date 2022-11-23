@@ -186,7 +186,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listUsers`
+`ManagementClient.listUsers`
 
 ## 请求参数
 
@@ -234,7 +234,7 @@ public class ListUsersTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

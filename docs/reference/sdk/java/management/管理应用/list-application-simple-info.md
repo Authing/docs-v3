@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listApplicationSimpleInfo`
+`ManagementClient.listApplicationSimpleInfo`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class ListApplicationSimpleInfoTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationSimpleInfoPaginatedRespDto`

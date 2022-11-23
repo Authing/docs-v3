@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateSecuritySettings`
+`ManagementClient.updateSecuritySettings`
 
 ## 请求参数
 
@@ -73,7 +73,7 @@ public class UpdateSecuritySettingsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SecuritySettingsRespDto`

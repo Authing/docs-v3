@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteRolesBatch`
+`ManagementClient.deleteRolesBatch`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class DeleteRolesBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

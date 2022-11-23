@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.setCustomData`
+`ManagementClient.setCustomData`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ const managementClient = new ManagementClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.reset_user_principal_authentication_info`
+`ManagementClient.reset_user_principal_authentication_info`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

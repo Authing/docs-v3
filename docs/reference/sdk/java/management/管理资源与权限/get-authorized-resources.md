@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getAuthorizedResources`
+`ManagementClient.getAuthorizedResources`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class GetAuthorizedResourcesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `AuthorizedResourcePaginatedRespDto`

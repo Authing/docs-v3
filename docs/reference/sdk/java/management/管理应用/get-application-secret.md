@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getApplicationSecret`
+`ManagementClient.getApplicationSecret`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetApplicationSecretTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetApplicationSecretRespDto`

@@ -20,7 +20,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.sign_up`
+`ManagementClient.sign_up`
 
 ## 请求参数
 
@@ -34,7 +34,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createSyncTask`
+`ManagementClient.createSyncTask`
 
 ## 请求参数
 
@@ -84,7 +84,7 @@ public class CreateSyncTaskTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncTaskPaginatedRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createResource`
+`ManagementClient.createResource`
 
 ## 请求参数
 
@@ -72,7 +72,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceRespDto`

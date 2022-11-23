@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listSyncRiskOperations`
+`ManagementClient.listSyncRiskOperations`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class ListSyncRiskOperationsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncRiskOperationPaginatedRespDto`

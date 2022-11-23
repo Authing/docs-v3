@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_webhook`
+`ManagementClient.update_webhook`
 
 ## 请求参数
 
@@ -29,7 +29,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UpdateWebhooksRespDto`

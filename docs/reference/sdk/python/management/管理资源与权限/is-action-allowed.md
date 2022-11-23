@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.is_action_allowed`
+`ManagementClient.is_action_allowed`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsActionAllowedRespDtp`

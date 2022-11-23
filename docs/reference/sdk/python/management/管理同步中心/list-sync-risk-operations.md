@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_sync_risk_operations`
+`ManagementClient.list_sync_risk_operations`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncRiskOperationPaginatedRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createUsersBatch`
+`ManagementClient.createUsersBatch`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class CreateUsersBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserListRespDto`

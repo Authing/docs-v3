@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.sendEmail`
+`ManagementClient.sendEmail`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class SendEmailTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SendEmailRespDto`

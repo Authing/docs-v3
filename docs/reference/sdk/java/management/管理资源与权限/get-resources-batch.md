@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getResourcesBatch`
+`ManagementClient.getResourcesBatch`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetResourcesBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceListRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserActionLogs`
+`ManagementClient.getUserActionLogs`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class GetUserActionLogsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserActionLogRespDto`

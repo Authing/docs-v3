@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserMfaInfo`
+`ManagementClient.getUserMfaInfo`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetUserMfaInfoTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserMfaSingleRespDto`

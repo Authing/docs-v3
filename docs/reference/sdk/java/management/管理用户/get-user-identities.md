@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserIdentities`
+`ManagementClient.getUserIdentities`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetUserIdentitiesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IdentityListRespDto`

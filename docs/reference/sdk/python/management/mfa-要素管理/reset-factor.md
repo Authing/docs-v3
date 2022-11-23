@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.reset_factor`
+`ManagementClient.reset_factor`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResetFactorRespDto`

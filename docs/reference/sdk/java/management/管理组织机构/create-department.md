@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createDepartment`
+`ManagementClient.createDepartment`
 
 ## 请求参数
 
@@ -72,7 +72,7 @@ public class CreateDepartmentTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DepartmentSingleRespDto`

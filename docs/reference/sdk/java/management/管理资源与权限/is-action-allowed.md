@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.isActionAllowed`
+`ManagementClient.isActionAllowed`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ public class IsActionAllowedTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsActionAllowedRespDtp`

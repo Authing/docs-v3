@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getSyncTask`
+`ManagementClient.getSyncTask`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetSyncTaskTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncTaskSingleRespDto`

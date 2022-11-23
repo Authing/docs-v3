@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getAdminAuditLogs`
+`ManagementClient.getAdminAuditLogs`
 
 ## 请求参数
 
@@ -69,7 +69,7 @@ public class GetAdminAuditLogsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `AdminAuditLogRespDto`

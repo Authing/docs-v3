@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getSecuritySettings`
+`ManagementClient.getSecuritySettings`
 
 ## 请求参数
 
@@ -57,7 +57,7 @@ public class GetSecuritySettingsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SecuritySettingsRespDto`

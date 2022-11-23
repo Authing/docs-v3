@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_department_member_ids`
+`ManagementClient.list_department_member_ids`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserIdListRespDto`

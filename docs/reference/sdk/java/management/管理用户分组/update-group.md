@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateGroup`
+`ManagementClient.updateGroup`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class UpdateGroupTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GroupSingleRespDto`

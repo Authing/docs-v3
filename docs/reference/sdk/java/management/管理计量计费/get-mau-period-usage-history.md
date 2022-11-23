@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getMauPeriodUsageHistory`
+`ManagementClient.getMauPeriodUsageHistory`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class GetMauPeriodUsageHistoryTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetMauPeriodUsageHistoryRespDto`

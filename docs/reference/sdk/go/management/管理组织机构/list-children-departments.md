@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListChildrenDepartments`
+`ManagementClient.ListChildrenDepartments`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ func main() {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DepartmentPaginatedRespDto`

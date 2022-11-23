@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createNamespacesBatch`
+`ManagementClient.createNamespacesBatch`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ public class CreateNamespacesBatchTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

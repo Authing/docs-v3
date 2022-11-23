@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_qr_code_status`
+`ManagementClient.check_qr_code_status`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckQRCodeStatusRespDto`

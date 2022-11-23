@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserLoggedinIdentities`
+`ManagementClient.getUserLoggedinIdentities`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class GetUserLoggedinIdentitiesTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserLoggedInIdentitiesRespDto`

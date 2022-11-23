@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.resetPassword`
+`ManagementClient.resetPassword`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ public class ResetPasswordTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

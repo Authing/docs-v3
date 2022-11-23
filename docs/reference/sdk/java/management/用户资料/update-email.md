@@ -14,7 +14,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateEmail`
+`ManagementClient.updateEmail`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class UpdateEmailTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

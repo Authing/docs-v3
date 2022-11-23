@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getApplication`
+`ManagementClient.getApplication`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetApplicationTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationSingleRespDto`

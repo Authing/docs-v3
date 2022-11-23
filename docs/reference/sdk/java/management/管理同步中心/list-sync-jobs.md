@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listSyncJobs`
+`ManagementClient.listSyncJobs`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class ListSyncJobsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncJobPaginatedRespDto`

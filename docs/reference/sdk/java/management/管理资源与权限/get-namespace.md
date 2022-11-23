@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getNamespace`
+`ManagementClient.getNamespace`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetNamespaceTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `NamespaceRespDto`

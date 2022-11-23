@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateUser`
+`ManagementClient.updateUser`
 
 ## 请求参数
 
@@ -90,7 +90,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

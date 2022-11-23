@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_security_level`
+`ManagementClient.get_security_level`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetSecurityInfoRespDto`

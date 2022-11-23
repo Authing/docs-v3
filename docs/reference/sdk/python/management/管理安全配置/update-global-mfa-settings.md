@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_global_mfa_settings`
+`ManagementClient.update_global_mfa_settings`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `MFASettingsRespDto`

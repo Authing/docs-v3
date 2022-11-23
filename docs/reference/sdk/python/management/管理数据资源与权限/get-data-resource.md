@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_data_resource`
+`ManagementClient.get_data_resource`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetDataResourceResponseDto`

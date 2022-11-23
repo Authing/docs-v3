@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_group_authorized_resources`
+`ManagementClient.get_group_authorized_resources`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `AuthorizedResourceListRespDto`

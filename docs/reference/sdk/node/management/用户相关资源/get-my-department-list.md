@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getDepartmentList`
+`ManagementClient.getDepartmentList`
 
 ## 请求参数
 
@@ -59,7 +59,7 @@ const authenticationClient = new AuthenticationClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserDepartmentPaginatedRespDto`

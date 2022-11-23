@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.resignUser`
+`ManagementClient.resignUser`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class ResignUserTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResignUserRespDto`

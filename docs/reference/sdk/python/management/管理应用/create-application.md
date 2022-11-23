@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.create_application`
+`ManagementClient.create_application`
 
 ## 请求参数
 
@@ -44,7 +44,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationPaginatedRespDto`

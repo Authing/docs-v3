@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateDepartment`
+`ManagementClient.updateDepartment`
 
 ## 请求参数
 
@@ -71,7 +71,7 @@ public class UpdateDepartmentTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DepartmentSingleRespDto`

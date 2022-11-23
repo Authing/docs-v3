@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_permission_namespace_exists`
+`ManagementClient.check_permission_namespace_exists`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `PermissionNamespaceCheckExistsRespDto`

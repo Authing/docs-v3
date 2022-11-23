@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listDepartmentMemberIds`
+`ManagementClient.listDepartmentMemberIds`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class ListDepartmentMemberIdsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserIdListRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteDepartment`
+`ManagementClient.deleteDepartment`
 
 ## 请求参数
 
@@ -59,7 +59,7 @@ const managementClient = new ManagementClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

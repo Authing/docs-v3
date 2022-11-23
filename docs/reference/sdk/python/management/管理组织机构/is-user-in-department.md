@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.is_user_in_department`
+`ManagementClient.is_user_in_department`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsUserInDepartmentRespDto`

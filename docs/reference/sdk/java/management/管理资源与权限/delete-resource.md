@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.deleteResource`
+`ManagementClient.deleteResource`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class DeleteResourceTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

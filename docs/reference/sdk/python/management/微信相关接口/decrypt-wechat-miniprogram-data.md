@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.decrypt_wechat_mini_program_data`
+`ManagementClient.decrypt_wechat_mini_program_data`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `DecryptWechatMiniProgramDataRespDto`

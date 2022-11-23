@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createExtIdp`
+`ManagementClient.createExtIdp`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class CreateExtIdpTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpSingleRespDto`

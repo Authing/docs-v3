@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listPipelineFunctions`
+`ManagementClient.listPipelineFunctions`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class ListPipelineFunctionsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `PipelineFunctionPaginatedRespDto`

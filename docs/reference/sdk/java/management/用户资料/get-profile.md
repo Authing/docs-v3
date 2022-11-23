@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getProfile`
+`ManagementClient.getProfile`
 
 ## 请求参数
 
@@ -65,7 +65,7 @@ public class GetProfileTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserSingleRespDto`

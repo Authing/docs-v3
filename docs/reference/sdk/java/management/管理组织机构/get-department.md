@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getDepartment`
+`ManagementClient.getDepartment`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ public class GetDepartmentTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DepartmentSingleRespDto`

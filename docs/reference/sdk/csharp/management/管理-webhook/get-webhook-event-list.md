@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.GetWebhookEventList`
+`ManagementClient.GetWebhookEventList`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ namespace ConsoleManagement
 
 
 
-  
+
 ## 请求响应
 
 类型： `WebhookEventListRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.checkDomainAvailable`
+`ManagementClient.checkDomainAvailable`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class CheckDomainAvailableTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckDomainAvailableSecretRespDto`

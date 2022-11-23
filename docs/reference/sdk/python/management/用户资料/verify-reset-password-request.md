@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verify_reset_password_request`
+`ManagementClient.verify_reset_password_request`
 
 ## 请求参数
 
@@ -25,7 +25,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `PasswordResetVerifyResp`

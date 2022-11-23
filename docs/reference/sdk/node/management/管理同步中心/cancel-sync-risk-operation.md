@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.cancelSyncRiskOperation`
+`ManagementClient.cancelSyncRiskOperation`
 
 ## 请求参数
 
@@ -53,7 +53,7 @@ const managementClient = new ManagementClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `CancelSyncRiskOperationsRespDto`

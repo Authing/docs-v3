@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listTenantExtIdp`
+`ManagementClient.listTenantExtIdp`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class ListTenantExtIdpTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpListPaginatedRespDto`

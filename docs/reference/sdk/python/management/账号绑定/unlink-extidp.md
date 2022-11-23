@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.unlink_ext_idp`
+`ManagementClient.unlink_ext_idp`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

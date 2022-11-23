@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listApplications`
+`ManagementClient.listApplications`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ public class ListApplicationsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationPaginatedRespDto`

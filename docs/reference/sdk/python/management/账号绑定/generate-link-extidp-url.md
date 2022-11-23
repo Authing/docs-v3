@@ -15,7 +15,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.generate_link_ext_idp_url`
+`ManagementClient.generate_link_ext_idp_url`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GenerateBindExtIdpLinkRespDto`

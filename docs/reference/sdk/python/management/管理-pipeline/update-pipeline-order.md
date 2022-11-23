@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_pipeline_order`
+`ManagementClient.update_pipeline_order`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUsageInfo`
+`ManagementClient.getUsageInfo`
 
 ## 请求参数
 
@@ -57,7 +57,7 @@ public class GetUsageInfoTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CostGetCurrentUsageRespDto`

@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.sign_in_by_mobile`
+`ManagementClient.sign_in_by_mobile`
 
 ## 请求参数
 
@@ -86,7 +86,7 @@ JS 代码示例：
 
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

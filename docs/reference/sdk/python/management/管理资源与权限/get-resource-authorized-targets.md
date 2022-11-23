@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_resource_authorized_targets`
+`ManagementClient.get_resource_authorized_targets`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetResourceAuthorizedTargetRespDto`

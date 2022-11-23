@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.authorize_resources`
+`ManagementClient.authorize_resources`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

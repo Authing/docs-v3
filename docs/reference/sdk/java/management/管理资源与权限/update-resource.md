@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updateResource`
+`ManagementClient.updateResource`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class UpdateResourceTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ResourceRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listOrganizations`
+`ManagementClient.listOrganizations`
 
 ## 请求参数
 
@@ -62,7 +62,7 @@ public class ListOrganizationsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `OrganizationPaginatedRespDto`

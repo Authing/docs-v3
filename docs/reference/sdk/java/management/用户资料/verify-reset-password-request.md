@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verifyResetPasswordRequest`
+`ManagementClient.verifyResetPasswordRequest`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ public class VerifyResetPasswordRequestTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `PasswordResetVerifyResp`

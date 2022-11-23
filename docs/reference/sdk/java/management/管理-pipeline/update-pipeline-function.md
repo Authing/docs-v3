@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.updatePipelineFunction`
+`ManagementClient.updatePipelineFunction`
 
 ## 请求参数
 
@@ -78,7 +78,7 @@ public class UpdatePipelineFunctionTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `PipelineFunctionSingleRespDto`

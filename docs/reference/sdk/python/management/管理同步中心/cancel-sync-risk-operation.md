@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.cancel_sync_risk_operation`
+`ManagementClient.cancel_sync_risk_operation`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CancelSyncRiskOperationsRespDto`

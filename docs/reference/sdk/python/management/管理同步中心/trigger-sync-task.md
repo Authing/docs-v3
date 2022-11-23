@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.trigger_sync_task`
+`ManagementClient.trigger_sync_task`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `TriggerSyncTaskRespDto`

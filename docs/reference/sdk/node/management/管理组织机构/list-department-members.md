@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listDepartmentMembers`
+`ManagementClient.listDepartmentMembers`
 
 ## 请求参数
 
@@ -33,7 +33,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

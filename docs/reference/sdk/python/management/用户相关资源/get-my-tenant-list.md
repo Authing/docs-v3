@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_tenant_list`
+`ManagementClient.get_tenant_list`
 
 ## 请求参数
 
@@ -22,7 +22,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetTenantListRespDto`

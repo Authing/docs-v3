@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.GetTenantList`
+`ManagementClient.GetTenantList`
 
 ## 请求参数
 
@@ -60,7 +60,7 @@ func main() {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetTenantListRespDto`

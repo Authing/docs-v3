@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.decryptWechatMiniProgramData`
+`ManagementClient.decryptWechatMiniProgramData`
 
 ## 请求参数
 
@@ -68,7 +68,7 @@ public class DecryptWechatMiniProgramDataTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `DecryptWechatMiniProgramDataRespDto`

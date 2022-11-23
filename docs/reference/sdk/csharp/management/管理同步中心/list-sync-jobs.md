@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListSyncJobs`
+`ManagementClient.ListSyncJobs`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `SyncJobPaginatedRespDto`

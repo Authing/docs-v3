@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createRole`
+`ManagementClient.createRole`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class CreateRoleTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleSingleRespDto`

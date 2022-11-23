@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getApplicationSimpleInfo`
+`ManagementClient.getApplicationSimpleInfo`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class GetApplicationSimpleInfoTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ApplicationSimpleInfoSingleRespDto`

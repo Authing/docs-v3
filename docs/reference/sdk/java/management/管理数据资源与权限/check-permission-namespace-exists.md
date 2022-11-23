@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.checkPermissionNamespaceExists`
+`ManagementClient.checkPermissionNamespaceExists`
 
 ## 请求参数
 
@@ -24,7 +24,50 @@
 
 
 
-  
+
+## 示例代码
+
+```java
+package test.management;
+
+import cn.authing.sdk.java.client.ManagementClient;
+import cn.authing.sdk.java.dto.CheckPermissionNamespaceExistsDto;
+import cn.authing.sdk.java.dto.PermissionNamespaceCheckExistsRespDto;
+import cn.authing.sdk.java.model.ManagementClientOptions;
+import cn.authing.sdk.java.util.JsonUtils;
+
+
+public class CheckPermissionNamespaceExistsTest {
+
+    // 需要替换成你的 Authing Access Key ID
+    private static final String ACCESS_KEY_ID = "AUTHING_ACCESS_KEY_ID";
+    // 需要替换成你的 Authing Access Key Secret
+    private static final String ACCESS_KEY_SECRET = "AUTHING_ACCESS_KEY_SECRET";
+
+    public static void main(String[] args) throws Throwable {
+        ManagementClientOptions clientOptions = new ManagementClientOptions();
+        clientOptions.setAccessKeyId(ACCESS_KEY_ID);
+        clientOptions.setAccessKeySecret(ACCESS_KEY_SECRET);
+        // 如果是私有化部署的客户，需要设置 Authing 服务域名
+        // clientOptions.setHost("https://api.your-authing-service.com");
+        ManagementClient client = new ManagementClient(clientOptions);
+
+        CheckPermissionNamespaceExistsDto request1 = new CheckPermissionNamespaceExistsDto();
+        request1.setName("name_7991");
+        PermissionNamespaceCheckExistsRespDto response1 = client.checkPermissionNamespaceExists(request1);
+        System.out.println(JsonUtils.serialize(response1));
+        CheckPermissionNamespaceExistsDto request2 = new CheckPermissionNamespaceExistsDto();
+        request2.setCode("code_6301");
+        PermissionNamespaceCheckExistsRespDto response2 = client.checkPermissionNamespaceExists(request2);
+        System.out.println(JsonUtils.serialize(response2));
+    }
+
+}
+```
+
+
+
+
 ## 请求响应
 
 类型： `PermissionNamespaceCheckExistsRespDto`

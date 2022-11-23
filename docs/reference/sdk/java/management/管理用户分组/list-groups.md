@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.listGroups`
+`ManagementClient.listGroups`
 
 ## 请求参数
 
@@ -61,7 +61,7 @@ public class ListGroupsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GroupPaginatedRespDto`

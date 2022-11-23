@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.CreateWebhook`
+`ManagementClient.CreateWebhook`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CreateWebhookRespDto`

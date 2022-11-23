@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getUserDepartments`
+`ManagementClient.getUserDepartments`
 
 ## 请求参数
 
@@ -67,7 +67,7 @@ public class GetUserDepartmentsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserDepartmentPaginatedRespDto`

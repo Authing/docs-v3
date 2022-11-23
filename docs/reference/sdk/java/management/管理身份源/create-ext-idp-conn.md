@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.createExtIdpConn`
+`ManagementClient.createExtIdpConn`
 
 ## 请求参数
 
@@ -71,7 +71,7 @@ public class CreateExtIdpConnTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ExtIdpConnDetailSingleRespDto`

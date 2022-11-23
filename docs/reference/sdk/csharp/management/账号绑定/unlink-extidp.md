@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.UnlinkExtIdp`
+`ManagementClient.UnlinkExtIdp`
 
 ## 请求参数
 
@@ -72,7 +72,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

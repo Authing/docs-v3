@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.update_namespace`
+`ManagementClient.update_namespace`
 
 ## 请求参数
 
@@ -26,7 +26,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UpdateNamespaceRespDto`

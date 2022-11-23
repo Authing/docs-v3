@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getLoginHistory`
+`ManagementClient.getLoginHistory`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ public class GetLoginHistoryTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `GetLoginHistoryRespDto`

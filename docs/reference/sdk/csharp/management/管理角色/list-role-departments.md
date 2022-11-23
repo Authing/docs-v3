@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.ListRoleDepartments`
+`ManagementClient.ListRoleDepartments`
 
 ## 请求参数
 
@@ -70,7 +70,7 @@ namespace ConsoleManagement
 
 
 
-  
+
 ## 请求响应
 
 类型： `RoleDepartmentListPaginatedRespDto`

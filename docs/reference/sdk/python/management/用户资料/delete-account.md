@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.delete_account`
+`ManagementClient.delete_account`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `IsSuccessRespDto`

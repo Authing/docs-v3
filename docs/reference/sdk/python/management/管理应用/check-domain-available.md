@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_domain_available`
+`ManagementClient.check_domain_available`
 
 ## 请求参数
 
@@ -23,7 +23,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckDomainAvailableSecretRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.verify_update_phone_request`
+`ManagementClient.verify_update_phone_request`
 
 ## 请求参数
 
@@ -24,7 +24,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `VerifyUpdatePhoneRequestRespDto`

@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.searchDepartmentMembers`
+`ManagementClient.searchDepartmentMembers`
 
 ## 请求参数
 
@@ -66,7 +66,7 @@ print_r($data);
 ```
 
 
-  
+
 ## 请求响应
 
 类型： `UserPaginatedRespDto`

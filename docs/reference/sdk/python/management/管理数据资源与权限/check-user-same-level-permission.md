@@ -48,7 +48,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.check_user_same_level_permission`
+`ManagementClient.check_user_same_level_permission`
 
 ## 请求参数
 
@@ -60,7 +60,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `CheckUserSameLevelPermissionRespDto`

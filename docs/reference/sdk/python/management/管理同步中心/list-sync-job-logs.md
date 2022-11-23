@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.list_sync_job_logs`
+`ManagementClient.list_sync_job_logs`
 
 ## 请求参数
 
@@ -28,7 +28,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `TriggerSyncTaskRespDto`

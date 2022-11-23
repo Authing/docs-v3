@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.getWebhookLogs`
+`ManagementClient.getWebhookLogs`
 
 ## 请求参数
 
@@ -64,7 +64,7 @@ public class GetWebhookLogsTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `ListWebhookLogsRespDto`

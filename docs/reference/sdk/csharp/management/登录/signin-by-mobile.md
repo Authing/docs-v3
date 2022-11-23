@@ -61,7 +61,7 @@ JS 代码示例：
 
 ## 方法名称
 
-`AuthenticationClient.SignInByMobile`
+`ManagementClient.SignInByMobile`
 
 ## 请求参数
 
@@ -132,7 +132,7 @@ namespace ConsoleApplication
 
 
 
-  
+
 ## 请求响应
 
 类型： `LoginTokenRespDto`

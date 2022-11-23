@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.unbindPhone`
+`ManagementClient.unbindPhone`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ public class UnbindPhoneTest {
 
 
 
-  
+
 ## 请求响应
 
 类型： `CommonResponseDto`

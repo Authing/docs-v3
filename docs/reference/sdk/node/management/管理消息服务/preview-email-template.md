@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.previewEmailTemplate`
+`ManagementClient.previewEmailTemplate`
 
 ## 请求参数
 
@@ -63,7 +63,7 @@ const managementClient = new ManagementClient({
 
 
 
-  
+
 ## 请求响应
 
 类型： `PreviewEmailTemplateRespDto`

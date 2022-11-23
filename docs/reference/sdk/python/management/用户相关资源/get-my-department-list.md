@@ -13,7 +13,7 @@
 
 ## 方法名称
 
-`AuthenticationClient.get_department_list`
+`ManagementClient.get_department_list`
 
 ## 请求参数
 
@@ -27,7 +27,7 @@
 
 
 
-  
+
 ## 请求响应
 
 类型： `UserDepartmentPaginatedRespDto`
