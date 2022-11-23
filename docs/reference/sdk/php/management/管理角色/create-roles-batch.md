@@ -95,8 +95,9 @@ print_r($data);
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | code | string | 是 | 权限分组内角色的唯一标识符   |  `my-role-code` |
+| name | string | 否 | 权限分组内角色名称   |  `my-role-name` |
 | description | string | 否 | 角色描述   |  `this is a description about the role` |
-| namespace | string | 否 | 所属权限分组的 code   |  `default` |
+| namespace | string | 否 | 所属权限分组(权限空间)的 code   |  `default` |
 
 
 ### <a id="IsSuccessDto"></a> IsSuccessDto

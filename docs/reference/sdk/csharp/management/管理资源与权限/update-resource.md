@@ -21,9 +21,10 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | code | string | 是 | - | 资源唯一标志符  | `ecs` |
 | description | string | 否 | - | 资源描述  | `服务器` |
+| name | string | 否 | - | 资源名称  | `服务器` |
 | actions | <a href="#ResourceAction">ResourceAction[]</a> | 否 | - | 资源定义的操作类型 数组长度限制：100。 | `[{"name":"ecs:Start","description":"启动 ECS 服务器"},{"name":"ecs:Stop","description":"停止 ECS 服务器"}]` |
 | apiIdentifier | string | 否 | - | API 资源的 URL 标识  | `https://my-awesome-api.com/api` |
-| namespace | string | 否 | - | 所属权限分组的 code  | `default` |
+| namespace | string | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
 | type | string | 否 | - | 资源类型，如数据、API、按钮、菜单  | `API` |
 
 
@@ -135,7 +136,7 @@ namespace ConsoleManagement
 | type | string | 是 | 资源类型，如数据、API、按钮、菜单   | DATA |
 | actions | array | 否 | 资源定义的操作类型 嵌套类型：<a href="#ResourceAction">ResourceAction</a>。数组长度限制：100。  |  `[{"name":"ecs:Start","description":"启动 ECS 服务器"},{"name":"ecs:Stop","description":"停止 ECS 服务器"}]` |
 | apiIdentifier | string | 否 | API 资源的 URL 标识   |  `https://my-awesome-api.com/api` |
-| namespace | string | 否 | 所属权限分组的 code   |  `default` |
+| namespace | string | 否 | 所属权限分组(权限空间)的 Code   |  `default` |
 | linkedToTenant | boolean | 否 | 租户应用是否关联自建应用资源   |  |
 
 

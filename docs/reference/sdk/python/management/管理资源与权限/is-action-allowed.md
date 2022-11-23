@@ -19,10 +19,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| action | string | 是 | - | 资源对应的操作  | `ecs:Start` |
 | resource | string | 是 | - | 资源标识符  | `ecs:1` |
+| action | string | 是 | - | 资源对应的操作  | `ecs:Start` |
 | userId | string | 是 | - | 用户 ID  | `userId1` |
-| namespace | string | 否 | - | 所属权限分组的 code  | `default` |
+| namespace | string | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
 
 
 
@@ -37,7 +37,7 @@
 | message | string | 描述信息 |
 | apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
-| data | <a href="#IsActionAllowedDataDto">IsActionAllowedDataDto</a> | 返回数据 |
+| data | <a href="#IsActionAllowedDataDto">IsActionAllowedDataDto</a> | 响应数据 |
 
 
 

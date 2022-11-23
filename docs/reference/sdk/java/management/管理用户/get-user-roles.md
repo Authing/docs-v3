@@ -21,7 +21,7 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
  | userId | string  | 是 | - | 用户唯一标志，可以是用户 ID、用户名、邮箱、手机号、外部 ID、在外部身份源的 ID。  | `6229ffaxxxxxxxxcade3e3d9` |
  | userIdType | string  | 否 | user_id | 用户 ID 类型，默认值为 `user_id`，可选值为：<br>- `user_id`: Authing 用户 ID，如 `6319a1504f3xxxxf214dd5b7`<br>- `phone`: 用户手机号<br>- `email`: 用户邮箱<br>- `username`: 用户名<br>- `external_id`: 用户在外部系统的 ID，对应 Authing 用户信息的 `externalId` 字段<br>- `identity`: 用户的外部身份源信息，格式为 `<extIdpId>:<userIdInIdp>`，其中 `<extIdpId>` 为 Authing 身份源的 ID，`<userIdInIdp>` 为用户在外部身份源的 ID。<br>示例值：`62f20932716fbcc10d966ee5:ou_8bae746eac07cd2564654140d2a9ac61`。<br>  | `user_id` |
- | namespace | string  | 否 | - | 所属权限分组的 code  | `default` |
+ | namespace | string  | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
 
 
 
@@ -88,8 +88,10 @@ public class GetUserRolesTest {
   "data": {
     "list": {
       "code": "role1",
-      "description": "this is description",
-      "namespace": "default"
+      "name": "role1",
+      "description": "this is role description",
+      "namespace": "default",
+      "namespaceName": "示例权限名称"
     }
   }
 }
@@ -110,8 +112,10 @@ public class GetUserRolesTest {
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| code | string | 是 | 权限分组内角色的唯一标识符   |  `role1` |
-| description | string | 是 | 角色描述   |  `this is description` |
-| namespace | string | 是 | 所属权限分组的 code   |  `default` |
+| code | string | 是 | 权限分组(权限空间)内角色的唯一标识符 Code   |  `role1` |
+| name | string | 是 | 权限分组(权限空间)内角色名称   |  `role1` |
+| description | string | 是 | 角色描述   |  `this is role description` |
+| namespace | string | 是 | 所属权限分组(权限空间)的 Code   |  `default` |
+| namespaceName | string | 是 | 所属权限分组(权限空间)的名称   |  `示例权限名称` |
 
 

@@ -77,8 +77,8 @@ JS 代码示例：
 | larkPublicPayload | <a href="#SignInByLarkPublicPayloadDto">SignInByLarkPublicPayloadDto</a> | 否 | - | 飞书应用商店应用移动端社会化登录数据，当 `connection` 为 `lark_public` 的时候必填。  |  |
 | larkInternalPayload | <a href="#SignInByLarkInternalPayloadDto">SignInByLarkInternalPayloadDto</a> | 否 | - | 飞书自建应用移动端社会化登录数据，当 `connection` 为 `lark_internal` 的时候必填。  |  |
 | yidunPayload | <a href="#SignInByYidunPayloadDto">SignInByYidunPayloadDto</a> | 否 | - | 网易易盾移动端社会化登录数据，当 `connection` 为 `yidun` 的时候必填。  |  |
-| wechatMiniProgramCodePayload | <a href="#SignInByWechatMiniProgramCodePayloadDto">SignInByWechatMiniProgramCodePayloadDto</a> | 否 | - | 网易易盾移动端社会化登录数据，当 `connection` 为 `wechat_mini_program_code` 的时候必填。  |  |
-| wechatMiniProgramPhonePayload | <a href="#SignInByWechatMiniProgramPhonePayloadDto">SignInByWechatMiniProgramPhonePayloadDto</a> | 否 | - | 网易易盾移动端社会化登录数据，当 `connection` 为 `wechat_mini_program_phone` 的时候必填。  |  |
+| wechatMiniProgramCodePayload | <a href="#SignInByWechatMiniProgramCodePayloadDto">SignInByWechatMiniProgramCodePayloadDto</a> | 否 | - | 微信小程序使用 code 登录相关数据，当 `connection` 为 `wechat_mini_program_code` 的时候必填。  |  |
+| wechatMiniProgramPhonePayload | <a href="#SignInByWechatMiniProgramPhonePayloadDto">SignInByWechatMiniProgramPhonePayloadDto</a> | 否 | - | 微信小程序使用手机号登录相关数据，当 `connection` 为 `wechat_mini_program_phone` 的时候必填。  |  |
 | googlePayload | <a href="#SignInByGooglePayloadDto">SignInByGooglePayloadDto</a> | 否 | - | Google 移动端社会化登录数据，当 `connection` 为 `google` 的时候必填。  |  |
 | options | <a href="#SignInByMobileOptionsDto">SignInByMobileOptionsDto</a> | 否 | - | 可选参数  |  |
 | client_id | string | 否 | - | 应用 ID。当应用的「换取 token 身份验证方式」配置为 `client_secret_post` 需要传。  | `6342b8537axxxx047d314109` |

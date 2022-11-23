@@ -79,13 +79,27 @@
     },
     "loginAnomalyDetection": {
       "loginFailStrategy": "captcha",
+      "robotVerify": "condition_set",
+      "accountLock": "condition_set",
       "loginFailCheck": {
         "limit": 50,
-        "timeInterval": 300
+        "timeInterval": 300,
+        "unit": "Second"
       },
       "loginPasswordFailCheck": {
         "limit": 50,
-        "timeInterval": 300
+        "timeInterval": 300,
+        "unit": "Second"
+      },
+      "accountLockLoginPasswordFailCheck": {
+        "limit": 50,
+        "timeInterval": 300,
+        "unit": "Second"
+      },
+      "robotVerifyLoginPasswordFailCheck": {
+        "limit": 50,
+        "timeInterval": 300,
+        "unit": "Second"
       }
     },
     "selfUnlockAccount": {
@@ -93,7 +107,9 @@
     },
     "qrcodeLoginStrategy": {
       "qrcodeExpiresIn": 120,
+      "qrcodeExpiresInUnit": "Second",
       "ticketExpiresIn": 300,
+      "ticketExpiresInUnit": "Second",
       "allowExchangeUserInfoFromBrowser": true,
       "returnFullUserInfo": true
     }
@@ -139,9 +155,13 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| loginFailStrategy | string | 是 | 登录安全策略。当用户触发登录失败频率检测时，采用什么策略。目前支持验证码和锁定账号两种策略。当选择账号锁定策略的时候，只可以开启「登录密码错误限制」。   | captcha |
+| loginFailStrategy | string | 是 | 登录安全策略。当用户触发登录失败频率检测时，采用什么策略。目前支持验证码和锁定账号两种策略。当选择账号锁定策略的时候，只可以开启「登录密码错误限制」。此字段标志为过时，但是此字段还是必传的，如果使用新版本逻辑可以默认写一个。新版本账号锁定使用 accountLock，验证码使用 robotVerify   | captcha |
+| robotVerify | string | 是 | 人机验证（验证码）策略。可选值，disable（不开启）/condition_set（条件开启）/always_enable （始终开启）   |  `condition_set` |
+| accountLock | string | 是 | 账号锁定策略。可选值，disable（不开启）/condition_set（条件开启）   |  `condition_set` |
 | loginFailCheck |  | 是 | 登录失败次数限制：当用户登录输入信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginFailCheckConfigDto">LoginFailCheckConfigDto</a>。  |  |
-| loginPasswordFailCheck |  | 是 | 登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| loginPasswordFailCheck |  | 是 | 登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。此字段被标志为过时，见 accountLockLoginPasswordFailCheck/ robotVerifyLoginPasswordFailCheck 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| accountLockLoginPasswordFailCheck |  | 否 | 账号锁定-登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| robotVerifyLoginPasswordFailCheck |  | 是 | 人机验证（验证码）-登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
 
 
 ### <a id="LoginFailCheckConfigDto"></a> LoginFailCheckConfigDto
@@ -151,15 +171,17 @@
 | enabled | boolean | 是 | 是否开启登录失败次数限制。   |  |
 | limit | number | 是 | 在一定时间周期内，对于同一个 IP，最多登录失败多少次后会触发安全策略。   |  `50` |
 | timeInterval | number | 是 | 限定周期时间长度，单位为秒。   |  `300` |
+| unit | string | 否 | 时间长度单位。Second/Minute/Hour/Day，仅仅做显示，timeInterval的单位还是秒   |  `Second` |
 
 
 ### <a id="LoginPassowrdFailCheckConfigDto"></a> LoginPassowrdFailCheckConfigDto
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| enabled | boolean | 是 | 是否开启登录失败次数限制。   |  |
-| limit | number | 是 | 在一定时间周期内，对于同一个 IP，最多因为密码错误导致登录失败多少次后会触发安全策略。   |  `50` |
+| enabled | boolean | 是 | 是否开启登录密码错误限制   |  |
+| limit | number | 是 | 密码错误次数最大限制   |  `50` |
 | timeInterval | number | 是 | 限定周期时间长度，单位为秒。   |  `300` |
+| unit | string | 否 | 时间长度单位。Second/Minute/Hour/Day，仅仅做显示，timeInterval的单位还是秒   |  `Second` |
 
 
 ### <a id="SelfUnlockAccountConfigDto"></a> SelfUnlockAccountConfigDto
@@ -174,8 +196,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| qrcodeExpiresIn | number | 是 | 二维码有效时间（秒）   |  `120` |
-| ticketExpiresIn | number | 是 | ticket 有效时间（秒）   |  `300` |
+| qrcodeExpiresIn | number | 是 | 二维码有效时间，单位秒   |  `120` |
+| qrcodeExpiresInUnit | string | 否 | 时间长度单位，Second/Minute/Hour/Day，仅做显示用   |  `Second` |
+| ticketExpiresIn | number | 是 | ticket 有效时间，单位秒   |  `300` |
+| ticketExpiresInUnit | string | 否 | 时间长度单位，Second/Minute/Hour/Day，仅作显示用   |  `Second` |
 | allowExchangeUserInfoFromBrowser | boolean | 是 | Web 轮询接口返回完整用户信息，详情见此文档：Web 轮询接口返回完整用户信息   |  `true` |
 | returnFullUserInfo | boolean | 是 | 允许在浏览器使用 ticket 换取用户信息，详情见此文档：Web 轮询接口返回完整用户信息   |  `true` |
 
@@ -237,9 +261,13 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| loginFailStrategy | string | 是 | 登录安全策略。当用户触发登录失败频率检测时，采用什么策略。目前支持验证码和锁定账号两种策略。当选择账号锁定策略的时候，只可以开启「登录密码错误限制」。   | captcha |
+| loginFailStrategy | string | 是 | 登录安全策略。当用户触发登录失败频率检测时，采用什么策略。目前支持验证码和锁定账号两种策略。当选择账号锁定策略的时候，只可以开启「登录密码错误限制」。此字段标志为过时，但是此字段还是必传的，如果使用新版本逻辑可以默认写一个。新版本账号锁定使用 accountLock，验证码使用 robotVerify   | captcha |
+| robotVerify | string | 是 | 人机验证（验证码）策略。可选值，disable（不开启）/condition_set（条件开启）/always_enable （始终开启）   |  `condition_set` |
+| accountLock | string | 是 | 账号锁定策略。可选值，disable（不开启）/condition_set（条件开启）   |  `condition_set` |
 | loginFailCheck |  | 是 | 登录失败次数限制：当用户登录输入信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginFailCheckConfigDto">LoginFailCheckConfigDto</a>。  |  |
-| loginPasswordFailCheck |  | 是 | 登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| loginPasswordFailCheck |  | 是 | 登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。此字段被标志为过时，见 accountLockLoginPasswordFailCheck/ robotVerifyLoginPasswordFailCheck 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| accountLockLoginPasswordFailCheck |  | 否 | 账号锁定-登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
+| robotVerifyLoginPasswordFailCheck |  | 是 | 人机验证（验证码）-登录密码错误限制：当用户登录输入密码信息错误的时候会被按照「登录安全策略」规则触发相对应的策略。 嵌套类型：<a href="#LoginPassowrdFailCheckConfigDto">LoginPassowrdFailCheckConfigDto</a>。  |  |
 
 
 ### <a id="LoginFailCheckConfigDto"></a> LoginFailCheckConfigDto
@@ -249,15 +277,17 @@
 | enabled | boolean | 是 | 是否开启登录失败次数限制。   |  |
 | limit | number | 是 | 在一定时间周期内，对于同一个 IP，最多登录失败多少次后会触发安全策略。   |  `50` |
 | timeInterval | number | 是 | 限定周期时间长度，单位为秒。   |  `300` |
+| unit | string | 否 | 时间长度单位。Second/Minute/Hour/Day，仅仅做显示，timeInterval的单位还是秒   |  `Second` |
 
 
 ### <a id="LoginPassowrdFailCheckConfigDto"></a> LoginPassowrdFailCheckConfigDto
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| enabled | boolean | 是 | 是否开启登录失败次数限制。   |  |
-| limit | number | 是 | 在一定时间周期内，对于同一个 IP，最多因为密码错误导致登录失败多少次后会触发安全策略。   |  `50` |
+| enabled | boolean | 是 | 是否开启登录密码错误限制   |  |
+| limit | number | 是 | 密码错误次数最大限制   |  `50` |
 | timeInterval | number | 是 | 限定周期时间长度，单位为秒。   |  `300` |
+| unit | string | 否 | 时间长度单位。Second/Minute/Hour/Day，仅仅做显示，timeInterval的单位还是秒   |  `Second` |
 
 
 ### <a id="SelfUnlockAccountConfigDto"></a> SelfUnlockAccountConfigDto
@@ -272,8 +302,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| qrcodeExpiresIn | number | 是 | 二维码有效时间（秒）   |  `120` |
-| ticketExpiresIn | number | 是 | ticket 有效时间（秒）   |  `300` |
+| qrcodeExpiresIn | number | 是 | 二维码有效时间，单位秒   |  `120` |
+| qrcodeExpiresInUnit | string | 否 | 时间长度单位，Second/Minute/Hour/Day，仅做显示用   |  `Second` |
+| ticketExpiresIn | number | 是 | ticket 有效时间，单位秒   |  `300` |
+| ticketExpiresInUnit | string | 否 | 时间长度单位，Second/Minute/Hour/Day，仅作显示用   |  `Second` |
 | allowExchangeUserInfoFromBrowser | boolean | 是 | Web 轮询接口返回完整用户信息，详情见此文档：Web 轮询接口返回完整用户信息   |  `true` |
 | returnFullUserInfo | boolean | 是 | 允许在浏览器使用 ticket 换取用户信息，详情见此文档：Web 轮询接口返回完整用户信息   |  `true` |
 

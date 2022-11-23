@@ -1,4 +1,4 @@
-# 删除角色
+# 单个权限分组（权限空间）内删除角色
 
 <!--
   警告⚠️：
@@ -9,7 +9,7 @@
 
 <LastUpdated />
 
-删除角色，可以批量删除。
+单个权限分组（权限空间）内删除角色，可以批量删除。
 
 ## 方法名称
 
@@ -20,7 +20,7 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | codeList | string[] | 是 | - | 角色 code 列表 数组长度限制：50。 | `["code1","code2"]` |
-| namespace | string | 否 | default | 所属权限分组的 code  | `default` |
+| namespace | string | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
 
 
 

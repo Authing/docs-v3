@@ -9,7 +9,7 @@
 
 <LastUpdated />
 
-通过权限分组内角色新旧 code，修改角色，可以选择角色描述等。
+通过权限分组(权限空间）内角色新旧 Code，修改角色，可以选择角色名称、角色描述等。
 
 ## 方法名称
 
@@ -19,9 +19,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| newCode | string | 是 | - | 角色新的权限分组内唯一识别码  | `code2` |
-| code | string | 是 | - | 权限分组内角色的唯一标识符  | `code1` |
-| namespace | string | 否 | default | 所属权限分组的 code  | `default` |
+| name | string | 是 | - | 权限分组（权限空间）角色名称  | `name` |
+| newCode | string | 是 | - | 角色新的权限分组（权限空间）内唯一识别码  | `code2` |
+| code | string | 是 | - | 权限分组(权限空间）内角色的唯一标识符  | `code1` |
+| namespace | string | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
 | description | string | 否 | - | 角色描述  | `this is description` |
 
 

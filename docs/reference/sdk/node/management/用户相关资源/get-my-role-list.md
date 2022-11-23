@@ -19,7 +19,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
- | namespace | string  | 否 | - | 所属权限分组的 code  | `default` |
+ | namespace | string  | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
 
 
 
@@ -77,8 +77,10 @@ const authenticationClient = new AuthenticationClient({
   "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
   "data": {
     "code": "role1",
-    "description": "this is description",
-    "namespace": "default"
+    "name": "role1",
+    "description": "this is role description",
+    "namespace": "default",
+    "namespaceName": "示例权限名称"
   }
 }
 ```
@@ -90,8 +92,10 @@ const authenticationClient = new AuthenticationClient({
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| code | string | 是 | 权限分组内角色的唯一标识符   |  `role1` |
-| description | string | 是 | 角色描述   |  `this is description` |
-| namespace | string | 是 | 所属权限分组的 code   |  `default` |
+| code | string | 是 | 权限分组(权限空间)内角色的唯一标识符 Code   |  `role1` |
+| name | string | 是 | 权限分组(权限空间)内角色名称   |  `role1` |
+| description | string | 是 | 角色描述   |  `this is role description` |
+| namespace | string | 是 | 所属权限分组(权限空间)的 Code   |  `default` |
+| namespaceName | string | 是 | 所属权限分组(权限空间)的名称   |  `示例权限名称` |
 
 

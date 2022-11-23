@@ -64,14 +64,7 @@ const managementClient = new ManagementClient({
 | message | string | 描述信息 |
 | apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
-| orderNo | string | 订单号 |
-| channelOrderNo | string | 渠道订单号 |
-| paidAmount | string | 渠道订单号 |
-| paidTime | string | 支付时间 |
-| paidAccountNo | string | 支付账号 |
-| payStatus | string | 支付状态 |
-| createTime | string | 创建时间 |
-| payType | string | 支付方式 |
+| data | <a href="#CostGetOrderPayDetail">CostGetOrderPayDetail</a> | 响应数据 |
 
 
 
@@ -82,17 +75,33 @@ const managementClient = new ManagementClient({
   "statusCode": 200,
   "message": "操作成功",
   "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
-  "orderNo": "2022080911591337da0aae9660",
-  "channelOrderNo": "Mock22e7ecfd-745d-46ad-b563-ef4db5719bfb",
-  "paidAmount": "7.9",
-  "paidTime": "2022-08-09 11:59:46",
-  "paidAccountNo": "62bec1591aeb41ad3f1a6503",
-  "payStatus": "3",
-  "createTime": "2022-08-09 11:59:20",
-  "payType": "Alipay"
+  "data": {
+    "orderNo": "2022080911591337da0aae9660",
+    "channelOrderNo": "Mock22e7ecfd-745d-46ad-b563-ef4db5719bfb",
+    "paidAmount": "7.9",
+    "paidTime": "2022-08-09 11:59:46",
+    "paidAccountNo": "62bec1591aeb41ad3f1a6503",
+    "payStatus": "3",
+    "createTime": "2022-08-09 11:59:20",
+    "payType": "Alipay"
+  }
 }
 ```
 
 ## 数据结构
+
+
+### <a id="CostGetOrderPayDetail"></a> CostGetOrderPayDetail
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| orderNo | string | 是 | 订单号   |  `2022080911591337da0aae9660` |
+| channelOrderNo | string | 是 | 渠道订单号   |  `Mock22e7ecfd-745d-46ad-b563-ef4db5719bfb` |
+| paidAmount | string | 是 | 渠道订单号   |  `7.9` |
+| paidTime | string | 是 | 支付时间   |  `2022-08-09 11:59:46` |
+| paidAccountNo | string | 是 | 支付账号   |  `62bec1591aeb41ad3f1a6503` |
+| payStatus | string | 是 | 支付状态   |  `3` |
+| createTime | string | 是 | 创建时间   |  `2022-08-09 11:59:20` |
+| payType | string | 是 | 支付方式   |  `Alipay` |
 
 

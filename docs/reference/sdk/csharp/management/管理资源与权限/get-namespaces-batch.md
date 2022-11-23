@@ -9,7 +9,7 @@
 
 <LastUpdated />
 
-分别通过权限分组唯一标志符，批量获取权限分组详情。
+分别通过权限分组唯一标志符(Code)，批量获取权限分组详情。
 
 ## 方法名称
 
@@ -19,7 +19,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
- | codeList | string[]  | 是 | - | 资源 code 列表，批量可以使用逗号分隔 数组长度限制：50。 | `code1,code2` |
+ | codeList | string[]  | 是 | - | 权限分组 code 列表，批量可以使用逗号分隔 数组长度限制：50。 | `code1,code2` |
 
 
 

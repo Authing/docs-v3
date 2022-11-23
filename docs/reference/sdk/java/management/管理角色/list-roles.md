@@ -9,7 +9,7 @@
 
 <LastUpdated />
 
-获取角色列表，支持分页。
+获取角色列表，支持分页、支持根据权限分组（权限空间）筛选
 
 ## 方法名称
 
@@ -19,10 +19,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
- | keywords | string  | 否 | - | 用于根据角色的 code 进行模糊搜索，可选。  | `admin` |
- | namespace | string  | 否 | default | 所属权限分组的 code  | `default` |
  | page | number  | 否 | 1 | 当前页数，从 1 开始  | `1` |
  | limit | number  | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
+ | keywords | string  | 否 | - | 用于根据角色的 code 或者名称进行模糊搜索，可选。  | `admin` |
+ | namespace | string  | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
 
 
 
@@ -87,8 +87,10 @@ public class ListRolesTest {
   "data": {
     "list": {
       "code": "role1",
-      "description": "this is description",
-      "namespace": "default"
+      "name": "role1",
+      "description": "this is role description",
+      "namespace": "default",
+      "namespaceName": "示例权限名称"
     }
   }
 }
@@ -109,8 +111,10 @@ public class ListRolesTest {
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| code | string | 是 | 权限分组内角色的唯一标识符   |  `role1` |
-| description | string | 是 | 角色描述   |  `this is description` |
-| namespace | string | 是 | 所属权限分组的 code   |  `default` |
+| code | string | 是 | 权限分组(权限空间)内角色的唯一标识符 Code   |  `role1` |
+| name | string | 是 | 权限分组(权限空间)内角色名称   |  `role1` |
+| description | string | 是 | 角色描述   |  `this is role description` |
+| namespace | string | 是 | 所属权限分组(权限空间)的 Code   |  `default` |
+| namespaceName | string | 是 | 所属权限分组(权限空间)的名称   |  `示例权限名称` |
 
 
