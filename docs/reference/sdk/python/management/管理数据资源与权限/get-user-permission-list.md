@@ -36,20 +36,20 @@
         "namespaceCode": "权限空间1",
         "resourceList":[{
           "resourceCode": "str1",
-          "actions":["get"]
+          "actionList":["get"]
         },{
         "userId": "6301ceaxxxxxxxxxxx27478",
         "namespaceCode": "权限空间1",
         "resourceList":[{
           "resourceCode": "str1",
-          "actions":["get","read","update"]
+          "actionList":["get","read","update"]
         }]
       },{
         "namespaceCode": "权限空间1",
         "userId": "6301ceaxxxxxxxxxxx27478",
         "resourceList":[{
           "resourceCode": "tree1",
-          "actions":[{
+          "actionList":[{
             "nodePath": "/node",
             "nodeActions": ["get","read","update"],
           }]
@@ -86,7 +86,7 @@
       "userId": "6301ceaxxxxxxxxxxx27478",
       "resourceList": {
         "resourceCode": "tree1",
-        "actions": [{
+        "actionList": [{
           "nodePath": "/node",
           "nodeActions": ["read","write" ]
         }]
@@ -96,14 +96,14 @@
       "userId": "6301ceaxxxxxxxxxxx27478",
       "resourceList": {
         "resourceCode": "array1",
-        "actions": ["read","write"]
+        "actionList": ["read","write"]
       }
     },{
       "namespaceCode": "权限空间1",
       "userId": "6121ceaxxxxxxxxxxx27312",
       "resourceList": {
         "resourceCode": "tree1",
-        "actions": [{
+        "actionList": [{
           "nodePath": "/node",
           "nodeActions": ["read","write" ]
         }]
@@ -113,7 +113,7 @@
       "userId": "6121ceaxxxxxxxxxxx27312",
       "resourceList": {
         "resourceCode": "array1",
-        "actions": ["read","write"]
+        "actionList": ["read","write"]
       }
     }]
   }
@@ -151,7 +151,7 @@
       "userId": "6301ceaxxxxxxxxxxx27478",
       "resourceList": {
         "resourceCode": "tree1",
-        "actions": [{
+        "actionList": [{
           "nodePath": "/node",
           "nodeActions": ["read","write" ]
         }]
@@ -161,7 +161,7 @@
       "userId": "6121ceaxxxxxxxxxxx27312",
       "resourceList": {
         "resourceCode": "tree1",
-        "actions": [{
+        "actionList": [{
           "nodePath": "/node",
           "nodeActions": ["read","write" ]
         }]

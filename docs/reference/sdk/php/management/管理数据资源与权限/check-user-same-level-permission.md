@@ -54,16 +54,18 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| enabled | boolean | 是 | - | 是否拥有 action 权限  | `true` |
-| action | string | 是 | - | 数据资源权限操作  | `get` |
-| resourceNodeCode | string | 否 | - | 树资源节点code  | `resourceStructChildrenCode1` |
+| resource | string | 是 | - | 资源路径  | `/treeResourceCode1/structCode1` |
+| action | string | 是 | - | 数据资源权限操作  | `read` |
+| userId | string | 是 | - | 用户 ID  | `63721xxxxxxxxxxxxdde14a3` |
+| namespaceCode | string | 是 | - | 权限空间 Code  | `权限空间1` |
+| resourceNodeCodes | string[] | 否 | - | 当前树资源路径子节点code  | `["resourceStructChildrenCode1","resourceStructChildrenCode2","resourceStructChildrenCode3"]` |
 
 
 
 
 ## 请求响应
 
-类型： `CheckUserSameLevelPermissionRespDto`
+类型： `CheckUserSameLevelPermissionResponseDto`
 
 | 名称 | 类型 | 描述 |
 | ---- | ---- | ---- |
@@ -92,10 +94,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| checkLevelResultList | array | 是 | 响应结果列表 嵌套类型：<a href="#CheckUserSameLevelPermissionDto">CheckUserSameLevelPermissionDto</a>。  |  |
+| checkLevelResultList | array | 是 | 响应结果列表 嵌套类型：<a href="#CheckUserSameLevelPermissionRespDto">CheckUserSameLevelPermissionRespDto</a>。  |  |
 
 
-### <a id="CheckUserSameLevelPermissionDto"></a> CheckUserSameLevelPermissionDto
+### <a id="CheckUserSameLevelPermissionRespDto"></a> CheckUserSameLevelPermissionRespDto
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
