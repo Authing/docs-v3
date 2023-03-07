@@ -6184,6 +6184,23 @@ const zhCnNavBar = {
                   ]
                 },
                 {
+                  "title": "管理 Token",
+                  "children": [
+                    {
+                      "title": "获取 Token",
+                      "path": "/reference/sdk/csharp/authentication/管理-token/get-access-token.md"
+                    },
+                    {
+                      "title": "校验 Token",
+                      "path": "/reference/sdk/csharp/authentication/管理-token/introspect-token.md"
+                    },
+                    {
+                      "title": "撤销 Token",
+                      "path": "/reference/sdk/csharp/authentication/管理-token/revoke-token.md"
+                    }
+                  ]
+                },
+                {
                   title: '注册',
                   children: [
                     {
