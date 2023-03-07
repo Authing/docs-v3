@@ -45,7 +45,7 @@
 
 ### 示例代码
 
-```c#
+```csharp
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models.Authentication;
 using Authing.CSharp.SDK.Services;
@@ -97,7 +97,7 @@ namespace ConsoleApplication
 
 ### 示例代码
 
-```c#
+```csharp
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models.Authentication;
 using Authing.CSharp.SDK.Services;
