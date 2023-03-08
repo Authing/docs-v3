@@ -17,9 +17,11 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| codes | string[] | 是 | - | 权限分组 code 列表 数组长度限制：10。 | `["example1","example2"]` |
+类型： `DeletePermissionNamespacesBatchDto`
+
+| 名称    | 类型    | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|-------|-------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+| codes | array | 是                                  | -                                 | 权限分组 code 列表 数组长度限制：10。           | `["example1","example2"]`          |
 
 
 
@@ -28,21 +30,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -58,14 +56,15 @@ namespace ConsoleManagement
             {
                 Codes = new List<string>
                 {
-                    $"example0",
-                    $"example1",
-                    $"example2",
+                    $"examplePermissionCode0",
+                    $"examplePermissionCode1",
+                    $"examplePermissionCode2",
                 }
             });
         }
     }
 }
+
 ```
 
 
@@ -106,5 +105,4 @@ namespace ConsoleManagement
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | success | boolean | 是 | 操作是否成功   |  `true` |
-
 

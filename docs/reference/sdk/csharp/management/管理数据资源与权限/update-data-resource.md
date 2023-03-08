@@ -17,14 +17,16 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| resourceCode | string | 是 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
-| namespaceCode | string | 是 | - | 数据资源所属的权限空间 Code  | `examplePermissionNamespace` |
-| resourceName | string | 否 | - | 数据资源名称,权限空间内唯一  | `示例数据资源名称` |
-| description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
-| struct | <a href="#"></a> | 否 | - | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。  |  |
-| actions | string[] | 否 | - | 数据资源权限操作列表 数组长度限制：50。 | `["read","get"]` |
+类型： `UpdateDataResourceDto`
+
+| 名称            | 类型               | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div>             | <div style="width:200px">示例值</div> |
+|---------------|------------------|------------------------------------|-----------------------------------|-----------------------------------------------|------------------------------------|
+| resourceCode  | string           | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                             | `dataResourceTestCode`             |
+| namespaceCode | string           | 是                                  | -                                 | 数据资源所属的权限空间 Code                              | `examplePermissionNamespace`       |
+| resourceName  | string           | 否                                  | -                                 | 数据资源名称,权限空间内唯一                                | `示例数据资源名称`                         |
+| description   | string           | 否                                  | -                                 | 数据资源描述                                        | `示例数据资源描述`                         |
+| struct        | <a href="#"></a> | 否                                  | -                                 | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。 |                                    |
+| actions       | array            | 否                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。                         | `["read","get"]`                   |
 
 
 
@@ -33,21 +35,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -62,16 +60,16 @@ namespace ConsoleManagement
             UpdateDataResourceResponseDto result = await managementClient.UpdateDataResource(new UpdateDataResourceDto
             {
                 NamespaceCode = "examplePermissionNamespace",
-                ResourceName = "示例数据资源名称" ,
-                ResourceCode = "dataResourceTestCode",
-                Description = "示例数据资源描述" ,
+                ResourceName = "示例新树数据资源",
+                ResourceCode = "treeResourceCode",
+                Description = "示例数据资源新描述",
                 Struct = new List<DataResourceTreeStructs>
                 {
                     new DataResourceTreeStructs
                     {
-                        Code="123",
-                        Name="数据资源",
-                        Value="示例数据资源节点",
+                        Code="123update",
+                        Name="数据资源update",
+                        Value="示例数据资源节点update",
                         Children=new List<object>
                         {
                             new DataResourceTreeStructs
@@ -94,9 +92,11 @@ namespace ConsoleManagement
                 },
                 Actions = new List<string> { "get", "read", "update" }
             });
+
         }
     }
 }
+
 ```
 
 
@@ -146,5 +146,4 @@ namespace ConsoleManagement
 | description | string | 否 | 数据资源描述   |  `示例数据资源描述` |
 | struct |  | 是 | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。   |  |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
-
 

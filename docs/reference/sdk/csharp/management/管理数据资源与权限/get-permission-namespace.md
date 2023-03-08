@@ -17,32 +17,31 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
- | code | string  | 是 | - | 权限空间 Code  | `examplePermissionNamespace` |
+
+类型： `GetPermissionNamespaceDto`
+
+| 名称   | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+ | code | string | 是                                  | -                                 | 权限空间 Code                         | `examplePermissionNamespace`       |
 
 
 
 
 ## 示例代码
 
-```csharp
+```java
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -54,14 +53,12 @@ namespace ConsoleManagement
             // 初始化 ManagementClient
             ManagementClient managementClient = new ManagementClient(clientOptions);
 
-            GetPermissionNamespaceResponseDto result = await managementClient.GetPermissionNamespace(new GetPermissionNamespaceDto 
-            { 
-                Code = "examplePermissionNamespace" 
-            });
+            GetPermissionNamespaceResponseDto result = await managementClient.GetPermissionNamespace(new GetPermissionNamespaceDto { Code = "examplePermissionCode" });
 
         }
     }
 }
+
 ```
 
 
@@ -106,5 +103,4 @@ namespace ConsoleManagement
 | code | string | 是 | 权限空间唯一标志符   |  `examplePermissionNamespace` |
 | name | string | 是 | 权限空间名称   |  `示例权限空间` |
 | description | string | 否 | 权限空间描述信息   |  `示例权限空间描述` |
-
 
