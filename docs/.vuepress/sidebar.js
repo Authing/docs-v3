@@ -6865,6 +6865,159 @@ const zhCnNavBar = {
                   ]
                 },
                 {
+                  "title": "管理数据资源与权限",
+                  "children": [
+                    {
+                      "title": "创建权限空间",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-permission-namespace"
+                    },
+                    {
+                      "title": "批量创建权限空间",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-permission-namespaces-batch"
+                    },
+                    {
+                      "title": "获取权限空间详情",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-permission-namespace"
+                    },
+                    {
+                      "title": "批量获取权限空间详情列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-permission-namespaces-batch"
+                    },
+                    {
+                      "title": "分页获取权限空间列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-permission-namespaces"
+                    },
+                    {
+                      "title": "修改权限空间",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/update-permission-namespace"
+                    },
+                    {
+                      "title": "删除权限空间",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/delete-permission-namespace"
+                    },
+                    {
+                      "title": "批量删除权限空间",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/delete-permission-namespaces-batch"
+                    },
+                    {
+                      "title": "校验权限空间 Code 或者名称是否可用",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-permission-namespace-exists"
+                    },
+                    {
+                      "title": "分页查询权限空间下所有的角色列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-permission-namespace-roles"
+                    },
+                    {
+                      "title": "创建数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-data-resource"
+                    },
+                    {
+                      "title": "创建字符串数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-string-data-resource"
+                    },
+                    {
+                      "title": "创建数组数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-array-data-resource"
+                    },
+                    {
+                      "title": "创建树数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-tree-data-resource"
+                    },
+                    {
+                      "title": "获取数据资源列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-data-resources"
+                    },
+                    {
+                      "title": "获取数据资源信息",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-data-resource"
+                    },
+                    {
+                      "title": "修改数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/update-data-resource"
+                    },
+                    {
+                      "title": "删除数据资源",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/delete-data-resource"
+                    },
+                    {
+                      "title": "检查数据资源名称或者 Code 是否可用",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-data-resource-exists"
+                    },
+                    {
+                      "title": "创建数据策略",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/create-data-policy"
+                    },
+                    {
+                      "title": "获取数据策略列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-data-policies"
+                    },
+                    {
+                      "title": "获取数据策略简略信息列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-simple-data-policies"
+                    },
+                    {
+                      "title": "获取数据策略信息",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-data-policy"
+                    },
+                    {
+                      "title": "修改数据策略",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/update-data-policy"
+                    },
+                    {
+                      "title": "删除数据策略",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/delete-data-policy"
+                    },
+                    {
+                      "title": "校验数据策略名称是否存在",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-data-policy-exists"
+                    },
+                    {
+                      "title": "获取数据策略下所有的授权主体的信息",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-data-policy-targets"
+                    },
+                    {
+                      "title": "授权数据策略",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/authorize-data-policies"
+                    },
+                    {
+                      "title": "撤销数据策略",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/revoke-data-policy"
+                    },
+                    {
+                      "title": "获取用户权限列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-user-permission-list"
+                    },
+                    {
+                      "title": "判断用户权限",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-permission"
+                    },
+                    {
+                      "title": "判断外部用户权限",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-external-user-permission"
+                    },
+                    {
+                      "title": "获取用户指定资源权限列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-user-resource-permission-list"
+                    },
+                    {
+                      "title": "获取资源被授权的用户列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/list-resource-targets"
+                    },
+                    {
+                      "title": "获取用户授权资源的结构列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-user-resource-struct"
+                    },
+                    {
+                      "title": "获取外部用户授权资源的结构列表",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/get-external-user-resource-struct"
+                    },
+                    {
+                      "title": "判断用户在树资源同层级资源下的权限",
+                      "path": "/reference/sdk/csharp/management/管理数据资源与权限/check-user-same-level-permission"
+                    },
+                  ]
+                },
+                {
                   title: '管理应用',
                   children: [
                     {
