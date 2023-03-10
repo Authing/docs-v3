@@ -17,11 +17,13 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
- | page | number  | 否 | 1 | 当前页数，从 1 开始  | `1` |
- | limit | number  | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
- | query | string  | 否 | - | 数据策略名称关键字搜索  | `examplePolicyName` |
+类型： `ListDataPoliciesDto`
+
+| 名称    | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|-------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+ | page  | number | 否                                  | 1                                 | 当前页数，从 1 开始                       | `1`                                |
+ | limit | number | 否                                  | 10                                | 每页数目，最大不能超过 50，默认为 10             | `10`                               |
+ | query | string | 否                                  | -                                 | 数据策略名称关键字搜索                       | `examplePolicyName`                |
 
 
 
@@ -30,21 +32,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -58,7 +56,7 @@ namespace ConsoleManagement
 
             ListDataPoliciesPaginatedRespDto result = await managementClient.ListDataPolices(new ListDataPoliciesDto
             {
-                
+                Page=1,Limit=10,Query= "examplePolicyName"
             });
 
         }
@@ -149,5 +147,4 @@ namespace ConsoleManagement
 | id | string | 是 | 主体 ID ，包含用户 ID、用户组 ID、角色 ID、组织机构 ID   |  `6301cexxxxxxxxxxxxxxxxx78` |
 | type | string | 是 | 主体类型,包括 USER、GROUP、ROLE、ORG 四种类型   | USER |
 | name | string | 是 | 主体名称，包含用户名称、用户组名称、角色名称、组织机构名称   |  `test` |
-
 

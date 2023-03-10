@@ -20,7 +20,7 @@
 
 ## 示例代码
 
-```C#
+```csharp
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models.Authentication;
 using Authing.CSharp.SDK.Services;

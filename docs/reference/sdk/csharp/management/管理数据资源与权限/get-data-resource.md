@@ -13,14 +13,17 @@
 
 ## 方法名称
 
-`ManagementClient.GetDataResource`
+`ManagementClient.GetDataPolicy`
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
- | namespaceCode | string  | 是 | - | 数据资源所属的权限空间 Code  | `examplePermissionNamespace` |
- | resourceCode | string  | 是 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
+类型： `GetDataResourceDto`
+
+
+| 名称            | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|---------------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+| namespaceCode | string | 是                                  | -                                 | 数据资源所属的权限空间 Code                  | `examplePermissionNamespace`       |
+| resourceCode  | string | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                 | `dataResourceTestCode`             |
 
 
 
@@ -29,21 +32,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -55,14 +54,14 @@ namespace ConsoleManagement
             // 初始化 ManagementClient
             ManagementClient managementClient = new ManagementClient(clientOptions);
 
-            GetDataResourceResponseDto result = await managementClient.GetDataResource(new GetDataResourceDto
+            GetDataPolicyResponseDto res = await managementClient.GetDataPolicy(new GetDataPolicyDto
             {
-                NamespaceCode = "code1",
-                ResourceCode = "tree1Code"
+                PolicyId = "60b49xxxxxxxxxxxxxxx6e68"
             });
         }
     }
 }
+
 ```
 
 
@@ -114,5 +113,4 @@ namespace ConsoleManagement
 | struct |  | 是 | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。   |  |
 | namespaceCode | string | 是 | 数据策略所在的权限空间 Code   |  `code1` |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
-
 

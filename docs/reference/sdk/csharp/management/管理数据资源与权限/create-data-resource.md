@@ -67,7 +67,7 @@
   "actions": ["get","read","update"]
 }
 ```
-  
+
 
 ## 方法名称
 
@@ -75,15 +75,17 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| actions | string[] | 是 | - | 数据资源权限操作列表 数组长度限制：50。 | `["read","get"]` |
-| struct | <a href="#"></a> | 是 | - | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。  |  |
-| type | string | 是 | - | 数据资源类型，目前支持树结构（TREE）、字符串（STRING）、数组（ARRAY）  | `TREE` |
-| resourceCode | string | 是 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
-| resourceName | string | 是 | - | 数据资源名称,权限空间内唯一  | `示例数据资源名称` |
-| namespaceCode | string | 是 | - | 数据资源所属的权限空间 Code  | `examplePermissionNamespace` |
-| description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
+类型： `CreateDataResourceDto`
+
+| 名称            | 类型               | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div>             | <div style="width:200px">示例值</div> |
+|---------------|------------------|------------------------------------|-----------------------------------|-----------------------------------------------|------------------------------------|
+| actions       | array            | 是                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。                         | `["read","get"]`                   |
+| struct        | <a href="#"></a> | 是                                  | -                                 | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。 |                                    |
+| type          | string           | 是                                  | -                                 | 数据资源类型，目前支持树结构（TREE）、字符串（STRING）、数组（ARRAY）    | `TREE`                             |
+| resourceCode  | string           | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                             | `dataResourceTestCode`             |
+| resourceName  | string           | 是                                  | -                                 | 数据资源名称,权限空间内唯一                                | `示例数据资源名称`                         |
+| namespaceCode | string           | 是                                  | -                                 | 数据资源所属的权限空间 Code                              | `examplePermissionNamespace`       |
+| description   | string           | 否                                  | -                                 | 数据资源描述                                        | `示例数据资源描述`                         |
 
 
 
@@ -92,21 +94,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -120,12 +118,26 @@ namespace ConsoleManagement
 
             CreateDataResourceResponseDto result = await managementClient.CreateDataResource(new CreateDataResourceDto
             {
-                NamespaceCode = "examplePermissionNamespace",
-                ResourceName = "字符串资源1",
-                ResourceCode = "str1",
-                Type = CreateDataResourceDto.type.STRING,
-                Description = "这是一个数据资源字符串类型创建",
-                Struct = "str1",
+                NamespaceCode = "exampleNamespaceCode",
+                ResourceName = "树资源1",
+                ResourceCode = "tree1",
+                Type = CreateDataResourceDto.type.TREE,
+                Description = "这是一个数据资源树类型创建",
+                Struct = new List<DataResourceTreeStructs>
+                { new DataResourceTreeStructs {Code="tree1",Name="tree1",Value="tree1",
+                    Children=new List<object>
+                    {
+                        new DataResourceTreeStructs
+                        { Code="tree2",Name="tree2",Value="tree2",
+                            Children=new List<object>
+                            {
+                                new DataResourceTreeStructs
+                                { Code="tree3",Name="tree3",Value="tree3"}
+                            }
+                        }
+                    }
+                    }
+                },
                 Actions = new List<string> { "get", "read", "update" }
             });
 
@@ -181,5 +193,4 @@ namespace ConsoleManagement
 | description | string | 否 | 数据资源描述   |  `示例数据资源描述` |
 | struct |  | 是 | 数据资源节点类型，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。   |  |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
-
 

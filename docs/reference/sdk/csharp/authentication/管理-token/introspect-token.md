@@ -24,7 +24,7 @@ Authing C# SDK 提供两种校验 Token 的方式：在线校验和本地校验�
 
 ### 示例代码
 
-```C#
+```csharp
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models.Authentication;
 using Authing.CSharp.SDK.Services;
@@ -109,7 +109,7 @@ namespace ConsoleApplication
 
 ### 示例代码
 
-```C#
+```csharp
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models.Authentication;
 using Authing.CSharp.SDK.Services;

@@ -13,36 +13,40 @@
 
 ## 方法名称
 
-`ManagementClient.CreatePermissionNamespacesBatch`
+`ManagementClient.createPermissionNamespacesBatch`
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| list | <a href="#CreatePermissionNamespacesBatchItemDto">CreatePermissionNamespacesBatchItemDto[]</a> | 是 | - | 权限空间列表 数组长度限制：50。 |  |
+类型： `CreatePermissionNamespacesBatchDto`
+
+| 名称   | 类型                                                                                             | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|------|------------------------------------------------------------------------------------------------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+| list | <a href="#CreatePermissionNamespacesBatchItemDto">CreatePermissionNamespacesBatchItemDto[]</a> | 是                                  | -                                 | 权限空间列表 数组长度限制：50。                 |                                    |
 
 
+### <a id="CreatePermissionNamespacesBatchItemDto"></a> CreatePermissionNamespacesBatchItemDto
 
+| 名称          | 类型     | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|-------------|--------|------------------------------------|-----------------------------------|------------------------------------|
+| code        | string | 是                                  | 权限空间 Code                         | `examplePermissionNamespace`       |
+| name        | string | 是                                  | 权限空间名称                            | `示例权限空间`                           |
+| description | string | 否                                  | 权限空间描述                            | `示例权限空间描述`                         |
 
 ## 示例代码
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -54,14 +58,18 @@ namespace ConsoleManagement
             // 初始化 ManagementClient
             ManagementClient managementClient = new ManagementClient(clientOptions);
 
+            string code = "examplePermissionCode";
+            string name = "examplePermissionNamespace";
+            string description = "examplePermissionDescription";
+
             List<CreatePermissionNamespacesBatchItemDto> nameSpaceList = new List<CreatePermissionNamespacesBatchItemDto>();
             for (int i = 0; i < 3; i++)
             {
                 CreatePermissionNamespacesBatchItemDto item = new CreatePermissionNamespacesBatchItemDto
                 {
-                    Code = "examplePermissionCode" + i,
-                    Name = "examplePermissionNamespace" + i,
-                    Description = "examplePermissionDescription" + i
+                    Code = code + i,
+                    Name = name + i,
+                    Description = description + i
                 };
 
                 nameSpaceList.Add(item);
@@ -71,9 +79,11 @@ namespace ConsoleManagement
             {
                 List = nameSpaceList
             });
+
         }
     }
 }
+
 ```
 
 
@@ -109,19 +119,9 @@ namespace ConsoleManagement
 ## 数据结构
 
 
-### <a id="CreatePermissionNamespacesBatchItemDto"></a> CreatePermissionNamespacesBatchItemDto
-
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- |  ---- | ---- | ---- | ---- |
-| code | string | 是 | 权限空间 Code   |  `examplePermissionNamespace` |
-| name | string | 是 | 权限空间名称   |  `示例权限空间` |
-| description | string | 否 | 权限空间描述   |  `示例权限空间描述` |
-
-
 ### <a id="IsSuccessDto"></a> IsSuccessDto
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | success | boolean | 是 | 操作是否成功   |  `true` |
-
 

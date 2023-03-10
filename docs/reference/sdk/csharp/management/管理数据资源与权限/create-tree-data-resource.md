@@ -17,14 +17,16 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| actions | string[] | 是 | - | 数据资源权限操作列表 数组长度限制：50。 | `["read","get"]` |
-| struct | <a href="#DataResourceTreeStructs">DataResourceTreeStructs[]</a> | 是 | - | 树数据资源节点 数组长度限制：50。 |  |
-| resourceCode | string | 是 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
-| resourceName | string | 是 | - | 数据资源名称,权限空间内唯一  | `示例数据资源名称` |
-| namespaceCode | string | 是 | - | 数据策略所在的权限空间 Code  | `code1` |
-| description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
+类型： `CreateTreeDataResourceDto`
+
+| 名称            | 类型                                                               | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|---------------|------------------------------------------------------------------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+| actions       | array                                                            | 是                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。             | `["read","get"]`                   |
+| struct        | <a href="#DataResourceTreeStructs">DataResourceTreeStructs[]</a> | 是                                  | -                                 | 树数据资源节点 数组长度限制：50。                |                                    |
+| resourceCode  | string                                                           | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                 | `dataResourceTestCode`             |
+| resourceName  | string                                                           | 是                                  | -                                 | 数据资源名称,权限空间内唯一                    | `示例数据资源名称`                         |
+| namespaceCode | string                                                           | 是                                  | -                                 | 数据策略所在的权限空间 Code                  | `code1`                            |
+| description   | string                                                           | 否                                  | -                                 | 数据资源描述                            | `示例数据资源描述`                         |
 
 
 
@@ -33,21 +35,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -61,7 +59,7 @@ namespace ConsoleManagement
 
             CreateTreeDataResourceResponseDto result = await managementClient.CreateDataResourceByTree(new CreateTreeDataResourceDto
             {
-                NamespaceCode = "code1",
+                NamespaceCode = "examplePermissionCode",
                 ResourceName = "树资源1Name",
                 ResourceCode = "tree1Code",
                 Description = "这是一个数据资源树类型创建",
@@ -98,6 +96,7 @@ namespace ConsoleManagement
         }
     }
 }
+
 ```
 
 
@@ -173,5 +172,4 @@ namespace ConsoleManagement
 | name | string | 是 | 数据资源节点名称 ，同层级唯一   |  `数据资源` |
 | value | string | 否 | 数据资源节点 Value   |  `示例数据资源节点` |
 | children | array | 否 | 数据资源节点的子节点,子节点层级最多支持五个层级   |  `[{"code":"code1","name":"子节点1","value":"子节点值","children":[{"code":"code2","name":"子节点2","value":"子节点2值"}]}]` |
-
 

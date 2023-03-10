@@ -84,7 +84,7 @@
   }
 }
 ```
-  
+
 
 ## 方法名称
 
@@ -92,11 +92,13 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
- | namespaceCode | string  | 是 | - | 数据资源所属的权限空间 Code  | `examplePermissionNamespace` |
- | resourceName | string  | 否 | - | 数据资源名称,权限空间内唯一  | `示例数据资源名称` |
- | resourceCode | string  | 否 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
+类型： `CheckDataResourceExistsDto`
+
+| 名称            | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|---------------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+ | namespaceCode | string | 是                                  | -                                 | 数据资源所属的权限空间 Code                  | `examplePermissionNamespace`       |
+ | resourceName  | string | 否                                  | -                                 | 数据资源名称,权限空间内唯一                    | `示例数据资源名称`                         |
+ | resourceCode  | string | 否                                  | -                                 | 数据资源 Code,权限空间内唯一                 | `dataResourceTestCode`             |
 
 
 
@@ -105,21 +107,16 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -133,13 +130,20 @@ namespace ConsoleManagement
 
             CheckParamsDataResourceResponseDto result = await managementClient.CheckDataResourceExists(new CheckDataResourceExistsDto 
             { 
-                NamespaceCode = "examplePermissionNamespace", 
-                ResourceName = "test"
+                NamespaceCode = "examplePermissionNamespace",
+                ResourceCode = "treeResourceCode"
             });
 
+            CheckParamsDataResourceResponseDto result1 = await managementClient.CheckDataResourceExists(new CheckDataResourceExistsDto 
+            {
+                NamespaceCode = "examplePermissionNamespace",
+                ResourceName = "示例树数据资源名称"
+            });
+            
         }
     }
 }
+
 ```
 
 
@@ -182,5 +186,4 @@ namespace ConsoleManagement
 | ---- |  ---- | ---- | ---- | ---- |
 | isValid | boolean | 是 | 数据资源名称或者 Code 校验是否有效   |  `false` |
 | message | string | 否 | 数据资源名称或者 Code 校验失败提示信息,如果校验成功, message 不返回   |  `data resource name already exist` |
-
 

@@ -17,12 +17,14 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
- | code | string  | 是 | - | 权限分组唯一标志符 Code  | `examplePermissionNamespace` |
- | page | number  | 否 | 1 | 当前页数，从 1 开始  | `1` |
- | limit | number  | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
- | query | string  | 否 | - | 角色 Code 或者名称  | `test` |
+类型： `ListPermissionNamespaceRolesDto`
+
+| 名称    | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+|-------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
+ | code  | string | 是                                  | -                                 | 权限分组唯一标志符 Code                    | `examplePermissionNamespace`       |
+ | page  | number | 否                                  | 1                                 | 当前页数，从 1 开始                       | `1`                                |
+ | limit | number | 否                                  | 10                                | 每页数目，最大不能超过 50，默认为 10             | `10`                               |
+ | query | string | 否                                  | -                                 | 角色 Code 或者名称                      | `test`                             |
 
 
 
@@ -31,21 +33,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -59,12 +57,14 @@ namespace ConsoleManagement
 
             PermissionNamespaceRolesListPaginatedRespDto result = await managementClient.ListPermissionNamespaceRoles(new ListPermissionNamespaceRolesDto
             {
-                Code = "exampleNamespaceCode"
+                Code = "examplePermissionNamespace",
+                Query = "exampleRole"
             });
 
         }
     }
 }
+
 ```
 
 
@@ -123,5 +123,4 @@ namespace ConsoleManagement
 | description | string | 否 | 角色 描述信息   |  `这是一个示例角色的描述` |
 | namespace | string | 是 | 权限空间 Code   |  `system` |
 | updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
-
 

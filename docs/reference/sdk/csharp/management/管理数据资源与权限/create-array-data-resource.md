@@ -17,14 +17,16 @@
 
 ## 请求参数
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| actions | string[] | 是 | - | 数据资源权限操作列表 数组长度限制：50。 | `["read","get"]` |
-| struct | string[] | 是 | - | 数组数据资源节点 数组长度限制：50。 | `["exampleArrayStruct1","exampleArrayStruct2"]` |
-| resourceCode | string | 是 | - | 数据资源 Code,权限空间内唯一  | `dataResourceTestCode` |
-| resourceName | string | 是 | - | 数据资源名称,权限空间内唯一  | `示例数据资源名称` |
-| namespaceCode | string | 是 | - | 数据策略所在的权限空间 Code  | `code1` |
-| description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
+类型： `CreateArrayDataResourceDto`
+
+| 名称            | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div>              |
+|---------------|--------|------------------------------------|-----------------------------------|-----------------------------------|-------------------------------------------------|
+| actions       | array  | 是                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。             | `["read","get"]`                                |
+| struct        | array  | 是                                  | -                                 | 数组数据资源节点 数组长度限制：50。               | `["exampleArrayStruct1","exampleArrayStruct2"]` |
+| resourceCode  | string | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                 | `dataResourceTestCode`                          |
+| resourceName  | string | 是                                  | -                                 | 数据资源名称,权限空间内唯一                    | `示例数据资源名称`                                      |
+| namespaceCode | string | 是                                  | -                                 | 数据策略所在的权限空间 Code                  | `code1`                                         |
+| description   | string | 否                                  | -                                 | 数据资源描述                            | `示例数据资源描述`                                      |
 
 
 
@@ -33,21 +35,17 @@
 
 ```csharp
 using Authing.CSharp.SDK.Services;
-using System;
 using System.Threading.Tasks;
 using Authing.CSharp.SDK.Models;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleManagement
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
-
-        private static async Task MainAsync()
+        static async Task Main(string[] args)
         {
             // 设置初始化参数
             ManagementClientOptions clientOptions = new ManagementClientOptions
@@ -61,7 +59,7 @@ namespace ConsoleManagement
 
             CreateArrayDataResourceResponseDto result = await managementClient.CreateDataResourceByArray(new CreateArrayDataResourceDto
             {
-                NamespaceCode = "code1",
+                NamespaceCode = "arrayResourceCode",
                 ResourceName = "示例数组资源名称",
                 ResourceCode = "dataResourceArrayTestCode",
                 Struct = new List<string> { "exampleArrayStruct1", "exampleArrayStruct2" },
@@ -122,5 +120,4 @@ namespace ConsoleManagement
 | description | string | 否 | 数据资源描述   |  `示例数据资源描述` |
 | struct | array | 是 | 数组数据资源节点 数组长度限制：50。  |  `["exampleArrayStruct1","exampleArrayStruct2"]` |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
-
 
