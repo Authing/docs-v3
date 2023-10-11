@@ -4,7 +4,7 @@ meta:
     content: Java SDK
 ---
 
-# {{$localeConfig.brandName}} - Java SDK CSA 模块
+# {{$localeConfig.brandName}} - Java SDK CAS 模块
 
 <LastUpdated/>
 
