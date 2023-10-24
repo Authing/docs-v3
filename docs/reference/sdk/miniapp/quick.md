@@ -363,6 +363,11 @@ export default {
 >authing.loginByPhone
 
 ::: hint-info
+自2023年8月28日起，手机号快速验证组件将需要付费使用。详情参考微信官方文档：
+https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html
+:::
+
+::: hint-info
 1. 如果当前登录的用户为新用户，且小程序身份源开启『可用于登录注册』时，则当前被授权的手机号**会填充**到用户个人信息中。
 2. 如果当前手机号已被其他用户占用，则当前被授权的手机号**不会填充**到用户个人信息中。
 3. 如果当前登录的用户的个人信息中已有手机号，则当前被授权的手机号**不会填充**到用户个人信息中。
