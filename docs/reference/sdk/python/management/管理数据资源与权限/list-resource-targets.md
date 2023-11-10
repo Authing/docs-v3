@@ -1,4 +1,4 @@
-# 获取资源被授权的用户列表
+# 获取拥有某些资源权限的用户列表
 
 <!--
   警告⚠️：
@@ -9,8 +9,14 @@
 
 <LastUpdated />
 
-该接口主要用于获取资源被授权的用户列表，通过权限空间 Code 、资源操作列表以及资源列表查询有权限的用户列表。
-  
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
+  ## 描述
+  当你需要获取拥有指定资源的权限的用户时，可以使用此接口。
+  ## 场景举例
+  假如你的业务场景是：想看看当前文档能够编辑的用户列表，那么你可以使用此接口。
+  ## 请求示例
 ### 获取字符串和数组资源被授权的用户列表示例
 
 - 入参
@@ -18,7 +24,7 @@
 ```json
 {
   "namespaceCode": "examplePermissionNamespace",
-  "actions": ["get", "update", "read"]
+  "actions": ["get", "update", "read"],
   "resources":["strResourceCode1", "arrayResourceCode1"]
 }
 ```
@@ -67,7 +73,7 @@
 ```json
 {
   "namespaceCode": "examplePermissionNamespace",
-  "actions": ["get", "update", "delete"]
+  "actions": ["get", "update", "delete"],
   "resources":["treeResourceCode1/StructCode1/resourceStructChildrenCode1", "treeResourceCode2/StructCode1/resourceStructChildrenCode1"]
 }
 ```
@@ -133,7 +139,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#ListResourceTargetsDataDto">ListResourceTargetsDataDto</a> | 响应数据 |
 

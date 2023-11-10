@@ -9,6 +9,9 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
 此接口用于获取用户的部门列表，可根据一定排序规则进行排序。
 
 ## 方法名称
@@ -68,7 +71,7 @@ const authenticationClient = new AuthenticationClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#UserDepartmentPagingDto">UserDepartmentPagingDto</a> | 响应数据 |
 
@@ -133,6 +136,7 @@ const authenticationClient = new AuthenticationClient({
 | ---- |  ---- | ---- | ---- | ---- |
 | organizationCode | string | 是 | 组织 Code（organizationCode）   |  `steamory` |
 | departmentId | string | 是 | 部门 ID   |  `60b49eb83fd80adb96f26e68` |
+| isRoot | boolean | 是 | 是否为根部门   |  |
 | createdAt | string | 是 | 部门创建时间   |  `2022-07-03T02:20:30.000Z` |
 | name | string | 是 | 部门名称   |  `dd8d7stf44` |
 | description | string | 是 | 部门描述   |  `dd8d7stf44` |

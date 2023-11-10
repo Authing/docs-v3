@@ -9,7 +9,12 @@
 
 <LastUpdated />
 
-判断外部用户权限
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
+  ## 描述
+  当你的用户是外部用户，需要判断其是否拥有某资源的某一权限时，可以使用此接口，通过`externalId`来传递用户的 ID
+  
 
 ## 方法名称
 
@@ -19,7 +24,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| resources | string[] | 是 | - | 数据资源路径列表,  | `["treeResourceCode1/StructCode1/resourceStructChildrenCode1"]` |
+| resources | string[] | 是 | - | 资源路径列表,**树资源需到具体树节点**  | `["strResourceCode","arrResourceCode","treeResourceCode/StructCode1/resourceStructChildrenCode1"]` |
 | action | string | 是 | - | 数据资源权限操作, read、get、write 等动作  | `get` |
 | externalId | string | 是 | - | 外部用户 ID  | `63721xxxxxxxxxxxxdde14a3` |
 | namespaceCode | string | 是 | - | 权限空间 Code  | `examplePermissionNamespace` |

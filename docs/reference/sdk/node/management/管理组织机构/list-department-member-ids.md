@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 通过组织 code、部门 ID，获取部门直属成员 ID 列表。
 
 ## 方法名称
@@ -22,6 +24,7 @@
  | organizationCode | string  | 是 | - | 组织 code  | `steamory` |
  | departmentId | string  | 是 | - | 部门 ID，根部门传 `root`  | `root` |
  | departmentIdType | string  | 否 | department_id | 此次调用中使用的部门 ID 的类型  | `department_id` |
+ | tenantId | string  | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
 
 
 
@@ -67,7 +70,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 响应数据 |
 

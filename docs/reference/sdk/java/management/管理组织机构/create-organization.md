@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 创建组织机构，会创建一个只有一个节点的组织机构，可以选择组织描述信息、根节点自定义 ID、多语言等。
 
 ## 方法名称
@@ -19,11 +21,14 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
+| metadata | object | 是 | - | 元数据信息  |  |
 | organizationName | string | 是 | - | 组织名称  | `蒸汽记忆` |
 | organizationCode | string | 是 | - | 组织 code  | `steamory` |
 | description | string | 否 | - | 组织描述信息  | `组织描述信息` |
 | openDepartmentId | string | 否 | - | 根节点自定义 ID  | `60b49eb83fd80adb96f26e68` |
 | i18n | <a href="#OrganizationNameI18nDto">OrganizationNameI18nDto</a> | 否 | - | 多语言设置  | `{"organizationName":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
+| tenantId | string | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
+| postIdList | string[] | 否 | - | 岗位 id 列表  | `["xxx"]` |
 
 
 
@@ -75,7 +80,7 @@ public class CreateOrganizationTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#OrganizationDto">OrganizationDto</a> | 响应数据 |
 
@@ -113,7 +118,11 @@ public class CreateOrganizationTest {
     },
     "customData": {
       "icon": "https://example.com/logo"
-    }
+    },
+    "tenantId": "623c20b2a062aaaaf41b17da",
+    "postIdList": "[\"xxx\"]",
+    "status": "false",
+    "allow": "[\"xxx\"]"
   }
 }
 ```
@@ -163,6 +172,10 @@ public class CreateOrganizationTest {
 | isVirtualNode | boolean | 是 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#OrganizationNameI18nDto">OrganizationNameI18nDto</a>。  |  `{"organizationName":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |
+| tenantId | string | 否 | 租户 ID   |  `623c20b2a062aaaaf41b17da` |
+| postIdList | array | 否 | 岗位 id 列表   |  `["xxx"]` |
+| status | string | 否 | 状态   |  `false` |
+| allow | string | 否 | 访问限制   |  `["xxx"]` |
 
 
 ### <a id="OrganizationNameI18nDto"></a> OrganizationNameI18nDto

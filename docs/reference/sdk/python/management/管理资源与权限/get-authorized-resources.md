@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 根据筛选条件，获取某个主体被授权的资源列表。
 
 ## 方法名称
@@ -23,7 +25,7 @@
  | targetIdentifier | string  | 是 | - | 目标对象的唯一标志符：<br>- 如果是用户，为用户的 ID，如 `6343b98b7cfxxx9366e9b7c`<br>- 如果是角色，为角色的 code，如 `admin`<br>- 如果是分组，为分组的 code，如 `developer`<br>- 如果是部门，为部门的 ID，如 `6343bafc019xxxx889206c4c`<br>          | `userId1` |
  | namespace | string  | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
  | resourceType | string  | 否 | - | 限定资源类型，如数据、API、按钮、菜单  | `DATA` |
- | resourceList | string[]  | 否 | - | 限定查询的资源列表，如果指定，只会返回所指定的资源列表。 数组长度限制：50。 |  |
+ | resourceList | string[]  | 否 | - | 限定查询的资源列表，如果指定，只会返回所指定的资源列表。<br><br>resourceList 参数支持前缀匹配，例如：<br>- 授权了一个资源为 `books:123`，可以通过 `books:*` 来匹配；<br>- 授权了一个资源为 `books:fictions_123`，可以通过 `books:fictions_` 来匹配；<br> 数组长度限制：50。 |  |
  | withDenied | boolean  | 否 | - | 是否获取被拒绝的资源  |  |
 
 
@@ -37,7 +39,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#AuthorizedResourcePagingDto">AuthorizedResourcePagingDto</a> | 响应数据 |
 

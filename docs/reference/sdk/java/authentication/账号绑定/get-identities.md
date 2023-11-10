@@ -9,6 +9,9 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
 
 如在**介绍**部分中所描述的，一个外部身份源对应多个外部身份源连接，用户通过某个外部身份源连接绑定了某个外部身份源账号之后，
 用户会建立一条与此外部身份源之间的关联关系。此接口用于获取此用户绑定的所有外部身份源。
@@ -105,7 +108,7 @@ public class GetIdentitiesTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 用户的身份源列表 |
 
@@ -124,7 +127,6 @@ public class GetIdentitiesTest {
     "provider": "wechat",
     "type": "openid",
     "userIdInIdp": "oj7Nq05R-RRaqak0_YlMLnnIwsvg",
-    "userInfoInIdp": {},
     "accessToken": "57_fK0xgSL_NwVlS-gmUwlMQ2N6AONNIOAYxxxx",
     "refreshToken": "57_IZFu91Ak1Wg6DRytZFFIOd3upNF5lH7vPxxxxx",
     "originConnIds": "[\"605492ac41xxxxe0362f0707\"]"
@@ -144,15 +146,9 @@ public class GetIdentitiesTest {
 | provider | string | 是 | 外部身份源类型：<br>- `wechat`: 微信<br>- `qq`: QQ<br>- `wechatwork`: 企业微信<br>- `dingtalk`: 钉钉<br>- `weibo`: 微博<br>- `github`: GitHub<br>- `alipay`: 支付宝<br>- `baidu`: 百度<br>- `lark`: 飞书<br>- `welink`: Welink<br>- `yidun`: 网易易盾<br>- `qingcloud`: 青云<br>- `google`: Google<br>- `gitlab`: GitLab<br>- `gitee`: Gitee<br>- `twitter`: Twitter<br>- `facebook`: Facebook<br>- `slack`: Slack<br>- `linkedin`: Linkedin<br>- `instagram`: Instagram<br>- `oidc`: OIDC 型企业身份源<br>- `oauth2`: OAuth2 型企业身份源<br>- `saml`: SAML 型企业身份源<br>- `ldap`: LDAP 型企业身份源<br>- `ad`: AD 型企业身份源<br>- `cas`: CAS 型企业身份源<br>- `azure-ad`: Azure AD 型企业身份源<br>       | oidc |
 | type | string | 是 | Identity 类型，如 unionid, openid, primary   |  `openid` |
 | userIdInIdp | string | 是 | 在外部身份源中的 ID   |  `oj7Nq05R-RRaqak0_YlMLnnIwsvg` |
-| userInfoInIdp |  | 是 | 用户在 idp 中的身份信息 嵌套类型：<a href="#User">User</a>。  |  |
+| userInfoInIdp | object | 是 | 用户在 idp 中的身份信息   |  |
 | accessToken | string | 否 | 在外部身份源中的 Access Token（此参数只会在用户主动获取时返回，管理侧接口不会返回）。   |  `57_fK0xgSL_NwVlS-gmUwlMQ2N6AONNIOAYxxxx` |
 | refreshToken | string | 否 | 在外部身份源中的 Refresh Token（此参数只会在用户主动获取时返回，管理侧接口不会返回）。   |  `57_IZFu91Ak1Wg6DRytZFFIOd3upNF5lH7vPxxxxx` |
 | originConnIds | array | 是 | 身份来自的身份源连接 ID 列表   |  `["605492ac41xxxxe0362f0707"]` |
-
-
-### <a id="User"></a> User
-
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- |  ---- | ---- | ---- | ---- |
 
 

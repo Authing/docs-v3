@@ -15,8 +15,10 @@
 
 在工程的 **pubspec.yaml** 中，添加以下依赖：
 
+> 请替换 version 为真实版本号，最新的版本号请到 https://pub.dev/packages/authing_sdk_v3 进行查看。
+
 ```yaml
-authing_sdk_v3: ^1.0.0
+authing_sdk_v3: ^<version>
 ```
 
 

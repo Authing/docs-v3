@@ -9,6 +9,9 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
 获取登录日志
 
 ## 方法名称
@@ -79,7 +82,7 @@ public class GetLoginHistoryTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#LoginHistoryPaginatedRespDto">LoginHistoryPaginatedRespDto</a> | 响应数据 |
 
@@ -123,7 +126,8 @@ public class GetLoginHistoryTest {
         "city_name": "Beijing",
         "continent_code": "AS",
         "timezone": "Asia/Shanghai"
-      }
+      },
+      "tenantId": "642c1df417c2d8a80d744c1d"
     }
   }
 }
@@ -157,6 +161,7 @@ public class GetLoginHistoryTest {
 | parsedUserAgent |  | 是 | 解析过后的 User Agent 嵌套类型：<a href="#ParsedUserAgent">ParsedUserAgent</a>。  |  |
 | loginMethod | string | 是 | 使用的登录方式   |  `loginByEmail` |
 | geoip |  | 是 | 地理位置 嵌套类型：<a href="#GeoIp">GeoIp</a>。  |  |
+| tenantId | string | 否 | 租户 ID   |  `642c1df417c2d8a80d744c1d` |
 
 
 ### <a id="ParsedUserAgent"></a> ParsedUserAgent

@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 通过组织 code、搜索关键词，搜索部门，可以搜索组织名称等。
 
 ## 方法名称
@@ -22,6 +24,7 @@
 | keywords | string | 是 | - | 搜索关键词，如组织名称等  | `Authing` |
 | organizationCode | string | 是 | - | 组织 code  | `steamory` |
 | withCustomData | boolean | 否 | - | 是否获取自定义数据  | `true` |
+| tenantId | string | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
 
 
 
@@ -66,7 +69,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 响应数据 |
 
@@ -90,6 +93,7 @@ const managementClient = new ManagementClient({
     "description": "技术研发部门",
     "parentDepartmentId": "6229c4deb3e4d8a20b6021ff",
     "code": "6229c4deb3e4d8a20b6021ff",
+    "parentDepartmentCode": "test",
     "membersCount": 11,
     "hasChildren": true,
     "i18n": {
@@ -106,7 +110,10 @@ const managementClient = new ManagementClient({
     },
     "customData": {
       "icon": "https://example.com/logo"
-    }
+    },
+    "postIdList": "[\"xxx\"]",
+    "status": "false",
+    "allow": "[\"xxx\"]"
   }
 }
 ```
@@ -128,11 +135,16 @@ const managementClient = new ManagementClient({
 | description | string | 否 | 部门描述   |  `技术研发部门` |
 | parentDepartmentId | string | 是 | 父部门 id   |  `6229c4deb3e4d8a20b6021ff` |
 | code | string | 否 | 部门识别码   |  `6229c4deb3e4d8a20b6021ff` |
+| parentDepartmentCode | string | 是 | 父部门 code   |  `test` |
 | membersCount | number | 是 | 部门人数（仅包含直属成员）   |  `11` |
 | hasChildren | boolean | 是 | 是否包含子部门   |  `true` |
 | isVirtualNode | boolean | 否 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#DepartmentI18nDto">DepartmentI18nDto</a>。  |  `{"name":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |
+| posts | array | 否 | 部门关联的岗位   |  |
+| postIdList | array | 否 | 岗位 id 列表   |  `["xxx"]` |
+| status | boolean | 否 | 部门状态   |  `false` |
+| allow | string | 否 | 访问限制   |  `["xxx"]` |
 
 
 ### <a id="DepartmentI18nDto"></a> DepartmentI18nDto

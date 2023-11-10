@@ -1,4 +1,4 @@
-# 获取用户指定资源权限列表
+# 获取用户拥有某些资源的权限列表（推荐）
 
 <!--
   警告⚠️：
@@ -9,8 +9,14 @@
 
 <LastUpdated />
 
-该接口主要用于获取用户指定资源的权限列表,通过权限空间 Code、用户 ID 以及资源列表查询所有权限。
-  
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
+  ## 描述
+  当你需要查询某一用户拥有指定的资源列表的权限时，可以使用此接口。
+  ## 注意
+  该接口需要你传递指定的资源 code（如果是树类型资源则需要传递节点的完整 code 路径），此接口性能更佳，推荐使用。
+  ## 请求示例
 ### 获取用户字符串和数组资源权限示例
 
 - 入参
@@ -34,11 +40,11 @@
   "data":{
     "permissionList": [{
       "namespaceCode": "examplePermissionNamespace",
-      "actionList": ["read","get"],  
+      "actions": ["read","get"],  
       "resource": "strResourceCode1"
     },{
       "namespaceCode": "examplePermissionNamespace",
-      "actionList": ["read","update","delete"], 
+      "actions": ["read","update","delete"], 
       "resource": "arrayResourceCode1"
     }]
   }
@@ -67,11 +73,11 @@
   "data":{
     "permissionList": [{
       "namespaceCode": "examplePermissionNamespace",
-      "actionList": ["read", "update", "delete"],
+      "actions": ["read", "update", "delete"],
       "resource": "treeResourceCode1/StructCode1/resourceStructChildrenCode1"
     },{
       "namespaceCode": "examplePermissionNamespace",
-      "actionList": ["read", "get", "delete"],     
+      "actions": ["read", "get", "delete"],     
       "resource": "treeResourceCode2/StructCode1/resourceStructChildrenCode1"
     }]
   }
@@ -85,14 +91,11 @@
 
 ## 请求参数
 
-类型： `GetUserResourcePermissionListDto`
-
-
-| 名称            | 类型       | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-|---------------|----------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
-| namespaceCode | string   | 是                                  | -                                 | 权限空间 Code                         | `examplePermissionNamespace`       |
-| resources     | string[] | 是                                  | -                                 | 资源路径列表                            | `["treeResourceCode1"]`            |
-| userId        | string   | 是                                  | -                                 | 用户 ID                             | `6301ceaxxxxxxxxx27478`            |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| resources | string[] | 是 | - | 资源路径列表,**树资源需到具体树节点**  | `["strResourceCode","arrResourceCode","treeResourceCode/StructCode1/resourceStructChildrenCode1"]` |
+| userId | string | 是 | - | 用户 ID  | `6301ceaxxxxxxxxx27478` |
+| namespaceCode | string | 是 | - | 权限空间 Code  | `examplePermissionNamespace` |
 
 
 
@@ -141,7 +144,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#GetUserResourcePermissionListDataDto">GetUserResourcePermissionListDataDto</a> | 响应数据 |
 

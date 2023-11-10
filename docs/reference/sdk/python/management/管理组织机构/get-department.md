@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 通过组织 code 以及 部门 ID 或 部门 code，获取部门信息，可以获取自定义数据。
 
 ## 方法名称
@@ -19,11 +21,13 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
- | organizationCode | string  | 是 | - | 组织 code  | `steamory` |
+ | organizationCode | string  | 否 | - | 组织 code  | `steamory` |
  | departmentId | string  | 否 | - | 部门 ID，根部门传 `root`。departmentId 和 departmentCode 必传其一。  | `root` |
  | departmentCode | string  | 否 | - | 部门 code。departmentId 和 departmentCode 必传其一。  | `example` |
  | departmentIdType | string  | 否 | department_id | 此次调用中使用的部门 ID 的类型  | `department_id` |
  | withCustomData | boolean  | 否 | - | 是否获取自定义数据  | `true` |
+ | flatCustomData | boolean  | 否 | - | 是否拍平扩展字段  |  |
+ | tenantId | string  | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
 
 
 
@@ -36,7 +40,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#DepartmentDto">DepartmentDto</a> | 响应数据 |
 
@@ -60,6 +64,7 @@
     "description": "技术研发部门",
     "parentDepartmentId": "6229c4deb3e4d8a20b6021ff",
     "code": "6229c4deb3e4d8a20b6021ff",
+    "parentDepartmentCode": "test",
     "membersCount": 11,
     "hasChildren": true,
     "i18n": {
@@ -76,7 +81,10 @@
     },
     "customData": {
       "icon": "https://example.com/logo"
-    }
+    },
+    "postIdList": "[\"xxx\"]",
+    "status": "false",
+    "allow": "[\"xxx\"]"
   }
 }
 ```
@@ -98,11 +106,16 @@
 | description | string | 否 | 部门描述   |  `技术研发部门` |
 | parentDepartmentId | string | 是 | 父部门 id   |  `6229c4deb3e4d8a20b6021ff` |
 | code | string | 否 | 部门识别码   |  `6229c4deb3e4d8a20b6021ff` |
+| parentDepartmentCode | string | 是 | 父部门 code   |  `test` |
 | membersCount | number | 是 | 部门人数（仅包含直属成员）   |  `11` |
 | hasChildren | boolean | 是 | 是否包含子部门   |  `true` |
 | isVirtualNode | boolean | 否 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#DepartmentI18nDto">DepartmentI18nDto</a>。  |  `{"name":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |
+| posts | array | 否 | 部门关联的岗位   |  |
+| postIdList | array | 否 | 岗位 id 列表   |  `["xxx"]` |
+| status | boolean | 否 | 部门状态   |  `false` |
+| allow | string | 否 | 访问限制   |  `["xxx"]` |
 
 
 ### <a id="DepartmentI18nDto"></a> DepartmentI18nDto

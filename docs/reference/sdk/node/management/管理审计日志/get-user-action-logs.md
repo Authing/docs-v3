@@ -1,0 +1,211 @@
+# 获取用户行为日志
+
+<!--
+  警告⚠️：
+  不要直接修改该文档，
+  https://github.com/Authing/authing-docs-factory
+  使用该项目进行生成
+-->
+
+<LastUpdated />
+
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+可以选择请求 ID、客户端 IP、用户 ID、应用 ID、开始时间戳、请求是否成功、分页参数来获取用户行为日志
+
+## 方法名称
+
+`ManagementClient.getUserActionLogs`
+
+## 请求参数
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| requestId | string | 否 | - | 请求 ID  | `xxx` |
+| clientIp | string | 否 | - | 客户端 IP  | `xxx` |
+| eventType | string | 否 | - | 事件类型，用户的一系列操作，比如 login、logout、register、verifyMfa 等  | `login` |
+| userId | string | 否 | - | 用户 ID  | `xxx` |
+| appId | string | 否 | - | 应用 ID  | `xxx` |
+| start | number | 否 | - | 开始时间戳  | `11` |
+| end | number | 否 | - | 结束时间戳  | `111` |
+| success | boolean | 否 | - | 请求是否成功  | `true` |
+| pagination | <a href="#ListWebhooksDto">ListWebhooksDto</a> | 否 | - | 分页  |  |
+
+
+
+
+## 示例代码
+
+```ts
+import { ManagementClient, Models } from 'authing-node-sdk';
+
+// 初始化 ManagementClient
+const managementClient = new ManagementClient({
+  // 需要替换成你的 Authing Access Key ID
+  accessKeyId: 'AUTHING_ACCESS_KEY_ID',
+  // 需要替换成你的 Authing Access Key Secret
+  accessKeySecret: 'AUTHING_ACCESS_KEY_SECRET',
+  // 如果是私有化部署的客户，需要设置 Authing 服务域名
+  // host: 'https://api.your-authing-service.com'
+});
+
+(async () => {
+
+  const result = await managementClient.getUserActionLogs({
+    requestId: 'requestId',
+    eventType: 'login',
+    userId: 'userId1',
+    appId: 'appId1',
+    success: true,
+    pagination: {
+      page: 1,
+      limit: 10
+    }
+  });
+
+
+  console.log(JSON.stringify(result, null, 2));
+})();
+
+```
+
+
+
+
+## 请求响应
+
+类型： `UserActionLogRespDto`
+
+| 名称 | 类型 | 描述 |
+| ---- | ---- | ---- |
+| statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
+| message | string | 描述信息 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| requestId | string | 请求 ID。当请求失败时会返回。 |
+| data | <a href="#UserActionLogRespData">UserActionLogRespData</a> | 响应数据 |
+
+
+
+示例结果：
+
+```json
+{
+  "statusCode": 200,
+  "message": "操作成功",
+  "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
+  "data": {
+    "totalCount": 1,
+    "list": {
+      "userId": "xxx",
+      "userAvatar": "https://files.authing.co/authing-console/default-app-logo.png",
+      "userDisplayName": "张三",
+      "userLoginsCount": 3,
+      "appId": "xxx",
+      "appName": "示例应用",
+      "clientIp": "127.0.0.1",
+      "eventType": "login",
+      "eventDetail": "登录账户「 test@example.com 」",
+      "success": true,
+      "appLoginUrl": "https://example.authing.cn/login",
+      "appLogo": "https://files.authing.co/authing-console/default-app-logo.png",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+      "parsedUserAgent": {
+        "device": "Desktop",
+        "browser": "Chrome",
+        "os": "Windows"
+      },
+      "geoip": {
+        "location": {
+          "lon": 116.3889,
+          "lat": 39.9288
+        },
+        "country_name": "China",
+        "country_code2": "CN",
+        "country_code3": "CN",
+        "region_name": "Beijing",
+        "region_code": "BJ",
+        "city_name": "Beijing",
+        "continent_code": "AS",
+        "timezone": "Asia/Shanghai"
+      },
+      "timestamp": "2022-09-20T08:55:00.188+0800",
+      "requestId": "b63b9772-384c-4f2d-981b-01d1feed964d"
+    }
+  }
+}
+```
+
+## 数据结构
+
+
+### <a id="ListWebhooksDto"></a> ListWebhooksDto
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| page | number | 否 | 当前页数，从 1 开始   |  `1` |
+| limit | number | 否 | 每页数目，最大不能超过 50，默认为 10   |  `10` |
+
+
+### <a id="UserActionLogRespData"></a> UserActionLogRespData
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| totalCount | number | 是 | 记录总数   |  `1` |
+| list | array | 是 | 返回列表 嵌套类型：<a href="#UserActionLogDto">UserActionLogDto</a>。  |  |
+
+
+### <a id="UserActionLogDto"></a> UserActionLogDto
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| userId | string | 是 | 用户 ID   |  `xxx` |
+| userAvatar | string | 是 | 用户头像   |  `https://files.authing.co/authing-console/default-app-logo.png` |
+| userDisplayName | string | 是 | 用户显示名称，按照以下用户字段顺序进行展示：nickname > username > name > givenName > familyName -> email -> phone -> id   |  `张三` |
+| userLoginsCount | number | 是 | 用户登录次数   |  `3` |
+| appId | string | 是 | 应用 ID   |  `xxx` |
+| appName | string | 是 | 应用名称   |  `示例应用` |
+| clientIp | string | 否 | 客户端 IP，可根据登录时的客户端 IP 进行筛选。默认不传获取所有登录 IP 的登录历史。   |  `127.0.0.1` |
+| eventType | string | 是 | 事件类型：<br>- `login`: 登录<br>- `logout`: 登出<br>- `register`: 注册<br>- `verifyMfa`: 验证 MFA<br>- `updateUserProfile`: 修改用户信息<br>- `updateUserPassword`: 修改密码<br>- `updateUserEmail`: 修改邮箱<br>- `updateUserPhone`: 修改手机号<br>- `bindMfa`: 绑定 MFA<br>- `bindEmail`: 绑定邮箱<br>- `bindPhone`: 绑定手机号<br>- `unbindPhone`: 解绑手机号<br>- `unbindEmail`: 解绑邮箱<br>- `unbindMFA`: 解绑 MFA<br>- `deleteAccount`: 注销账号<br>- `verifyFirstLogin`: 首次登录验证 <br>       | login |
+| eventDetail | string | 否 | 事件详情   |  `登录账户「 test@example.com 」` |
+| success | boolean | 是 | 是否成功   |  `true` |
+| appLoginUrl | string | 是 | 应用登录地址   |  `https://example.authing.cn/login` |
+| appLogo | string | 是 | 应用 Logo   |  `https://files.authing.co/authing-console/default-app-logo.png` |
+| userAgent | string | 是 | User Agent   |  `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36` |
+| parsedUserAgent |  | 是 | 解析过后的 User Agent 嵌套类型：<a href="#ParsedUserAgent">ParsedUserAgent</a>。  |  |
+| geoip |  | 是 | 地理位置 嵌套类型：<a href="#GeoIp">GeoIp</a>。  |  |
+| timestamp | string | 是 | 时间   |  `2022-09-20T08:55:00.188+0800` |
+| requestId | string | 是 | 请求 ID   |  `b63b9772-384c-4f2d-981b-01d1feed964d` |
+
+
+### <a id="ParsedUserAgent"></a> ParsedUserAgent
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| device | string | 是 | 使用的设备类型   |  `Desktop` |
+| browser | string | 是 | 浏览器名称   |  `Chrome` |
+| os | string | 是 | 操作系统   |  `Windows` |
+
+
+### <a id="GeoIp"></a> GeoIp
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| location |  | 是 | 地理位置 嵌套类型：<a href="#GeoIpLocation">GeoIpLocation</a>。  |  |
+| country_name | string | 是 | Country Name   |  `China` |
+| country_code2 | string | 是 | Country Code 2   |  `CN` |
+| country_code3 | string | 是 | Country Code 3   |  `CN` |
+| region_name | string | 是 | Region Name   |  `Beijing` |
+| region_code | string | 是 | Region Code   |  `BJ` |
+| city_name | string | 是 | 城市名称   |  `Beijing` |
+| continent_code | string | 是 | Continent Code   |  `AS` |
+| timezone | string | 是 | 时区   |  `Asia/Shanghai` |
+
+
+### <a id="GeoIpLocation"></a> GeoIpLocation
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| lon | number | 是 | 经度   |  `116.3889` |
+| lat | number | 是 | 纬度   |  `39.9288` |
+
+

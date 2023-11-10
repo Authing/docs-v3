@@ -9,7 +9,9 @@
 
 <LastUpdated />
 
-创建字符串数据资源，通过数据资源所属权限空间 Code、数据资源名称、数据资源 Code、数据资源节点和数据资源权限操作等字段进行创建
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+当你仅需要创建字符串类型数据资源时，可以使用此 API，我们固定了数据资源类型，你无需在传入 `type` 字符段，注意：`struct` 字段只能够传入字符串类型数据。
 
 ## 方法名称
 
@@ -17,16 +19,14 @@
 
 ## 请求参数
 
-类型： `CreateStringDataResourceDto`
-
-| 名称            | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-|---------------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
-| actions       | array  | 是                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。             | `["read","get"]`                   |
-| struct        | string | 是                                  | -                                 | 字符串数据资源节点                         | `exampleStringStruct`              |
-| resourceCode  | string | 是                                  | -                                 | 数据资源 Code,权限空间内唯一                 | `dataResourceTestCode`             |
-| resourceName  | string | 是                                  | -                                 | 数据资源名称,权限空间内唯一                    | `示例数据资源名称`                         |
-| namespaceCode | string | 是                                  | -                                 | 数据策略所在的权限空间 Code                  | `code1`                            |
-| description   | string | 否                                  | -                                 | 数据资源描述                            | `示例数据资源描述`                         |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| actions | string[] | 是 | - | 数据资源权限操作列表 数组长度限制：50。 | `["read","get"]` |
+| struct | string | 是 | - | 字符串数据资源节点  | `exampleStringStruct` |
+| resourceCode | string | 是 | - | 数据资源 Code, 权限空间内唯一  | `dataResourceTestCode` |
+| resourceName | string | 是 | - | 数据资源名称, 权限空间内唯一  | `示例数据资源名称` |
+| namespaceCode | string | 是 | - | 数据策略所在的权限空间 Code  | `code1` |
+| description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
 
 
 
@@ -87,7 +87,7 @@ public class CreateDataResourceByStringTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#CreateStringDataResourceRespDto">CreateStringDataResourceRespDto</a> | 响应数据 |
 
@@ -118,8 +118,8 @@ public class CreateDataResourceByStringTest {
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| resourceName | string | 是 | 数据资源名称,权限空间内唯一   |  `示例数据资源名称` |
-| resourceCode | string | 是 | 数据资源 Code,权限空间内唯一   |  `dataResourceTestCode` |
+| resourceName | string | 是 | 数据资源名称, 权限空间内唯一   |  `示例数据资源名称` |
+| resourceCode | string | 是 | 数据资源 Code, 权限空间内唯一   |  `dataResourceTestCode` |
 | type | string | 是 | 数据资源类型，目前支持树结构（TREE）、字符串（STRING）、数组（ARRAY）   | TREE |
 | description | string | 否 | 数据资源描述   |  `示例数据资源描述` |
 | struct | string | 是 | 字符串数据资源节点   |  `exampleStringStruct` |

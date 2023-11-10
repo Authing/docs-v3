@@ -9,10 +9,19 @@
 
 <LastUpdated />
 
-该接口用于用户列表权限查询，可以通过用户 ID 列表进行批量查询权限，也可以通过查询多个用户在同一个权限空间的权限。
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
 
-### 查询一个用户拥有的数组资源、字符串资源和树资源权限列表示例
 
+  ## 描述
+  该接口用于查询某些用户在某些权限空间的数据资源的权限数据。
+我们的鉴权接口针对不同的鉴权场景有多种，区别在于在所处的场景下能够传递的参数列表以及不同形式的出参，**当你需要查询某些用户的所有权限时**可以使用此接口，
+## 注意
+接口提供了两个数组类型的入参`userIds`和`namespaceCodes`来支持批量查询（注意：namespaceCodes 是可选的）。
+## 场景举例
+假如你的业务场景是用户登录后能看到他所有可以访问或者进行其他操作的文档、人员信息、设备信息等资源，那么你可以在用户登录后调用此接口查询用户的所有权限。
+## 请求示例
+### 查询单个用户权限列表示例
+注意：在此接口的返回参数中，树类型的数据资源权限返回是按照**路径**的方式返回的
 - 入参
   
 ```json
@@ -37,8 +46,9 @@
         "namespaceCode": "examplePermissionNamespace", 
         "resourceList": [
           {
-            "resourceCode": "strCode", 
-            "authorize": {
+            "resourceCode": "strCode",
+            "resourceType": "STRING",
+            "strAuthorize": {
               "value": "示例字符串资源", 
               "actions": [
                 "read", 
@@ -47,12 +57,14 @@
                 "write"
               ]
             }
-          }, 
+          },
           {
             "resourceCode": "arrayCode", 
-            "authorize": {
+            "resourceType": "ARRAY",
+            "arrAuthorize": {
               "values": [
-                "示例数据资源"
+                "示例数据资源1",
+                "示例数据资源2"
               ], 
               "actions": [
                 "read", 
@@ -64,10 +76,11 @@
           }, 
           {
             "resourceCode": "treeCode", 
-            "authorize": {
+            "resourceType": "TREE",
+            "treeAuthorize": {
               "authList": [
                 {
-                  "nodePath": "treeCode/treeChildrenCode1", 
+                  "nodePath": "/treeChildrenCode/treeChildrenCode1", 
                   "nodeActions": [
                     "read", 
                     "get"
@@ -76,7 +89,7 @@
                   "nodeValue": "treeChildrenValue1"
                 }, 
                 {
-                  "nodePath": "treeCode/treeChildrenCode2", 
+                  "nodePath": "/treeChildrenCode/treeChildrenCode2", 
                   "nodeActions": [
                     "read", 
                     "get"
@@ -85,7 +98,7 @@
                   "nodeValue": "treeChildrenValue2"
                 }, 
                 {
-                  "nodePath": "treeCode/treeChildrenCode3", 
+                  "nodePath": "/treeChildrenCode/treeChildrenCode3", 
                   "nodeActions": [
                     "read"
                   ], 
@@ -129,8 +142,9 @@
         "namespaceCode": "examplePermissionNamespace1", 
         "resourceList": [
           {
-            "resourceCode": "strCode1", 
-            "authorize": {
+            "resourceCode": "strCode",
+            "resourceType": "STRING",
+            "strAuthorize": {
               "value": "示例字符串资源", 
               "actions": [
                 "read", 
@@ -148,7 +162,8 @@
         "resourceList": [
           {
             "resourceCode": "arrayCode", 
-            "authorize": {
+            "resourceType": "ARRAY",
+            "arrAuthorize": {
               "values": [
                 "示例数组资源1", 
                 "示例数组资源2"
@@ -200,7 +215,8 @@
         "resourceList": [
           {
             "resourceCode": "strCode1", 
-            "authorize": {
+            "resourceType": "STRING",
+            "strAuthorize": {
               "value": "示例字符串资源", 
               "actions": [
                 "read", 
@@ -218,7 +234,8 @@
         "resourceList": [
           {
             "resourceCode": "arrayCode", 
-            "authorize": {
+            "resourceType": "ARRAY",
+            "arrAuthorize": {
               "values": [
                 "示例数组资源1", 
                 "示例数组资源2"
@@ -278,7 +295,24 @@
       "userId": "6301cexxxxxxxxxxxxxxxxx78",
       "namespaceCode": "examplePermissionNamespace",
       "resourceList": {
-        "resourceCode": "resourceCode"
+        "resourceCode": "resourceCode",
+        "resourceType": "STRING",
+        "strAuthorize": {
+          "value": "示例字符串资源 Value",
+          "actions": "[\"read\",\"get\"]"
+        },
+        "arrAuthorize": {
+          "values": "[\"value0\",\"value1\"]",
+          "actions": "[\"read\",\"get\"]"
+        },
+        "treeAuthorize": {
+          "authList": {
+            "nodePath": "/treeCode1/treeCode11",
+            "nodeName": "示例树资源节点名称",
+            "nodeActions": "[\"read\",\"get\"]",
+            "nodeValue": "示例树资源节点 Value"
+          }
+        }
       }
     }
   }
@@ -309,6 +343,42 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | resourceCode | string | 是 | 数据策略下所授权的数据资源 Code   |  `resourceCode` |
-| authorize |  | 是 | 用户在权限空间下所有的数据策略的资源列表   |  |
+| resourceType | string | 是 | 数据策略下所授权的数据资源类型，目前支持树结构（TREE）、字符串（STRING）、数组（ARRAY）三种类型，根据不同的类型返回不同的结构。<br>- `STRING`: 字符串类型结果 StrAuthorize<br>- `ARRAY`: 数组类型 ArrayAuthorize<br>- `TREE`: 树类型 TreeAuthorize    | TREE |
+| strAuthorize |  | 否 | 数据策略的字符串资源 嵌套类型：<a href="#StrAuthorize">StrAuthorize</a>。  |  |
+| arrAuthorize |  | 否 | 数据策略的数组资源 嵌套类型：<a href="#ArrayAuthorize">ArrayAuthorize</a>。  |  |
+| treeAuthorize |  | 否 | 数据策略的树资源 嵌套类型：<a href="#TreeAuthorize">TreeAuthorize</a>。  |  |
+
+
+### <a id="StrAuthorize"></a> StrAuthorize
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| value | string | 是 | 字符串资源 Value   |  `示例字符串资源 Value` |
+| actions | array | 是 | 字符串资源操作列表   |  `["read","get"]` |
+
+
+### <a id="ArrayAuthorize"></a> ArrayAuthorize
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| values | array | 是 | 数组资源 Value 列表   |  `["value0","value1"]` |
+| actions | array | 是 | 数组资源操作列表   |  `["read","get"]` |
+
+
+### <a id="TreeAuthorize"></a> TreeAuthorize
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| authList | array | 是 | 树资源授权列表 嵌套类型：<a href="#TreeAuthBo">TreeAuthBo</a>。  |  |
+
+
+### <a id="TreeAuthBo"></a> TreeAuthBo
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| nodePath | string | 是 | 树资源节点路径   |  `/treeCode1/treeCode11` |
+| nodeName | string | 是 | 树资源节点名称   |  `示例树资源节点名称` |
+| nodeActions | array | 是 | 树资源节点操作权限列表   |  `["read","get"]` |
+| nodeValue | string | 否 | 树资源节点 Value   |  `示例树资源节点 Value` |
 
 

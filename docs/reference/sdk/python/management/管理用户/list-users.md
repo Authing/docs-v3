@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 
 此接口用于获取用户列表，支持模糊搜索，以及通过用户基础字段、用户自定义字段、用户所在部门、用户历史登录应用等维度筛选用户。
 
@@ -131,11 +133,11 @@
 {
   "advancedFilter": [
     {
-      "field": "lastLoginTime",
+      "field": "lastLogin",
       "operator": "BETWEEN",
       "value": [
-        new Date(Date.now() - 14 * 24 * 60 * 60 * 1000),
-        new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        Date.now() - 14 * 24 * 60 * 60 * 1000,
+        Date.now() - 7 * 24 * 60 * 60 * 1000
       ]
     }
   ]
@@ -192,9 +194,10 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| keywords | string | 否 | - | 模糊搜索关键字  | `test` |
-| advancedFilter | <a href="#ListUsersAdvancedFilterItemDto">ListUsersAdvancedFilterItemDto[]</a> | 否 | - | 高级搜索  |  |
-| options | <a href="#ListUsersOptionsDto">ListUsersOptionsDto</a> | 否 | - | 可选项  |  |
+| keywords | string | 否 | - | 模糊搜索关键字  | `张三` |
+| advancedFilter | <a href="#ListUsersAdvancedFilterItemDto">ListUsersAdvancedFilterItemDto[]</a> | 否 | - | 高级搜索  | `[{"field":"status","operator":"EQUAL","value":"Activated"}]` |
+| searchQuery | object | 否 | - | 使用 ES 查询语句执行搜索命令  | `{"query":{"bool":{"must":[{"term":{"phone":"18818888888"}}],"must_not":[]}},"sort":["_score",{"created_at":"ASC"}]}` |
+| options | <a href="#ListUsersOptionsDto">ListUsersOptionsDto</a> | 否 | - | 可选项  | `{"pagination":{"page":1,"limit":10},"fuzzySearchOn":["phone","email","name","username","nickname","identityNumber"],"withCustomData":true,"withIdentities":true,"withDepartmentIds":true}` |
 
 
 
@@ -207,7 +210,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#UserPagingDto">UserPagingDto</a> | 响应数据 |
 
@@ -254,6 +257,14 @@
       "device": "iOS",
       "givenName": "三",
       "familyName": "张",
+      "middleName": "James",
+      "profile": "alice",
+      "preferredUsername": "alice",
+      "website": "https://my-website.com",
+      "zoneinfo": "GMT-08:00",
+      "locale": "af",
+      "formatted": "132, My Street, Kingston, New York 12401.",
+      "region": "Xinjiang Uyghur Autonomous Region",
       "userSourceType": "register",
       "passwordSecurityLevel": 1,
       "departmentIds": "[\"624d930c3xxxx5c08dd4986e\",\"624d93102xxxx012f33cd2fe\"]",
@@ -263,11 +274,11 @@
         "provider": "wechat",
         "type": "openid",
         "userIdInIdp": "oj7Nq05R-RRaqak0_YlMLnnIwsvg",
-        "userInfoInIdp": {},
         "accessToken": "57_fK0xgSL_NwVlS-gmUwlMQ2N6AONNIOAYxxxx",
         "refreshToken": "57_IZFu91Ak1Wg6DRytZFFIOd3upNF5lH7vPxxxxx",
         "originConnIds": "[\"605492ac41xxxxe0362f0707\"]"
       },
+      "identityNumber": "420421xxxxxxxx1234",
       "customData": {
         "school": "北京大学",
         "age": 22
@@ -285,7 +296,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| field | string | 是 | 高级搜索指定的用户字段：<br>- `id`: 用户 ID<br>- `phone`: 手机号   <br>- `email`: 邮箱<br>- `username`: 用户名<br>- `externalId`: 用户在外部系统的 ID<br>- `name`: 姓名<br>- `status`: 用户状态，可选值为 `Activated` 和 `Suspended`<br>- `gender`: 用户性别，可选值为 `M`（男性）、`F`（女性） 和 `U`（未知）<br>- `birthdate`: 出生日期<br>- `givenName`: 名<br>- `familyName`: 姓<br>- `preferredUsername`: Preferred Username<br>- `profile`: 个人资料<br>- `country`: 国家<br>- `province`: 省份<br>- `zoneinfo`: 时区<br>- `website`: 个人网站<br>- `address`: 地址<br>- `streetAddress`: 街道地址<br>- `company`: 公司<br>- `postalCode`: 邮政编码<br>- `formatted`: 格式化的地址<br>- `signedUp`: 注册时间<br>- `locale`: 语言信息<br>- `lastLoginTime`: 上次登录时间，为日期类型<br>- `loginsCount`: 登录次数，为数字类型<br>- `lastLoginApp`: 上次登录的应用 ID<br>- `userSource`: 用户来源，具体使用见示例<br>- `department`: 用户部门，具体使用见示例<br>- `loggedInApps`: 曾经登录过的应用，具体使用见示例<br>- `identity`: 用户外部身份源信息，具体使用见示例<br>- ... 其他自定义字段<br>   |  `nickname` |
+| field | string | 是 | 高级搜索指定的用户字段：<br>- `id`: 用户 ID<br>- `phone`: 手机号   <br>- `email`: 邮箱<br>- `username`: 用户名<br>- `externalId`: 用户在外部系统的 ID<br>- `name`: 姓名<br>- `status`: 用户状态，可选值为 `Activated` 和 `Suspended`<br>- `gender`: 用户性别，可选值为 `M`（男性）、`F`（女性） 和 `U`（未知）<br>- `birthdate`: 出生日期<br>- `givenName`: 名<br>- `familyName`: 姓<br>- `preferredUsername`: Preferred Username<br>- `profile`: 个人资料<br>- `country`: 国家<br>- `province`: 省份<br>- `zoneinfo`: 时区<br>- `website`: 个人网站<br>- `address`: 地址<br>- `streetAddress`: 街道地址<br>- `company`: 公司<br>- `postalCode`: 邮政编码<br>- `formatted`: 格式化的地址<br>- `signedUp`: 注册时间<br>- `locale`: 语言信息<br>- `lastLogin`: 上次登录时间，为时间戳类型<br>- `loginsCount`: 登录次数，为数字类型<br>- `lastLoginApp`: 上次登录的应用 ID<br>- `userSource`: 用户来源，具体使用见示例<br>- `department`: 用户部门，具体使用见示例<br>- `loggedInApps`: 曾经登录过的应用，具体使用见示例<br>- `identity`: 用户外部身份源信息，具体使用见示例<br>- ... 其他自定义字段<br>   |  `nickname` |
 | operator | string | 是 | 运算符，可选值为：<br>- `EQUAL`: 全等，适用于数字和字符串的全等匹配<br>- `NOT_EQUAL`: 不等于，适用于数字和字符串的匹配<br>- `CONTAINS`: 字符串包含<br>- `NOT_CONTAINS`: 字符串不包含<br>- `IS_NULL`: 为空<br>- `NOT_NULL`: 不为空<br>- `IN`: 为某个数组中的元素<br>- `GREATER`: 大于或等于，适用于数字、日期类型数据的比较<br>- `LESSER`: 小于或等于，适用于数字、日期类型数据的比较<br>- `BETWEEN`: 介于什么什么之间，适用于数字、日期类型数据的比较<br>       | EQUAL |
 | value | object | 否 | 搜索值，不同的 `field` 对应的 `value` 类型可能不一样，详情见示例。   |  `test` |
 
@@ -298,8 +309,10 @@
 | sort | array | 否 | 排序设置，可以设置多项按照多个字段进行排序 嵌套类型：<a href="#SortingDto">SortingDto</a>。  |  `[{"field":"createdAt","direction":"desc"},{"field":"loginsCount","direction":"desc"}]` |
 | fuzzySearchOn | array | 否 | 模糊搜索匹配的用户字段，可选值为：<br>- `phone`: 用户手机号，不能包含手机号区号，默认包含<br>- `email`: 用户邮箱，默认包含<br>- `name`: 用户名称，默认包含<br>- `username`: 用户名，默认包含<br>- `nickname`: 用户昵称，默认包含<br>- `id`: 用户 ID<br>- `company`: 公司<br>- `givenName`: 名<br>- `familyName`: 姓<br>- `middleName`: 中间名<br>- `preferredUsername`: Preferred Username<br>- `profile`: 个人资料<br>- `website`: 个人网站<br>- `address`: 地址<br>- `formatted`: 格式化地址<br>- `streetAddress`: 街道地址<br>- `postalCode`: 邮编号码<br>   |  |
 | withCustomData | boolean | 否 | 是否获取自定义数据   |  `true` |
+| withPost | boolean | 否 | 是否获取 部门信息   |  `true` |
 | withIdentities | boolean | 否 | 是否获取 identities   |  `true` |
 | withDepartmentIds | boolean | 否 | 是否获取部门 ID 列表   |  `true` |
+| flatCustomData | boolean | 否 | 是否拍平扩展字段   |  |
 
 
 ### <a id="PaginationDto"></a> PaginationDto
@@ -314,7 +327,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| field | string | 是 | 进行排序的字段，可选值为：<br>- `createdAt`: 创建时间<br>- `updatedAt`: 修改时间<br>- `email`: 邮箱<br>- `phone`: 手机号<br>- `username`: 用户名<br>- `externalId`: 外部 ID<br>- `status`: 用户状态<br>- `statusChangedAt`: 状态修改时间<br>- `passwordLastSetAt`: 密码修改时间<br>- `loginsCount`: 登录次数<br>- `gender`: 性别<br>- `lastLogin`: 上次登录时间<br>- `userSourceType`: 用户注册来源<br>- `lastMfaTime`: 上次 MFA 认证时间<br>- `passwordSecurityLevel`: 密码安全等级<br>- `phoneCountryCode`: 手机区号<br>- `lastIp`: 上次登录时使用的 IP<br>   | createdAt |
+| field | string | 是 | 进行排序的字段，可选值为：<br>- `createdAt`: 创建时间<br>- `updatedAt`: 修改时间<br>- `email`: 邮箱<br>- `phone`: 手机号<br>- `username`: 用户名<br>- `externalId`: 外部 ID<br>- `status`: 公共账号状态<br>- `statusChangedAt`: 状态修改时间<br>- `passwordLastSetAt`: 密码修改时间<br>- `loginsCount`: 登录次数<br>- `gender`: 性别<br>- `lastLogin`: 上次登录时间<br>- `userSourceType`: 公共账号注册来源<br>- `lastMfaTime`: 上次 MFA 认证时间<br>- `passwordSecurityLevel`: 密码安全等级<br>- `phoneCountryCode`: 手机区号<br>- `lastIp`: 上次登录时使用的 IP<br>   | createdAt |
 | order | string | 是 | 排序顺序：<br>- `desc`: 按照从大到小降序。<br>- `asc`: 按照从小到大升序。<br>       | desc |
 
 
@@ -330,7 +343,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
-| userId | string | 是 | 用户唯一标志，可以是用户 ID、用户名、邮箱、手机号、外部 ID、在外部身份源的 ID。   |  `6229ffaxxxxxxxxcade3e3d9` |
+| userId | string | 是 | 用户的唯一标志，可以是用户 ID、用户名、邮箱、手机号、externalId、在外部身份源的 ID，详情见 userIdType 字段的说明。默认为用户 id 。   |  `6229ffaxxxxxxxxcade3e3d9` |
 | createdAt | string | 是 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
 | updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
 | status | string | 是 | 账户当前状态   | Suspended |
@@ -362,14 +375,14 @@
 | device | string | 否 | 最近一次登录时使用的设备   |  `iOS` |
 | givenName | string | 否 | 名   |  `三` |
 | familyName | string | 否 | 姓   |  `张` |
-| middleName | string | 否 | 中间名   |  |
-| profile | string | 否 | Preferred Username   |  |
-| preferredUsername | string | 否 | Preferred Username   |  |
-| website | string | 否 | 用户个人网页   |  |
-| zoneinfo | string | 否 | 用户时区信息   |  |
-| locale | string | 否 | Locale   |  |
-| formatted | string | 否 | 标准的完整地址   |  |
-| region | string | 否 | 用户所在区域   |  |
+| middleName | string | 否 | 中间名   |  `James` |
+| profile | string | 否 | Preferred Username   |  `alice` |
+| preferredUsername | string | 否 | Preferred Username   |  `alice` |
+| website | string | 否 | 用户个人网页   |  `https://my-website.com` |
+| zoneinfo | string | 否 | 用户时区信息   |  `GMT-08:00` |
+| locale | string | 否 | Locale   |  `af` |
+| formatted | string | 否 | 标准的完整地址   |  `132, My Street, Kingston, New York 12401.` |
+| region | string | 否 | 用户所在区域   |  `Xinjiang Uyghur Autonomous Region` |
 | userSourceType | string | 是 | 来源类型:<br>- `excel`: 通过 excel 导入<br>- `register`: 用户自主注册<br>- `adminCreated`: 管理员后台手动创建（包含使用管理 API 创建用户 ）<br>- `syncTask`: 同步中心的同步任务  <br>   | excel |
 | userSourceId | string | 否 | 应用 ID 或者同步任务 ID   |  |
 | lastLoginApp | string | 否 | 用户上次登录的应用 ID   |  |
@@ -377,10 +390,14 @@
 | lastMfaTime | string | 否 | 用户上次进行 MFA 认证的时间   |  |
 | passwordSecurityLevel | number | 否 | 用户密码安全强度等级   |  `1` |
 | resetPasswordOnNextLogin | boolean | 否 | 下次登录要求重置密码   |  |
+| registerSource | array | 否 | 注册方式   |  |
 | departmentIds | array | 否 | 用户所属部门 ID 列表   |  `["624d930c3xxxx5c08dd4986e","624d93102xxxx012f33cd2fe"]` |
 | identities | array | 否 | 外部身份源 嵌套类型：<a href="#IdentityDto">IdentityDto</a>。  |  |
+| identityNumber | string | 否 | 用户身份证号码   |  `420421xxxxxxxx1234` |
 | customData | object | 否 | 用户的扩展字段数据   |  `{"school":"北京大学","age":22}` |
+| postIdList | array | 否 | 用户关联的部门 Id   |  |
 | statusChangedAt | string | 否 | 用户状态上次修改时间   |  `2022-07-03T02:20:30.000Z` |
+| tenantId | string | 否 | 用户租户 ID   |  |
 
 
 ### <a id="IdentityDto"></a> IdentityDto
@@ -392,15 +409,9 @@
 | provider | string | 是 | 外部身份源类型：<br>- `wechat`: 微信<br>- `qq`: QQ<br>- `wechatwork`: 企业微信<br>- `dingtalk`: 钉钉<br>- `weibo`: 微博<br>- `github`: GitHub<br>- `alipay`: 支付宝<br>- `baidu`: 百度<br>- `lark`: 飞书<br>- `welink`: Welink<br>- `yidun`: 网易易盾<br>- `qingcloud`: 青云<br>- `google`: Google<br>- `gitlab`: GitLab<br>- `gitee`: Gitee<br>- `twitter`: Twitter<br>- `facebook`: Facebook<br>- `slack`: Slack<br>- `linkedin`: Linkedin<br>- `instagram`: Instagram<br>- `oidc`: OIDC 型企业身份源<br>- `oauth2`: OAuth2 型企业身份源<br>- `saml`: SAML 型企业身份源<br>- `ldap`: LDAP 型企业身份源<br>- `ad`: AD 型企业身份源<br>- `cas`: CAS 型企业身份源<br>- `azure-ad`: Azure AD 型企业身份源<br>       | oidc |
 | type | string | 是 | Identity 类型，如 unionid, openid, primary   |  `openid` |
 | userIdInIdp | string | 是 | 在外部身份源中的 ID   |  `oj7Nq05R-RRaqak0_YlMLnnIwsvg` |
-| userInfoInIdp |  | 是 | 用户在 idp 中的身份信息 嵌套类型：<a href="#User">User</a>。  |  |
+| userInfoInIdp | object | 是 | 用户在 idp 中的身份信息   |  |
 | accessToken | string | 否 | 在外部身份源中的 Access Token（此参数只会在用户主动获取时返回，管理侧接口不会返回）。   |  `57_fK0xgSL_NwVlS-gmUwlMQ2N6AONNIOAYxxxx` |
 | refreshToken | string | 否 | 在外部身份源中的 Refresh Token（此参数只会在用户主动获取时返回，管理侧接口不会返回）。   |  `57_IZFu91Ak1Wg6DRytZFFIOd3upNF5lH7vPxxxxx` |
 | originConnIds | array | 是 | 身份来自的身份源连接 ID 列表   |  `["605492ac41xxxxe0362f0707"]` |
-
-
-### <a id="User"></a> User
-
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- |  ---- | ---- | ---- | ---- |
 
 

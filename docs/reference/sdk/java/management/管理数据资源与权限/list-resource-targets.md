@@ -1,4 +1,4 @@
-# 获取资源被授权的用户列表
+# 获取拥有某些资源权限的用户列表
 
 <!--
   警告⚠️：
@@ -9,8 +9,14 @@
 
 <LastUpdated />
 
-该接口主要用于获取资源被授权的用户列表，通过权限空间 Code 、资源操作列表以及资源列表查询有权限的用户列表。
-  
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
+  ## 描述
+  当你需要获取拥有指定资源的权限的用户时，可以使用此接口。
+  ## 场景举例
+  假如你的业务场景是：想看看当前文档能够编辑的用户列表，那么你可以使用此接口。
+  ## 请求示例
 ### 获取字符串和数组资源被授权的用户列表示例
 
 - 入参
@@ -116,13 +122,11 @@
 
 ## 请求参数
 
-类型： `ListResourceTargetsDto`
-
-| 名称            | 类型     | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-|---------------|--------|------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|
-| namespaceCode | string | 是                                  | -                                 | 权限空间 Code                         | `examplePermissionNamespace`       |
-| resources     | array  | 是                                  | -                                 | 数据策略所属的数据资源路径列表 数组长度限制：50。        | `["treeResourceCode1"]`            |
-| actions       | array  | 是                                  | -                                 | 数据资源权限操作列表 数组长度限制：50。             | `["get"]`                          |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| resources | string[] | 是 | - | 数据策略所属的数据资源路径列表 数组长度限制：50。 | `["treeResourceCode1"]` |
+| actions | string[] | 是 | - | 数据资源权限操作列表 数组长度限制：50。 | `["get"]` |
+| namespaceCode | string | 是 | - | 权限空间 Code  | `examplePermissionNamespace` |
 
 
 
@@ -157,7 +161,7 @@ public class ListResourceTargetsTest {
         // clientOptions.setHost("https://api.your-authing-service.com");
         ManagementClient client = new ManagementClient(clientOptions);
 
-        ListResourceTargetsDto request = new ListResourceTargetsDto();
+        ListResourceTargets request = new ListResourceTargets();
         request.setNamespaceCode("examplePermissionNamespace");
         ArrayList<String> actionList = new ArrayList<>();
         actionList.add("get");
@@ -182,13 +186,13 @@ public class ListResourceTargetsTest {
 
 类型： `ListResourceTargetsRespDto`
 
-| 名称         | 类型                                                                   | 描述                               |
-|------------|----------------------------------------------------------------------|----------------------------------|
-| statusCode | number                                                               | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
-| message    | string                                                               | 描述信息                             |
-| apiCode    | number                                                               | 细分错误码，可通过此错误码得到具体的错误类型。          |
-| requestId  | string                                                               | 请求 ID。当请求失败时会返回。                 |
-| data       | <a href="#ListResourceTargetsDataDto">ListResourceTargetsDataDto</a> | 响应数据                             |
+| 名称 | 类型 | 描述 |
+| ---- | ---- | ---- |
+| statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
+| message | string | 描述信息 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| requestId | string | 请求 ID。当请求失败时会返回。 |
+| data | <a href="#ListResourceTargetsDataDto">ListResourceTargetsDataDto</a> | 响应数据 |
 
 
 
@@ -216,24 +220,24 @@ public class ListResourceTargetsTest {
 
 ### <a id="ListResourceTargetsDataDto"></a> ListResourceTargetsDataDto
 
-| 名称           | 类型    | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div>                                                 | <div style="width:200px">示例值</div> |
-|--------------|-------|------------------------------------|-----------------------------------------------------------------------------------|------------------------------------|
-| authUserList | array | 是                                  | 用户授权列表 嵌套类型：<a href="#ListResourceTargetsDtoResp">ListResourceTargetsDtoResp</a>。 |                                    |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| authUserList | array | 是 | 用户授权列表 嵌套类型：<a href="#ListResourceTargetsDtoResp">ListResourceTargetsDtoResp</a>。  |  |
 
 
 ### <a id="ListResourceTargetsDtoResp"></a> ListResourceTargetsDtoResp
 
-| 名称             | 类型     | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div>                     | <div style="width:200px">示例值</div> |
-|----------------|--------|------------------------------------|-------------------------------------------------------|------------------------------------|
-| resource       | string | 是                                  | 资源路径                                                  | `treeResourceCode1`                |
-| actionAuthList | array  | 是                                  | 数据资源权限操作列表 嵌套类型：<a href="#ActionAuth">ActionAuth</a>。 |                                    |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| resource | string | 是 | 资源路径   |  `treeResourceCode1` |
+| actionAuthList | array | 是 | 数据资源权限操作列表 嵌套类型：<a href="#ActionAuth">ActionAuth</a>。  |  |
 
 
 ### <a id="ActionAuth"></a> ActionAuth
 
-| 名称      | 类型     | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-|---------|--------|------------------------------------|-----------------------------------|------------------------------------|
-| userIds | array  | 是                                  | 数据策略授权用户 ID 列表                    | `["63721xxxxxxxxxxxxdde14a3"]`     |
-| action  | string | 是                                  | 数据资源权限操作                          | `get`                              |
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| userIds | array | 是 | 数据策略授权用户 ID 列表   |  `["63721xxxxxxxxxxxxdde14a3"]` |
+| action | string | 是 | 数据资源权限操作   |  `get` |
 
 

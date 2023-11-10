@@ -1,0 +1,94 @@
+# 应用授权列表
+
+<!--
+  警告⚠️：
+  不要直接修改该文档，
+  https://github.com/Authing/authing-docs-factory
+  使用该项目进行生成
+-->
+
+<LastUpdated />
+
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+应用授权列表
+
+## 方法名称
+
+`ManagementClient.listAuthApplication`
+
+## 请求参数
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| appId | string | 是 | - | 应用 ID  | `5a597f35085a2000144a10ed` |
+| page | number | 否 | 1 | 当前页数，从 1 开始  | `1` |
+| limit | number | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
+| targetName | string | 否 | - | 主体名称  | `张三` |
+| targetTypeList | string[] | 否 | - | 主体类型列表, USER/ORG/ROLE/GROUP  | `["USER","ORG"]` |
+| effect | string | 否 | - | 操作，ALLOW/DENY  | `["ALLOW","DENY"]` |
+| enabled | boolean | 否 | - | 授权是否生效开关,  | `true` |
+
+
+
+
+## 请求响应
+
+类型： `ListApplicationAuthPaginatedRespDto`
+
+| 名称 | 类型 | 描述 |
+| ---- | ---- | ---- |
+| statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
+| message | string | 描述信息 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| requestId | string | 请求 ID。当请求失败时会返回。 |
+| data | <a href="#ListApplicationAuthPaginatedDataDto">ListApplicationAuthPaginatedDataDto</a> | 响应数据 |
+
+
+
+示例结果：
+
+```json
+{
+  "statusCode": 200,
+  "message": "操作成功",
+  "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
+  "data": {
+    "list": {
+      "id": "6229ffaxxxxxxxxcade3e3d9",
+      "targetId": "6229ffaxxxxxxxxcade3e3d9",
+      "targetName": "张三",
+      "targetType": "USER",
+      "effect": "ALLOW",
+      "enabled": true,
+      "permissionType": "SUBJECT"
+    },
+    "totalCount": 10
+  }
+}
+```
+
+## 数据结构
+
+
+### <a id="ListApplicationAuthPaginatedDataDto"></a> ListApplicationAuthPaginatedDataDto
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| list | array | 是 | 列表数据 嵌套类型：<a href="#ListApplicationAuthDataDto">ListApplicationAuthDataDto</a>。  |  |
+| totalCount | number | 是 | 记录总数   |  `10` |
+
+
+### <a id="ListApplicationAuthDataDto"></a> ListApplicationAuthDataDto
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| id | string | 是 | 授权 id   |  `6229ffaxxxxxxxxcade3e3d9` |
+| targetId | string | 是 | 主体 id   |  `6229ffaxxxxxxxxcade3e3d9` |
+| targetName | string | 是 | 主体名称   |  `张三` |
+| targetType | string | 是 | 主体类型，USER/ORG/GROUP/ROLE   | USER |
+| effect | string | 是 | 主体类型，ALLOW/DENY   | ALLOW |
+| enabled | boolean | 是 | 授权开关   |  `true` |
+| permissionType | string | 是 | 授权类型, ALL:所有人 SUBJECT:主体   | ALL |
+
+

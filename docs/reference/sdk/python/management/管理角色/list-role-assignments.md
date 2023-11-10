@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 获取角色授权列表。
 
 ## 方法名称
@@ -19,12 +21,12 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| roleCode | string | 是 | - | 角色 code,只能使用字母、数字和 -_，最多 50 字符  | `code_1` |
-| page | number | 否 | 1 | 当前页数，从 1 开始  | `1` |
-| limit | number | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
-| query | string | 否 | - | 按角色 Code 或者角色名称查询  | `示例应用` |
-| namespaceCode | string | 否 | - | 权限空间code  |  |
-| targetType | string[] | 否 | - | 目标类型，接受用户，部门  | `["USER","ORG"]` |
+ | roleCode | string  | 是 | - | 角色 code,只能使用字母、数字和 -_，最多 50 字符  | `code_1` |
+ | page | number  | 否 | 1 | 当前页数，从 1 开始  | `1` |
+ | limit | number  | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
+ | query | string  | 否 | - | 按角色 Code 或者角色名称查询  | `示例应用` |
+ | namespaceCode | string  | 否 | - | 权限空间code  |  |
+ | targetType | string[]  | 否 | - | 目标类型，接受用户，部门  | `["USER","ORG"]` |
 
 
 
@@ -37,7 +39,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#RoleListPageDto">RoleListPageDto</a> | 响应数据 |
 

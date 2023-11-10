@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 创建/修改用户、部门或角色自定义字段定义，如果传入的 key 不存在则创建，存在则更新。
 
 ## 方法名称
@@ -20,6 +22,7 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | list | <a href="#SetCustomFieldDto">SetCustomFieldDto[]</a> | 是 | - | 自定义字段列表 数组长度限制：50。 |  |
+| tenantId | string | 否 | - | 租户 ID  | `642c1df417c2d8a80d744c1d` |
 
 
 
@@ -79,7 +82,7 @@ public class SetCustomFieldsTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 响应数据 |
 
@@ -139,6 +142,9 @@ public class SetCustomFieldsTest {
 | userEditable | boolean | 否 | 用户是否可编辑   |  |
 | visibleInAdminConsole | boolean | 否 | 是否需要在 Authing 控制台中进行显示：<br>- 如果是用户自定义字段，控制是否在用户详情展示；<br>- 如果是部门自定义字段，控制是否在部门详情中展示；<br>- 如果是角色扩展字段，控制是否在角色详情中展示。<br>       |  `true` |
 | visibleInUserCenter | boolean | 否 | 是否在用户个人中心展示（此参数不控制 API 接口是否返回）。   |  `true` |
+| validateRules | object | 否 | 校验规则   |  `[{"type":"UNIQUE","content":"","error":"已存在当前"}]` |
+| appIds | array | 否 | App Id 列表   |  `["appid1"]` |
+| desensitization | boolean | 否 | 脱敏   |  `true` |
 | options | array | 否 | 枚举值类型选择项 嵌套类型：<a href="#CustomFieldSelectOption">CustomFieldSelectOption</a>。  |  `[{"value":"pku","label":"北京大学"}]` |
 | i18n |  | 否 | 多语言显示名称 嵌套类型：<a href="#CustomFieldI18n">CustomFieldI18n</a>。  |  `{"label":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"},"zh-TW":{"enabled":false,"value":"繁體中文"}}}` |
 

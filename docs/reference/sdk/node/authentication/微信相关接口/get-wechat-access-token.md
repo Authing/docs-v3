@@ -9,7 +9,10 @@
 
 <LastUpdated />
 
-获取 Authing 服务器缓存的微信小程序、公众号 Access Token
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
+
+获取 Authing 服务器缓存的微信小程序、公众号 Access Token（废弃，请使用 /api/v3/get-wechat-access-token-info）
 
 ## 方法名称
 
@@ -61,7 +64,7 @@ const authenticationClient = new AuthenticationClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#GetWechatAccessTokenDataDto">GetWechatAccessTokenDataDto</a> | 响应数据 |
 
@@ -86,6 +89,6 @@ const authenticationClient = new AuthenticationClient({
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | accessToken | string | 是 | Authing 服务器缓存的微信 Access Token   |  |
-| expiresAt | number | 是 | Access Token 到期时间，为单位为秒的时间戳   |  |
+| expiresAt | string | 是 | Access Token 到期时间，为单位为秒的时间戳   |  |
 
 

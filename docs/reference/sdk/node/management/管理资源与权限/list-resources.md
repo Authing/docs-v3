@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 根据筛选条件，分页获取资源详情列表。
 
 ## 方法名称
@@ -68,7 +70,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#ResourcePagingDto">ResourcePagingDto</a> | 响应数据 |
 
@@ -107,7 +109,7 @@ const managementClient = new ManagementClient({
 | ---- |  ---- | ---- | ---- | ---- |
 | statusCode | number | 是 | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。   |  `200` |
 | message | string | 是 | 描述信息   |  `操作成功` |
-| apiCode | number | 否 | 细分错误码，可通过此错误码得到具体的错误类型。   |  |
+| apiCode | number | 否 | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明   |  |
 | requestId | string | 否 | 请求 ID。当请求失败时会返回。   |  `934108e5-9fbf-4d24-8da1-c330328abd6c` |
 | totalCount | number | 是 | 记录总数   |  |
 | list | array | 是 | 数据 嵌套类型：<a href="#ResourceDto">ResourceDto</a>。  |  |

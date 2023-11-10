@@ -1,4 +1,4 @@
-# 创建数据策略
+# 创建数据策略（重点）
 
 <!--
   警告⚠️：
@@ -9,28 +9,98 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
 
-  创建数据策略，通过数据策略名称、数据策略描述以及资源节点列表进行创建，数据策略支持跨多个权限空间进行数据资源创建，并且支持创建时设置数据资源是否具有操作权限。
 
+  ## 描述
+  该接口用于创建数据策略，通过数据策略你可以将一组数据资源及其指定的操作进行绑定到一起，共同授权给主体。
+  ## 注意
+为了方便使用，`permissions` 字段我们基于路径的方式提供了快捷的写法，如：
+- 数组、字符串资源：权限空间 code/数据资源 code/数据资源某一 action（如果表示所有操作，则使用`*`替代action）
+- 树类型资源：权限空间 code/数据资源 code/node code 1/node code 1_1/.../数据资源某一 action
+
+## 请求示例
+假设我们要对一名研发人员进行授权，首先创建 3 个数据资源如下：
 ```json
 {
-  "policyName": "示例数据策略",
+  "namespaceCode": "examplePermissionNamespace",
+  "resourceName": "服务器",
+  "resourceCode": "server_2023",
+  "type": "STRING",
+  "struct": "server_2023",
+  "actions": ["read", "write"]
+}
+```
+```json
+{
+  "namespaceCode": "examplePermissionNamespace",
+  "resourceName": "研发知识库",
+  "description": "",
+  "resourceCode": "rd_document",
+  "type": "STRING",
+  "struct": "https://www.authing.com/rd_document",
+  "actions": ["read", "write", "share"]
+}
+```
+```json
+{
+  "namespaceCode": "examplePermissionNamespace",
+  "resourceName": "研发内部平台菜单",
+  "description": "这是研发使用的内部平台菜单",
+  "resourceCode": "rd_internal_platform",
+  "type": "TREE",
+  "struct": [
+    {
+      "name": "部署",
+      "code": "deploy",
+      "children": [
+        {
+          "name": "生产环境",
+          "code": "prod"
+        },
+        {
+          "name": "测试环境",
+          "code": "test"
+        }
+      ]
+    },
+    {
+      "name": "数据库",
+      "code": "db"
+      "children": [
+        {
+          "name": "查询",
+          "code": "query"
+        },
+        {
+          "name": "导出",
+          "code": "export"
+        }
+      ]
+    }
+  ],
+  "actions": ["access", "execute"]
+}
+```
+我们分配一台服务器：server_2023 给他使用，他可以在上面进行任意操作，同时他可以阅读、编辑研发知识库，最后他可以在研发内部平台中进行部署测试环境，但是不能够导出数据库数据。
+```json
+{
+  "policyName": "研发人员策略",
   "description": "这是一个示例数据策略",
   "statementList": [
     {
       "effect": "ALLOW",
       "permissions": [ 
-        "examplePermissionNamespaceCode/strResourceCode/exampleAction",
-        "examplePermissionNamespaceCode/arrResourceCode/exampleAction",
-        "examplePermissionNamespaceCode/treeResourceCode/strutCode1/exampleAction"
+        "examplePermissionNamespaceCode/server_2023/*",
+        "examplePermissionNamespaceCode/rd_document/read",
+        "examplePermissionNamespaceCode/rd_document/write",
+        "examplePermissionNamespaceCode/rd_internal_platform/deploy/test/execute"
        ]
     },
     {
       "effect": "DENY",
       "permissions": [ 
-        "examplePermissionNamespaceCode/strResourceCode1/exampleAction", 
-        "examplePermissionNamespaceCode/arrResourceCode1/exampleAction",
-        "examplePermissionNamespaceCode/treeResourceCode1/strutCode1/exampleAction"
+        "examplePermissionNamespaceCode/rd_internal_platform/db/export/execute"
       ]
     }
   ]
@@ -43,8 +113,6 @@
 `ManagementClient.CreateDataPolicy`
 
 ## 请求参数
-类型： `CreateDataPolicyDto`
-
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -104,7 +172,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#CreateDataPolicyRespDto">CreateDataPolicyRespDto</a> | 响应数据 |
 

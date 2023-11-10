@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 创建应用
 
 ## 方法名称
@@ -35,7 +37,7 @@
 | samlProviderEnabled | boolean | 否 | - | 是否开启 SAML 身份提供商  |  |
 | samlConfig | <a href="#SamlIdpConfig">SamlIdpConfig</a> | 否 | [object Object] | SAML 协议配置  |  |
 | oauthProviderEnabled | boolean | 否 | - | 是否开启 OAuth 身份提供商  |  |
-| oauthConfig | <a href="#OauthIdpConfig">OauthIdpConfig</a> | 否 | - | OAuth2.0 协议配置。【重要提示】不再推荐使用 OAuth2.0，建议切换到 OIDC。  | `{"grants":["authorization_code"],"access_token_lifetime":1209600,"refresh_token_lifetime":2592000,"introspection_endpoint_auth_method":"client_secret_post","revocation_endpoint_auth_method":"client_secret_post"}` |
+| oauthConfig | <a href="#OauthIdpConfig">OauthIdpConfig</a> | 否 | - | OAuth2.0 协议配置。【重要提示】不再推荐使用 OAuth2.0，建议切换到 OIDC。  | `{"grants":["authorization_code"],"access_token_lifetime":1209600,"refresh_token_lifetime":2592000,"introspection_endpoint_auth_method":"client_secret_post","revocation_endpoint_auth_method":"client_secret_post","id":"654d947a7bb83ca5d136581e","client_secret":"f8bb151818bd51e7e80c7635ec6e05fa","redirect_uris":["http://localhost:8080"]}` |
 | casProviderEnabled | boolean | 否 | - | 是否开启 CAS 身份提供商  |  |
 | casConfig | <a href="#CasIdPConfig">CasIdPConfig</a> | 否 | - | CAS 协议配置  | `{"casUserIdentifier":"${user.username}","customAttributes":{"customAttr1":"123"},"stLifetime":300}` |
 | loginConfig | <a href="#ApplicationLoginConfigInputDto">ApplicationLoginConfigInputDto</a> | 否 | - | 登录配置  |  |
@@ -110,7 +112,7 @@ Change the background color
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#CreateApplicationRespDataDto">CreateApplicationRespDataDto</a> | 响应数据 |
 

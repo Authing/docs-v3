@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 批量获取组织机构详情
 
 ## 方法名称
@@ -21,6 +23,8 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
  | organizationCodeList | string[]  | 是 | - | 组织 Code（organizationCode）列表  | `["code1","code2"]` |
  | withCustomData | boolean  | 否 | - | 是否获取自定义数据  | `true` |
+ | withPost | boolean  | 否 | - | 是否获取 部门信息  | `true` |
+ | tenantId | string  | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
 
 
 
@@ -68,7 +72,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 响应数据 |
 
@@ -106,7 +110,11 @@ func main() {
     },
     "customData": {
       "icon": "https://example.com/logo"
-    }
+    },
+    "tenantId": "623c20b2a062aaaaf41b17da",
+    "postIdList": "[\"xxx\"]",
+    "status": "false",
+    "allow": "[\"xxx\"]"
   }
 }
 ```
@@ -131,6 +139,10 @@ func main() {
 | isVirtualNode | boolean | 是 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#OrganizationNameI18nDto">OrganizationNameI18nDto</a>。  |  `{"organizationName":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |
+| tenantId | string | 否 | 租户 ID   |  `623c20b2a062aaaaf41b17da` |
+| postIdList | array | 否 | 岗位 id 列表   |  `["xxx"]` |
+| status | string | 否 | 状态   |  `false` |
+| allow | string | 否 | 访问限制   |  `["xxx"]` |
 
 
 ### <a id="OrganizationNameI18nDto"></a> OrganizationNameI18nDto

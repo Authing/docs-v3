@@ -9,6 +9,8 @@
 
 <LastUpdated />
 
+> 此文档根据 https://github.com/authing/authing-docs-factory 基于 https://api-explorer.authing.cn V3 API 自动生成，和 API 参数、返回结果保持一致，如此文档描述有误，请以 V3 API 为准。
+
 通过组织 code、搜索关键词，搜索部门，可以搜索组织名称等。
 
 ## 方法名称
@@ -21,11 +23,14 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | organizationCode | string | 是 | - | 组织 code  | `steamory` |
 | withCustomData | boolean | 否 | - | 是否获取自定义数据  | `true` |
+| withPost | boolean | 否 | - | 是否获取 部门信息  | `true` |
 | page | number | 否 | 1 | 当前页数，从 1 开始  | `1` |
 | limit | number | 否 | 10 | 每页数目，最大不能超过 50，默认为 10  | `10` |
 | advancedFilter | <a href="#SearchDepartmentsFilterItemDto">SearchDepartmentsFilterItemDto[]</a> | 否 | - | 高级搜索  |  |
 | sortBy | string | 否 | updatedAt | 排序依据，如 更新时间或创建时间  | `updatedAt` |
 | orderBy | string | 否 | DESC | 增序或降序  | `DESC` |
+| sort | <a href="#DepartmentSortingDto">DepartmentSortingDto[]</a> | 否 | - | 排序设置，可以设置多项按照多个字段进行排序  | `[{"field":"createdAt","direction":"desc"},{"field":"name","direction":"desc"}]` |
+| tenantId | string | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
 
 
 
@@ -38,7 +43,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | array | 响应数据 |
 
@@ -62,6 +67,7 @@
     "description": "技术研发部门",
     "parentDepartmentId": "6229c4deb3e4d8a20b6021ff",
     "code": "6229c4deb3e4d8a20b6021ff",
+    "parentDepartmentCode": "test",
     "membersCount": 11,
     "hasChildren": true,
     "i18n": {
@@ -78,7 +84,10 @@
     },
     "customData": {
       "icon": "https://example.com/logo"
-    }
+    },
+    "postIdList": "[\"xxx\"]",
+    "status": "false",
+    "allow": "[\"xxx\"]"
   }
 }
 ```
@@ -95,6 +104,14 @@
 | value | object | 否 | 搜索值，不同的 `field` 对应的 `value` 类型可能不一样   |  `test` |
 
 
+### <a id="DepartmentSortingDto"></a> DepartmentSortingDto
+
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| field | string | 是 | 进行排序的字段，可选值为：<br>- `updatedAt`: 创建时间<br>- `createdAt`: 修改时间<br>- `name`: 邮箱<br>   | updatedAt |
+| order | string | 是 | 排序顺序：<br>- `desc`: 按照从大到小降序。<br>- `asc`: 按照从小到大升序。<br>       | desc |
+
+
 ### <a id="DepartmentDto"></a> DepartmentDto
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
@@ -109,11 +126,16 @@
 | description | string | 否 | 部门描述   |  `技术研发部门` |
 | parentDepartmentId | string | 是 | 父部门 id   |  `6229c4deb3e4d8a20b6021ff` |
 | code | string | 否 | 部门识别码   |  `6229c4deb3e4d8a20b6021ff` |
+| parentDepartmentCode | string | 是 | 父部门 code   |  `test` |
 | membersCount | number | 是 | 部门人数（仅包含直属成员）   |  `11` |
 | hasChildren | boolean | 是 | 是否包含子部门   |  `true` |
 | isVirtualNode | boolean | 否 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#DepartmentI18nDto">DepartmentI18nDto</a>。  |  `{"name":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |
+| posts | array | 否 | 部门关联的岗位   |  |
+| postIdList | array | 否 | 岗位 id 列表   |  `["xxx"]` |
+| status | boolean | 否 | 部门状态   |  `false` |
+| allow | string | 否 | 访问限制   |  `["xxx"]` |
 
 
 ### <a id="DepartmentI18nDto"></a> DepartmentI18nDto
