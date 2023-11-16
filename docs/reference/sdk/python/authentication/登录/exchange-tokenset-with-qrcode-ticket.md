@@ -85,7 +85,7 @@ JS 代码示例：
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#LoginTokenResponseDataDto">LoginTokenResponseDataDto</a> | 响应数据 |
 
@@ -99,6 +99,7 @@ JS 代码示例：
   "message": "操作成功",
   "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
   "data": {
+    "scope": "openid profile",
     "access_token": "eyJhbGciOiJSxxxxx",
     "id_token": "eyJhbGxxxx",
     "refresh_token": "WPsGJbvpBjqXz6IJIr1UHKyrdVF",
@@ -115,6 +116,7 @@ JS 代码示例：
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
+| scope | string | 否 | access_token 对应的 scope   |  `openid profile` |
 | access_token | string | 否 | 接口调用凭据，在限制时间内被授权访问资源 API   |  `eyJhbGciOiJSxxxxx` |
 | id_token | string | 否 | 用户的身份凭证，解析后会包含用户信息   |  `eyJhbGxxxx` |
 | refresh_token | string | 否 | refresh_token 用于获取新的 AccessToken   |  `WPsGJbvpBjqXz6IJIr1UHKyrdVF` |

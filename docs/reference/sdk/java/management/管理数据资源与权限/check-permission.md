@@ -223,7 +223,7 @@ public class CheckPermissionTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | data | <a href="#CheckPermissionDataDto">CheckPermissionDataDto</a> | 响应数据 |
 
 
@@ -260,7 +260,7 @@ public class CheckPermissionTest {
 | deviceType | string | 否 | 设备类型：PC/Mobile   | PC |
 | systemType | string | 否 | 操作类型：Windows、Android、iOS、MacOS   | Windows |
 | browserType | string | 否 | 浏览器类型：IE/Chrome/Firefox   | IE |
-| requestDate | string | 否 | 请求时间   |  `2022-07-03T02:20:30.000Z` |
+| requestDate | string | 否 | 请求时间   |  `2022-07-03T03:20:30.000Z` |
 
 
 ### <a id="CheckPermissionDataDto"></a> CheckPermissionDataDto

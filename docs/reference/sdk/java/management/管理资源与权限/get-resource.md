@@ -22,7 +22,7 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
  | code | string  | 是 | - | 资源唯一标志符  | `ecs` |
- | namespace | string  | 否 | - | 所属权限分组(权限空间)的 Code  | `default` |
+ | namespace | string  | 否 | - | 所属权限分组(权限空间)的 Code，不传获取默认权限分组。  | `default` |
 
 
 
@@ -73,7 +73,7 @@ public class GetResourceTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#ResourceDto">ResourceDto</a> | 资源详情 |
 
@@ -111,7 +111,7 @@ public class GetResourceTest {
 | type | string | 是 | 资源类型，如数据、API、按钮、菜单   | DATA |
 | actions | array | 否 | 资源定义的操作类型 嵌套类型：<a href="#ResourceAction">ResourceAction</a>。数组长度限制：100。  |  `[{"name":"ecs:Start","description":"启动 ECS 服务器"},{"name":"ecs:Stop","description":"停止 ECS 服务器"}]` |
 | apiIdentifier | string | 否 | API 资源的 URL 标识   |  `https://my-awesome-api.com/api` |
-| namespace | string | 否 | 所属权限分组(权限空间)的 Code   |  `default` |
+| namespace | string | 否 | 所属权限分组(权限空间)的 Code，不传获取默认权限分组。   |  `default` |
 | linkedToTenant | boolean | 否 | 租户应用是否关联自建应用资源   |  |
 
 

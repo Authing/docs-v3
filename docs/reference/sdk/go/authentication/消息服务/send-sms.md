@@ -77,7 +77,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 
 

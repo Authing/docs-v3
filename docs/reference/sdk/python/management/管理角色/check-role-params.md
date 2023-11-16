@@ -22,7 +22,7 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:60px">默认值</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | code | string | 是 | - | 权限分组（权限空间）内角色的唯一标识符  | `exampleCode` |
-| namespace | string | 是 | - | 所属权限分组(权限空间)的 Code  | `default` |
+| namespace | string | 是 | - | 所属权限分组(权限空间)的 Code，不传使用默认权限分组。  | `default` |
 | name | string | 否 | - | 权限分组（权限空间）内角色名称  | `示例角色名称` |
 
 
@@ -36,7 +36,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | data | <a href="#CheckRoleParamsRespDto">CheckRoleParamsRespDto</a> | 响应数据 |
 
 

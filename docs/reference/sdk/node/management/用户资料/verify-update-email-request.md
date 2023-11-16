@@ -45,7 +45,7 @@ const authenticationClient = new AuthenticationClient({
   const result = await authenticationClient.verifyUpdateEmailRequest({
     verifyMethod:
       Models.VerifyUpdateEmailRequestDto.verifyMethod.EMAIL_PASSCODE,
-    emailPasscodePayload: {
+    emailPassCodePayload: {
       newEmail: 'new@example.com',
       newEmailPassCode: '123456',
       oldEmail: 'old@example.com',

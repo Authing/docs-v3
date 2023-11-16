@@ -23,7 +23,7 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
  | userId | string  | 是 | - | 用户的唯一标志，可以是用户 ID、用户名、邮箱、手机号、externalId、在外部身份源的 ID，详情见 userIdType 字段的说明。默认为用户 id 。  | `6229ffaxxxxxxxxcade3e3d9` |
  | userIdType | string  | 否 | user_id | 用户 ID 类型，默认值为 `user_id`，可选值为：<br>- `user_id`: Authing 用户 ID，如 `6319a1504f3xxxxf214dd5b7`<br>- `phone`: 用户手机号<br>- `email`: 用户邮箱<br>- `username`: 用户名<br>- `external_id`: 用户在外部系统的 ID，对应 Authing 用户信息的 `externalId` 字段<br>- `identity`: 用户的外部身份源信息，格式为 `<extIdpId>:<userIdInIdp>`，其中 `<extIdpId>` 为 Authing 身份源的 ID，`<userIdInIdp>` 为用户在外部身份源的 ID。<br>示例值：`62f20932716fbcc10d966ee5:ou_8bae746eac07cd2564654140d2a9ac61`。<br>- `sync_relation`: 用户的外部身份源信息，格式为 `<provier>:<userIdInIdp>`，其中 `<provier>` 为同步身份源类型，如 wechatwork, lark；`<userIdInIdp>` 为用户在外部身份源的 ID。<br>示例值：`lark:ou_8bae746eac07cd2564654140d2a9ac61`。<br>  | `user_id` |
- | namespace | string  | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
+ | namespace | string  | 否 | default | 所属权限分组(权限空间)的 code，不传获取默认权限分组。  | `default` |
 
 
 
@@ -36,7 +36,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#PublicAccountPagingDto">PublicAccountPagingDto</a> | 响应数据 |
 
@@ -52,8 +52,8 @@
   "data": {
     "list": {
       "userId": "6229ffaxxxxxxxxcade3e3d9",
-      "createdAt": "2022-07-03T02:20:30.000Z",
-      "updatedAt": "2022-07-03T02:20:30.000Z",
+      "createdAt": "2022-07-03T03:20:30.000Z",
+      "updatedAt": "2022-07-03T03:20:30.000Z",
       "status": "Activated",
       "workStatus": "Active",
       "externalId": "10010",
@@ -65,12 +65,12 @@
       "nickname": "张三",
       "photo": "https://files.authing.co/authing-console/default-user-avatar.png",
       "loginsCount": 3,
-      "lastLogin": "2022-07-03T02:20:30.000Z",
+      "lastLogin": "2022-07-03T03:20:30.000Z",
       "lastIp": "127.0.0.1",
       "gender": "M",
       "emailVerified": true,
       "phoneVerified": true,
-      "passwordLastSetAt": "2022-07-03T02:20:30.000Z",
+      "passwordLastSetAt": "2022-07-03T03:20:30.000Z",
       "birthdate": "2022-06-03",
       "country": "CN",
       "province": "BJ",
@@ -99,7 +99,7 @@
         "school": "北京大学",
         "age": 22
       },
-      "statusChangedAt": "2022-07-03T02:20:30.000Z"
+      "statusChangedAt": "2022-07-03T03:20:30.000Z"
     }
   }
 }
@@ -121,9 +121,9 @@
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | userId | string | 是 | 用户的唯一标志，可以是用户 ID、用户名、邮箱、手机号、externalId、在外部身份源的 ID，详情见 userIdType 字段的说明。默认为用户 id 。   |  `6229ffaxxxxxxxxcade3e3d9` |
-| createdAt | string | 是 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
-| status | string | 是 | 账户当前状态   | Suspended |
+| createdAt | string | 是 | 创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 是 | 更新时间   |  `2022-07-03T03:20:30.000Z` |
+| status | string | 是 | 账户当前状态：<br>- Activated: 正常状态<br>- Suspended: 已停用<br>- Deactivated: 已禁用<br>- Resigned: 已离职<br>- Archived: 已归档<br>     | Suspended |
 | workStatus | string | 是 | 账户当前工作状态   | Closed |
 | externalId | string | 否 | 第三方外部 ID   |  `10010` |
 | email | string | 否 | 邮箱，不区分大小写   |  `test@example.com` |
@@ -134,12 +134,12 @@
 | nickname | string | 否 | 昵称   |  `张三` |
 | photo | string | 否 | 头像链接   |  `https://files.authing.co/authing-console/default-user-avatar.png` |
 | loginsCount | number | 否 | 历史总登录次数   |  `3` |
-| lastLogin | string | 否 | 上次登录时间   |  `2022-07-03T02:20:30.000Z` |
+| lastLogin | string | 否 | 上次登录时间   |  `2022-07-03T03:20:30.000Z` |
 | lastIp | string | 否 | 上次登录 IP   |  `127.0.0.1` |
 | gender | string | 是 | 性别:<br>- `M`: 男性，`male`<br>- `F`: 女性，`female`<br>- `U`: 未知，`unknown`<br>     | M |
 | emailVerified | boolean | 是 | 邮箱是否验证   |  `true` |
 | phoneVerified | boolean | 是 | 手机号是否验证   |  `true` |
-| passwordLastSetAt | string | 否 | 用户上次密码修改时间   |  `2022-07-03T02:20:30.000Z` |
+| passwordLastSetAt | string | 否 | 用户上次密码修改时间   |  `2022-07-03T03:20:30.000Z` |
 | birthdate | string | 否 | 出生日期   |  `2022-06-03` |
 | country | string | 否 | 所在国家   |  `CN` |
 | province | string | 否 | 所在省份   |  `BJ` |
@@ -171,7 +171,7 @@
 | departmentIds | array | 否 | 公共账号所属部门 ID 列表   |  `["624d930c3xxxx5c08dd4986e","624d93102xxxx012f33cd2fe"]` |
 | identityNumber | string | 否 | 用户身份证号码   |  `420421xxxxxxxx1234` |
 | customData | object | 否 | 公共账号的扩展字段数据   |  `{"school":"北京大学","age":22}` |
-| statusChangedAt | string | 否 | 公共账号状态上次修改时间   |  `2022-07-03T02:20:30.000Z` |
+| statusChangedAt | string | 否 | 公共账号状态上次修改时间   |  `2022-07-03T03:20:30.000Z` |
 | tenantId | string | 否 | 用户租户 ID   |  |
 
 

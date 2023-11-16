@@ -24,7 +24,7 @@
 | name | string | 是 | - | 权限分组（权限空间）角色名称  | `name` |
 | newCode | string | 是 | - | 角色新的权限分组（权限空间）内唯一识别码  | `code2` |
 | code | string | 是 | - | 权限分组(权限空间）内角色的唯一标识符  | `code1` |
-| namespace | string | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
+| namespace | string | 否 | default | 所属权限分组(权限空间)的 code，不传获取默认权限分组。  | `default` |
 | description | string | 否 | - | 角色描述  | `this is description` |
 | status | string | 否 | - | 角色状态，ENABLE-表示正常，DISABLE-表示禁止  | `enable` |
 | disableTime | string | 否 | - | 角色自动禁止时间，单位毫秒, 如果传null表示永久有效  | `1669881887852` |
@@ -75,7 +75,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#IsSuccessDto">IsSuccessDto</a> | 操作是否成功 |
 

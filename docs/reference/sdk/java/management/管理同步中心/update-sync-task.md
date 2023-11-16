@@ -81,7 +81,7 @@ public class UpdateSyncTaskTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#SyncTaskPagingDto">SyncTaskPagingDto</a> | 响应数据 |
 
@@ -97,15 +97,15 @@ public class UpdateSyncTaskTest {
   "data": {
     "list": {
       "syncTaskId": 1000,
-      "createdAt": "2022-07-03T02:20:30.000Z",
-      "updatedAt": "2022-07-03T02:20:30.000Z",
+      "createdAt": "2022-07-03T03:20:30.000Z",
+      "updatedAt": "2022-07-03T03:20:30.000Z",
       "syncTaskName": "我的飞书同步任务",
       "syncTaskType": "lark",
       "syncFlow": "upstream",
       "syncTrigger": "manually",
       "lastSyncRate": 80,
       "lastSyncStatus": "success",
-      "lastSyncTime": "2022-07-03T02:20:30.000Z",
+      "lastSyncTime": "2022-07-03T03:20:30.000Z",
       "organizationCode": "steamory",
       "provisioningScope": {
         "all": true,
@@ -306,8 +306,8 @@ public class UpdateSyncTaskTest {
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | syncTaskId | number | 是 | 同步任务 ID   |  `1000` |
-| createdAt | string | 是 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 是 | 更新时间   |  `2022-07-03T03:20:30.000Z` |
 | syncTaskName | string | 是 | 同步任务名称   |  `我的飞书同步任务` |
 | syncTaskType | string | 是 | 同步任务类型:<br>- `lark`: 飞书<br>- `lark-international`: 飞书国际版<br>- `wechatwork`: 企业微信<br>- `dingtalk`: 钉钉<br>- `active-directory`: Windows AD<br>- `ldap`: LDAP<br>- `italent`: 北森<br>- `maycur`: 每刻报销<br>- `moka`: Moka<br>- `fxiaoke`: 纷享销客<br>- `xiaoshouyi`: 销售易<br>- `kayang`: 嘉扬 HR<br>- `scim`: 自定义同步源<br>       | lark |
 | syncFlow | string | 是 | 同步任务数据流向：<br>- `upstream`: 作为上游，将数据同步到 Authing<br>- `downstream`: 作为下游，将 Authing 数据同步到此系统<br>       | upstream |
@@ -315,7 +315,7 @@ public class UpdateSyncTaskTest {
 | lastSyncMessage | string | 否 | 最近一次同步错误信息   |  |
 | lastSyncRate | number | 否 | 最近一次同步进度   |  `80` |
 | lastSyncStatus | string | 否 | 最近一次同步状态:<br>- `free`: 空闲状态，从未执行<br>- `pending`: 等待系统执行<br>- `onProgress`: 正在执行<br>- `success`: 成功<br>- `failed`: 失败<br>       | free |
-| lastSyncTime | string | 否 | 最近一次同步时间   |  `2022-07-03T02:20:30.000Z` |
+| lastSyncTime | string | 否 | 最近一次同步时间   |  `2022-07-03T03:20:30.000Z` |
 | organizationCode | string | 否 | 此同步任务绑定的组织机构。针对上游同步，需执行一次同步任务之后才会绑定组织机构；针对下游同步，创建同步任务的时候就需要设置。   |  `steamory` |
 | provisioningScope |  | 否 | 同步范围，**只针对下游同步任务有效**。为空表示同步整个组织机构。 嵌套类型：<a href="#SyncTaskProvisioningScope">SyncTaskProvisioningScope</a>。  |  |
 | fieldMapping | array | 是 | 字段映射配置 嵌套类型：<a href="#SyncTaskFieldMapping">SyncTaskFieldMapping</a>。  |  |

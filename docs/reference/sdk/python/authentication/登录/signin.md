@@ -90,7 +90,7 @@ JS 代码示例：
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#LoginTokenResponseDataDto">LoginTokenResponseDataDto</a> | 响应数据 |
 
@@ -104,6 +104,7 @@ JS 代码示例：
   "message": "操作成功",
   "requestId": "934108e5-9fbf-4d24-8da1-c330328abd6c",
   "data": {
+    "scope": "openid profile",
     "access_token": "eyJhbGciOiJSxxxxx",
     "id_token": "eyJhbGxxxx",
     "refresh_token": "WPsGJbvpBjqXz6IJIr1UHKyrdVF",
@@ -162,7 +163,7 @@ JS 代码示例：
 | context | object | 否 | 额外请求上下文，将会传递到认证前和认证后的 [Pipeline](https://docs.authing.cn/v2/guides/pipeline/) 的 `context` 对象中。了解[如何在 Pipeline 的 `context` 参数中获取传入的额外 context](https://docs.authing.cn/v2/guides/pipeline/context-object.html)。   |  `{"source":"utm"}` |
 | tenantId | string | 否 | 租户 ID   |  `625783d629f2bd1f5ddddd98c` |
 | customData | object | 否 | 设置额外的用户自定义数据，你需要先在 Authing 控制台[配置自定义数据](https://docs.authing.cn/v2/guides/users/user-defined-field/)。   |  `{"school":"pku","age":"20"}` |
-| autoRegister | boolean | 否 | 是否开启自动注册。如果设置为 true，当用户不存在的时候，会先自动为其创建一个账号。   |  |
+| autoRegister | boolean | 否 | 是否开启自动注册。如果设置为 true，当用户不存在的时候，会先自动为其创建一个账号。注意：此参数只针对指定的用户名密码、邮箱密码、手机号密码有效，通用的账号密码不能设置此参数。   |  |
 | captchaCode | string | 否 | Captcha 图形验证码，不区分大小写。当**安全策略**设置为**验证码**且触发**登录失败次数限制**时，下次登录需要填写图形验证码。   |  `a8nz` |
 | passwordEncryptType | string | 否 | 密码加密类型，支持使用 RSA256 和国密 SM2 算法进行加密。默认为 `none` 不加密。<br>- `none`: 不对密码进行加密，使用明文进行传输。<br>- `rsa`: 使用 RSA256 算法对密码进行加密，需要使用 Authing 服务的 RSA 公钥进行加密，请阅读**介绍**部分了解如何获取 Authing 服务的 RSA256 公钥。<br>- `sm2`: 使用 [国密 SM2 算法](https://baike.baidu.com/item/SM2/15081831) 对密码进行加密，需要使用 Authing 服务的 SM2 公钥进行加密，请阅读**介绍**部分了解如何获取 Authing 服务的 SM2 公钥。<br>     | sm2 |
 
@@ -171,6 +172,7 @@ JS 代码示例：
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
+| scope | string | 否 | access_token 对应的 scope   |  `openid profile` |
 | access_token | string | 否 | 接口调用凭据，在限制时间内被授权访问资源 API   |  `eyJhbGciOiJSxxxxx` |
 | id_token | string | 否 | 用户的身份凭证，解析后会包含用户信息   |  `eyJhbGxxxx` |
 | refresh_token | string | 否 | refresh_token 用于获取新的 AccessToken   |  `WPsGJbvpBjqXz6IJIr1UHKyrdVF` |

@@ -89,7 +89,7 @@ public class UpdatePipelineFunctionTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#PipelineFunctionDto">PipelineFunctionDto</a> | 响应数据 |
 
@@ -107,8 +107,8 @@ public class UpdatePipelineFunctionTest {
     "funcName": "每周日凌晨 3-6 点系统维护禁止注册/登录",
     "funcDescription": "每周日凌晨 3-6 点系统维护禁止注册/登录。",
     "scene": "PRE_REGISTER",
-    "createdAt": "2022-07-03T02:20:30.000Z",
-    "updatedAt": "2022-07-03T02:20:30.000Z",
+    "createdAt": "2022-07-03T03:20:30.000Z",
+    "updatedAt": "2022-07-03T03:20:30.000Z",
     "timeout": 3,
     "sourceCode": "async function pipe(user, context, callback) {\n  const date = new Date();\n  const d = date.getDay();\n  const n = date.getHours();\n  // 每周日凌晨 3-6 点禁止注册\n  if (d === 0 && (3 <= n && n <= 6)) {\n    return callback(new Error('系统维护中，暂时停止注册！'));\n  }\n  callback(null, user, context)\n}",
     "status": "success"
@@ -127,8 +127,8 @@ public class UpdatePipelineFunctionTest {
 | funcName | string | 是 | 函数名称   |  `每周日凌晨 3-6 点系统维护禁止注册/登录` |
 | funcDescription | string | 否 | 函数描述   |  `每周日凌晨 3-6 点系统维护禁止注册/登录。` |
 | scene | string | 是 | 函数的触发场景：<br>- `PRE_REGISTER`: 注册前<br>- `POST_REGISTER`: 注册后<br>- `PRE_AUTHENTICATION`: 认证前<br>- `POST_AUTHENTICATION`: 认证后<br>- `PRE_OIDC_ID_TOKEN_ISSUED`: OIDC ID Token 签发前<br>- `PRE_OIDC_ACCESS_TOKEN_ISSUED`: OIDC Access Token 签发前<br>- `PRE_COMPLETE_USER_INFO`: 补全用户信息前<br>       | PRE_REGISTER |
-| createdAt | string | 是 | 函数创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 是 | 函数修改时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 函数创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 是 | 函数修改时间   |  `2022-07-03T03:20:30.000Z` |
 | isAsynchronous | boolean | 是 | 是否异步执行。设置为异步执行的函数不会阻塞整个流程的执行，适用于异步通知的场景，比如飞书群通知、钉钉群通知等。   |  |
 | timeout | number | 是 | 函数运行超时时间，最短为 1 秒，最长为 60 秒，默认为 3 秒。   |  `3` |
 | terminateOnTimeout | boolean | 是 | 如果函数运行超时，是否终止整个流程，默认为否。   |  |

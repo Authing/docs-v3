@@ -31,7 +31,7 @@
 | status | boolean | 否 | - | 部门状态  | `false` |
 | name | string | 否 | - | 部门名称  | `开发部` |
 | departmentIdType | string | 否 | department_id | 此次调用中使用的部门 ID 的类型  | `department_id` |
-| parentDepartmentId | string | 否 | - | 父部门 ID  | `6229c4deb3e4d8a20b6021ff` |
+| parentDepartmentId | string | 否 | - | 父部门 id，如果是根部门，传 root  | `6229c4deb3e4d8a20b6021ff` |
 | customData | object | 否 | - | 自定义数据，传入的对象中的 key 必须先在用户池定义相关自定义字段  | `{"icon":"https://example.com/icon"}` |
 | postIdList | string[] | 否 | - | 岗位 id 列表  | `["xxx"]` |
 | tenantId | string | 否 | - | 租户 ID  | `623c20b2a062aaaaf41b17da` |
@@ -86,7 +86,7 @@ public class UpdateDepartmentTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#DepartmentDto">DepartmentDto</a> | 响应数据 |
 
@@ -102,8 +102,8 @@ public class UpdateDepartmentTest {
   "data": {
     "organizationCode": "steamory",
     "departmentId": "60b49eb83fd80adb96f26e68",
-    "createdAt": "2022-07-03T02:20:30.000Z",
-    "updatedAt": "2022-07-03T02:20:30.000Z",
+    "createdAt": "2022-07-03T03:20:30.000Z",
+    "updatedAt": "2022-07-03T03:20:30.000Z",
     "openDepartmentId": "ou_7dab8a3d3cdccxxxxxx777c7ad535d62",
     "name": "开发部",
     "leaderUserIds": "[\"60b49eb83fd80adb96f26e68\"]",
@@ -169,13 +169,13 @@ public class UpdateDepartmentTest {
 | ---- |  ---- | ---- | ---- | ---- |
 | organizationCode | string | 是 | 组织 Code（organizationCode）   |  `steamory` |
 | departmentId | string | 是 | 部门系统 ID（为 Authing 系统自动生成，不可修改）   |  `60b49eb83fd80adb96f26e68` |
-| createdAt | string | 是 | 部门创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 否 | 修改时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 部门创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 否 | 修改时间   |  `2022-07-03T03:20:30.000Z` |
 | openDepartmentId | string | 否 | 自定义部门 ID，用于存储自定义的 ID   |  `ou_7dab8a3d3cdccxxxxxx777c7ad535d62` |
 | name | string | 是 | 部门名称   |  `开发部` |
 | leaderUserIds | array | 否 | 部门负责人 ID   |  `["60b49eb83fd80adb96f26e68"]` |
 | description | string | 否 | 部门描述   |  `技术研发部门` |
-| parentDepartmentId | string | 是 | 父部门 id   |  `6229c4deb3e4d8a20b6021ff` |
+| parentDepartmentId | string | 是 | 父部门 id，如果是根部门，传 root   |  `6229c4deb3e4d8a20b6021ff` |
 | code | string | 否 | 部门识别码   |  `6229c4deb3e4d8a20b6021ff` |
 | parentDepartmentCode | string | 是 | 父部门 code   |  `test` |
 | membersCount | number | 是 | 部门人数（仅包含直属成员）   |  `11` |

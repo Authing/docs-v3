@@ -23,7 +23,7 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | code | string | 是 | - | 权限分组（权限空间）内角色的唯一标识符  | `manager` |
 | name | string | 否 | - | 权限分组（权限空间）内角色名称  | `manager` |
-| namespace | string | 否 | default | 所属权限分组(权限空间)的 code  | `default` |
+| namespace | string | 否 | default | 所属权限分组(权限空间)的 code，不传获取默认权限分组。  | `default` |
 | description | string | 否 | - | 角色描述  | `this is role manager description` |
 | disableTime | string | 否 | - | 角色自动禁止时间，单位毫秒, 如果传null表示永久有效  | `1669881887852` |
 
@@ -76,7 +76,7 @@ public class CreateRoleTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#RoleDto">RoleDto</a> | 响应数据 |
 
@@ -113,7 +113,7 @@ public class CreateRoleTest {
 | code | string | 是 | 权限分组(权限空间)内角色的唯一标识符 Code   |  `role1` |
 | name | string | 是 | 权限分组(权限空间)内角色名称   |  `role1` |
 | description | string | 是 | 角色描述   |  `this is role description` |
-| namespace | string | 是 | 所属权限分组(权限空间)的 Code   |  `default` |
+| namespace | string | 是 | 所属权限分组(权限空间)的 Code，不传获取默认权限分组。   |  `default` |
 | namespaceName | string | 是 | 所属权限分组(权限空间)的名称   |  `示例权限名称` |
 | status | string | 否 | 角色状态，ENABLE-表示正常，DISABLE-表示禁止   |  `ENABLE` |
 | disableTime | number | 否 | 角色自动禁止时间，单位毫秒, 如果传null表示永久有效   |  `1669881887852` |

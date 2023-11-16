@@ -78,7 +78,7 @@ func main() {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#OrganizationDto">OrganizationDto</a> | 响应数据 |
 
@@ -95,8 +95,8 @@ func main() {
     "organizationCode": "steamory",
     "organizationName": "蒸汽记忆",
     "description": "组织描述信息",
-    "createdAt": "2022-07-03T02:20:30.000Z",
-    "updatedAt": "2022-07-03T02:20:30.000Z",
+    "createdAt": "2022-07-03T03:20:30.000Z",
+    "updatedAt": "2022-07-03T03:20:30.000Z",
     "departmentId": "60b49eb83fd80adb96f26e68",
     "openDepartmentId": "60b49eb83fd80adb96f26e68",
     "hasChildren": true,
@@ -160,8 +160,8 @@ func main() {
 | organizationCode | string | 是 | 组织 code   |  `steamory` |
 | organizationName | string | 是 | 组织名称   |  `蒸汽记忆` |
 | description | string | 否 | 组织描述信息   |  `组织描述信息` |
-| createdAt | string | 否 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 否 | 修改时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 否 | 创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 否 | 修改时间   |  `2022-07-03T03:20:30.000Z` |
 | departmentId | string | 是 | 根节点 ID   |  `60b49eb83fd80adb96f26e68` |
 | openDepartmentId | string | 否 | 根节点自定义 ID   |  `60b49eb83fd80adb96f26e68` |
 | hasChildren | boolean | 是 | 是否包含子节点   |  `true` |

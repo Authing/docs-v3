@@ -110,12 +110,6 @@ JS 代码示例：
 
 ### <a id="LoginTokenResponseDataDto"></a> LoginTokenResponseDataDto
 
-| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
-| ---- |  ---- | ---- | ---- | ---- |
-| access_token | string | 否 | 接口调用凭据，在限制时间内被授权访问资源 API   |  `eyJhbGciOiJSxxxxx` |
-| id_token | string | 否 | 用户的身份凭证，解析后会包含用户信息   |  `eyJhbGxxxx` |
-| refresh_token | string | 否 | refresh_token 用于获取新的 AccessToken   |  `WPsGJbvpBjqXz6IJIr1UHKyrdVF` |
-| token_type | string | 是 | token 类型   |  `bearer` |
-| expire_in | number | 是 | 过期时间 单位是秒   |  `7200` |
+!!!include(reference/sdk/common/token_response_table.md)!!!
 
 

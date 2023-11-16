@@ -64,7 +64,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#SyncJobDto">SyncJobDto</a> | 响应数据 |
 
@@ -80,8 +80,8 @@ const managementClient = new ManagementClient({
   "data": {
     "syncJobId": 1,
     "syncTaskId": 1000,
-    "createdAt": "2022-07-03T02:20:30.000Z",
-    "updatedAt": "2022-07-03T02:20:30.000Z",
+    "createdAt": "2022-07-03T03:20:30.000Z",
+    "updatedAt": "2022-07-03T03:20:30.000Z",
     "syncStatus": "success",
     "syncFlow": "upstream",
     "syncTrigger": "manually"
@@ -98,8 +98,8 @@ const managementClient = new ManagementClient({
 | ---- |  ---- | ---- | ---- | ---- |
 | syncJobId | number | 是 | 同步作业 ID   |  `1` |
 | syncTaskId | number | 是 | 此同步作业对应的同步任务 ID   |  `1000` |
-| createdAt | string | 是 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 是 | 更新时间   |  `2022-07-03T03:20:30.000Z` |
 | syncStatus | string | 是 | 当前同步状态:<br>- `free`: 空闲状态，从未执行<br>- `pending`: 等待系统执行<br>- `onProgress`: 正在执行<br>- `success`: 成功<br>- `failed`: 失败<br>       | free |
 | syncFlow | string | 是 | 同步任务数据流向：<br>- `upstream`: 作为上游，将数据同步到 Authing<br>- `downstream`: 作为下游，将 Authing 数据同步到此系统<br>       | upstream |
 | syncTrigger | string | 是 | 同步任务触发类型：<br>- `manually`: 手动触发执行<br>- `timed`: 定时触发<br>- `automatic`: 根据事件自动触发<br>   | manually |

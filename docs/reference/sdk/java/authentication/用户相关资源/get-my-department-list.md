@@ -79,7 +79,7 @@ public class GetDepartmentListTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#UserDepartmentPagingDto">UserDepartmentPagingDto</a> | 响应数据 |
 
@@ -96,14 +96,14 @@ public class GetDepartmentListTest {
     "list": {
       "organizationCode": "steamory",
       "departmentId": "60b49eb83fd80adb96f26e68",
-      "createdAt": "2022-07-03T02:20:30.000Z",
+      "createdAt": "2022-07-03T03:20:30.000Z",
       "name": "dd8d7stf44",
       "description": "dd8d7stf44",
       "openDepartmentId": "ou_7dab8a3d3cdccxxxxxx777c7ad535d62",
       "isLeader": true,
       "code": "6229c4deb3e4d8a20b6021ff",
       "isMainDepartment": true,
-      "joinedAt": "2022-07-03T02:20:30.000Z",
+      "joinedAt": "2022-07-03T03:20:30.000Z",
       "i18n": {
         "name": {
           "zh-CN": {
@@ -145,14 +145,14 @@ public class GetDepartmentListTest {
 | organizationCode | string | 是 | 组织 Code（organizationCode）   |  `steamory` |
 | departmentId | string | 是 | 部门 ID   |  `60b49eb83fd80adb96f26e68` |
 | isRoot | boolean | 是 | 是否为根部门   |  |
-| createdAt | string | 是 | 部门创建时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 部门创建时间   |  `2022-07-03T03:20:30.000Z` |
 | name | string | 是 | 部门名称   |  `dd8d7stf44` |
 | description | string | 是 | 部门描述   |  `dd8d7stf44` |
 | openDepartmentId | string | 否 | 自定义部门 ID，用于存储自定义的 ID   |  `ou_7dab8a3d3cdccxxxxxx777c7ad535d62` |
 | isLeader | boolean | 是 | 是否是部门 Leader   |  `true` |
 | code | string | 是 | 部门识别码   |  `6229c4deb3e4d8a20b6021ff` |
 | isMainDepartment | boolean | 是 | 是否是主部门   |  `true` |
-| joinedAt | string | 是 | 加入部门时间   |  `2022-07-03T02:20:30.000Z` |
+| joinedAt | string | 是 | 加入部门时间   |  `2022-07-03T03:20:30.000Z` |
 | isVirtualNode | boolean | 是 | 是否是虚拟部门   |  |
 | i18n |  | 否 | 多语言设置 嵌套类型：<a href="#DepartmentI18nDto">DepartmentI18nDto</a>。  |  `{"name":{"zh-CN":{"enabled":false,"value":"中文"},"en-US":{"enabled":false,"value":"English"}}}` |
 | customData | object | 否 | 部门的扩展字段数据   |  `{"icon":"https://example.com/logo"}` |

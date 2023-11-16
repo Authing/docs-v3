@@ -115,6 +115,6 @@ print_r($data);
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
 | passwordResetToken | string | 是 | 用于重置密码 token   |  |
-| tokenExpiresIn | number | 是 | 过期时间   |  |
+| tokenExpiresIn | number | 是 | 过期时间，单位为秒   |  |
 
 

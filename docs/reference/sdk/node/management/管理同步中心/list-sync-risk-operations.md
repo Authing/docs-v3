@@ -72,7 +72,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#SyncRiskOperationPagingDto">SyncRiskOperationPagingDto</a> | 响应数据 |
 
@@ -89,8 +89,8 @@ const managementClient = new ManagementClient({
     "list": {
       "syncRiskOperationId": 1,
       "syncTaskId": 1000,
-      "createdAt": "2022-07-03T02:20:30.000Z",
-      "updatedAt": "2022-07-03T02:20:30.000Z",
+      "createdAt": "2022-07-03T03:20:30.000Z",
+      "updatedAt": "2022-07-03T03:20:30.000Z",
       "status": "SUCCESS",
       "objectType": "DEPARTMENT",
       "objectName": "张三",
@@ -117,8 +117,8 @@ const managementClient = new ManagementClient({
 | ---- |  ---- | ---- | ---- | ---- |
 | syncRiskOperationId | number | 是 | 同步任务风险操作 ID   |  `1` |
 | syncTaskId | number | 是 | 同步任务 ID   |  `1000` |
-| createdAt | string | 是 | 创建时间   |  `2022-07-03T02:20:30.000Z` |
-| updatedAt | string | 是 | 更新时间   |  `2022-07-03T02:20:30.000Z` |
+| createdAt | string | 是 | 创建时间   |  `2022-07-03T03:20:30.000Z` |
+| updatedAt | string | 是 | 更新时间   |  `2022-07-03T03:20:30.000Z` |
 | status | string | 是 | 执行状态:<br>- `PENDING`: 待执行<br>- `SUCCESS`: 成功<br>- `FAILED`: 失败<br>- `CANCELED`: 已取消<br>- `EXECUTING`: 执行中<br>       | PENDING |
 | level | number | 是 | 优先级，数字越小表示优先级越高。   |  |
 | objectType | string | 是 | 操作对象类型:<br>- `department`: 部门<br>- `user`: 用户<br>       | DEPARTMENT |

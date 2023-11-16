@@ -35,7 +35,7 @@
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#CheckQRCodeStatusDataDto">CheckQRCodeStatusDataDto</a> | 响应数据 |
 
@@ -52,6 +52,7 @@
     "status": "PENDING",
     "briefUserInfo": "当二维码状态为已扫码、已授权、已取消授权时返回。如果在控制台应用安全 - 通用安全 - 登录安全 - APP 扫码登录 Web 安全中未开启「Web 轮询接口返回完整用户信息」（默认处于关闭状态），接口只会返回用户的头像和显示名称，前端可以基于此渲染用户昵称和头像，给到用户已成功扫码的提示。",
     "tokenSet": {
+      "scope": "openid profile",
       "access_token": "eyJhbGciOiJSxxxxx",
       "id_token": "eyJhbGxxxx",
       "refresh_token": "WPsGJbvpBjqXz6IJIr1UHKyrdVF",
@@ -87,6 +88,7 @@
 
 | 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
 | ---- |  ---- | ---- | ---- | ---- |
+| scope | string | 否 | access_token 对应的 scope   |  `openid profile` |
 | access_token | string | 否 | 接口调用凭据，在限制时间内被授权访问资源 API   |  `eyJhbGciOiJSxxxxx` |
 | id_token | string | 否 | 用户的身份凭证，解析后会包含用户信息   |  `eyJhbGxxxx` |
 | refresh_token | string | 否 | refresh_token 用于获取新的 AccessToken   |  `WPsGJbvpBjqXz6IJIr1UHKyrdVF` |

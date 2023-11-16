@@ -64,7 +64,7 @@ const managementClient = new ManagementClient({
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#ApplicationDto">ApplicationDto</a> | 响应数据 |
 
@@ -89,7 +89,7 @@ const managementClient = new ManagementClient({
     "logoutRedirectUris": "[\"https://example.com/logout-callback\"]",
     "initLoginUri": "[\"https://example.com/login\"]",
     "ssoEnabled": true,
-    "ssoEnabledAt": "2022-07-03T02:20:30.000Z",
+    "ssoEnabledAt": "2022-07-03T03:20:30.000Z",
     "loginConfig": {
       "enabledBasicLoginMethods": "[\"EMAIL_CODE\",\"EMAIL_PASSWORD\"]",
       "defaultLoginMethod": {
@@ -149,7 +149,7 @@ const managementClient = new ManagementClient({
 | logoutRedirectUris | array | 是 | 应用退出登录回调地址   |  `["https://example.com/logout-callback"]` |
 | initLoginUri | string | 是 | 发起登录地址：在 Authing 应用详情点击「体验登录」或在应用面板点击该应用图标时，会跳转到此 URL，默认为 Authing 登录页。   |  `["https://example.com/login"]` |
 | ssoEnabled | boolean | 是 | 是否开启 SSO 单点登录   |  `true` |
-| ssoEnabledAt | string | 否 | 开启 SSO 单点登录的时间   |  `2022-07-03T02:20:30.000Z` |
+| ssoEnabledAt | string | 否 | 开启 SSO 单点登录的时间   |  `2022-07-03T03:20:30.000Z` |
 | loginConfig |  | 是 | 登录配置 嵌套类型：<a href="#ApplicationLoginConfigDto">ApplicationLoginConfigDto</a>。  |  |
 | registerConfig |  | 是 | 注册配置 嵌套类型：<a href="#ApplicationRegisterConfig">ApplicationRegisterConfig</a>。  |  |
 | brandingConfig |  | 是 | 品牌化配置 嵌套类型：<a href="#ApplicationBrandingConfig">ApplicationBrandingConfig</a>。  |  |

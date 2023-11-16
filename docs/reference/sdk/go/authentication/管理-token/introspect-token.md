@@ -73,7 +73,6 @@ func main() {
 | Iss       | string | 否                                     | Issuer，当 token 合法时返回。                               | `https://example.authing.cn/oidc`     |
 | Jti       | string | 否                                     | 此 Token 的唯一 ID，当 token 合法时返回。                   | `K5TYewNhvdGBdHiRifMyW`               |
 | Scope     | string | 否                                     | 使用逗号分割的 scope 数组，当 token 合法时返回。            | `openid profile`                      |
-| TokenType | string | 否                                     | Token Type，默认为 Bearer，当 token 合法时返回。            | `Bearer`                              |
 
 
 示例结果：
@@ -87,8 +86,7 @@ func main() {
   "iat": 1601456894,
   "iss": "https://example.authing.cn/oidc",
   "jti": "K5TYewNhvdGBdHiRifMyW",
-  "scope": "openid profile email phone",
-  "token_type": "Bearer"
+  "scope": "openid profile email phone"
 }
 ```
 

@@ -37,7 +37,7 @@
 | samlProviderEnabled | boolean | 否 | - | 是否开启 SAML 身份提供商  |  |
 | samlConfig | <a href="#SamlIdpConfig">SamlIdpConfig</a> | 否 | [object Object] | SAML 协议配置  |  |
 | oauthProviderEnabled | boolean | 否 | - | 是否开启 OAuth 身份提供商  |  |
-| oauthConfig | <a href="#OauthIdpConfig">OauthIdpConfig</a> | 否 | - | OAuth2.0 协议配置。【重要提示】不再推荐使用 OAuth2.0，建议切换到 OIDC。  | `{"grants":["authorization_code"],"access_token_lifetime":1209600,"refresh_token_lifetime":2592000,"introspection_endpoint_auth_method":"client_secret_post","revocation_endpoint_auth_method":"client_secret_post","id":"654d947a7bb83ca5d136581e","client_secret":"f8bb151818bd51e7e80c7635ec6e05fa","redirect_uris":["http://localhost:8080"]}` |
+| oauthConfig | <a href="#OauthIdpConfig">OauthIdpConfig</a> | 否 | - | OAuth2.0 协议配置。【重要提示】不再推荐使用 OAuth2.0，建议切换到 OIDC。  | `{"grants":["authorization_code"],"access_token_lifetime":1209600,"refresh_token_lifetime":2592000,"introspection_endpoint_auth_method":"client_secret_post","revocation_endpoint_auth_method":"client_secret_post"}` |
 | casProviderEnabled | boolean | 否 | - | 是否开启 CAS 身份提供商  |  |
 | casConfig | <a href="#CasIdPConfig">CasIdPConfig</a> | 否 | - | CAS 协议配置  | `{"casUserIdentifier":"${user.username}","customAttributes":{"customAttr1":"123"},"stLifetime":300}` |
 | loginConfig | <a href="#ApplicationLoginConfigInputDto">ApplicationLoginConfigInputDto</a> | 否 | - | 登录配置  |  |
@@ -112,7 +112,7 @@ Change the background color
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#CreateApplicationRespDataDto">CreateApplicationRespDataDto</a> | 响应数据 |
 
@@ -137,7 +137,7 @@ Change the background color
     "logoutRedirectUris": "[\"https://example.com/logout-callback\"]",
     "initLoginUri": "[\"https://example.com/login\"]",
     "ssoEnabled": true,
-    "ssoEnabledAt": "2022-07-03T02:20:30.000Z",
+    "ssoEnabledAt": "2022-07-03T03:20:30.000Z",
     "loginConfig": {
       "enabledBasicLoginMethods": "[\"EMAIL_CODE\",\"EMAIL_PASSWORD\"]",
       "defaultLoginMethod": {
@@ -282,7 +282,7 @@ Change the background color
 | logoutRedirectUris | array | 是 | 应用退出登录回调地址   |  `["https://example.com/logout-callback"]` |
 | initLoginUri | string | 是 | 发起登录地址：在 Authing 应用详情点击「体验登录」或在应用面板点击该应用图标时，会跳转到此 URL，默认为 Authing 登录页。   |  `["https://example.com/login"]` |
 | ssoEnabled | boolean | 是 | 是否开启 SSO 单点登录   |  `true` |
-| ssoEnabledAt | string | 否 | 开启 SSO 单点登录的时间   |  `2022-07-03T02:20:30.000Z` |
+| ssoEnabledAt | string | 否 | 开启 SSO 单点登录的时间   |  `2022-07-03T03:20:30.000Z` |
 | loginConfig |  | 是 | 登录配置 嵌套类型：<a href="#ApplicationLoginConfigDto">ApplicationLoginConfigDto</a>。  |  |
 | registerConfig |  | 是 | 注册配置 嵌套类型：<a href="#ApplicationRegisterConfig">ApplicationRegisterConfig</a>。  |  |
 | brandingConfig |  | 是 | 品牌化配置 嵌套类型：<a href="#ApplicationBrandingConfig">ApplicationBrandingConfig</a>。  |  |

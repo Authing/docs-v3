@@ -75,7 +75,7 @@ public class ListDataPolicesTest {
 | ---- | ---- | ---- |
 | statusCode | number | 业务状态码，可以通过此状态码判断操作是否成功，200 表示成功。 |
 | message | string | 描述信息 |
-| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型。详情可以查看开发准备中的 apiCode 细分说明 |
+| apiCode | number | 细分错误码，可通过此错误码得到具体的错误类型（成功请求不返回）。详细错误码列表请见：[API Code 列表](https://api-explorer.authing.cn/?tag=group/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87#tag/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/apiCode) |
 | requestId | string | 请求 ID。当请求失败时会返回。 |
 | data | <a href="#DataPoliciesPaginatedRespDto">DataPoliciesPaginatedRespDto</a> | 响应数据 |
 
@@ -103,7 +103,7 @@ public class ListDataPolicesTest {
         "type": "USER",
         "name": "test"
       },
-      "updatedAt": "2022-07-03T02:20:30.000Z"
+      "updatedAt": "2022-07-03T03:20:30.000Z"
     }
   }
 }
@@ -129,7 +129,7 @@ public class ListDataPolicesTest {
 | resourceList | array | 是 | 数据权限列表，每个策略下所有的数据资源 ID 和名称 嵌套类型：<a href="#DataResourceSimpleRespDto">DataResourceSimpleRespDto</a>。  |  |
 | policyId | string | 是 | 数据策略 ID   |  `60b49xxxxxxxxxxxxxxx6e68` |
 | targetList | array | 是 | 主体对象列表,包含数据策略下所有的主体对象,包括 USER、GROUP、ROLE、ORG 嵌套类型：<a href="#SubjectRespDto">SubjectRespDto</a>。  |  |
-| updatedAt | string | 是 | 数据策略更新时间   |  `2022-07-03T02:20:30.000Z` |
+| updatedAt | string | 是 | 数据策略更新时间   |  `2022-07-03T03:20:30.000Z` |
 
 
 ### <a id="DataResourceSimpleRespDto"></a> DataResourceSimpleRespDto
