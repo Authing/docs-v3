@@ -109,7 +109,7 @@ export default {
       const result = [];
       function calcLinksWithChildren(items) {
         items.forEach(item => {
-          if (item.path) {
+          if (item.path && item.path.split("/").pop() && item.title) {
             result.push({
               path: item.path,
               title: item.title,
