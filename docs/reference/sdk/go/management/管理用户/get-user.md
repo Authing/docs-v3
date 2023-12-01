@@ -55,17 +55,9 @@ func main() {
 		// The exception needs to be handled by the developer.
 	}
 
-		reqDto := &dto.GetUserDto{
-	    // 通过用户 ID 获取用户信息
-		// 替换成真实的用户 ID
-		UserId: "635215b413xxxxf5f63c511a",
-	}
-	respDto := client.GetUser(reqDto)
-
 	reqDto := &dto.GetUserDto{
-		// 通过邮箱获取用户信息
-		// 替换成真实的邮箱
 		UserId:     "test@example.com",
+		// 通过邮箱获取用户信息
 		UserIdType: "email",
 	}
 	respDto := client.GetUser(reqDto)

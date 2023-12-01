@@ -45,7 +45,7 @@ func main() {
 	if err != nil {
 		// The exception needs to be handled by the developer.
 	}
-	respDto := client.SignInByAD("test", "passw0rd", nil)
+	respDto := client.SignInByAD("test", "passw0rd", dto.SignInOptionsDto{})
 	fmt.Println(respDto)
 }
 ```

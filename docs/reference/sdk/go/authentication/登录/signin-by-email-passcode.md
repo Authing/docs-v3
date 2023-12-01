@@ -45,7 +45,7 @@ func main() {
 	if err != nil {
 		// The exception needs to be handled by the developer.
 	}
-	respDto := client.SignInByEmailPassCode("test@example.com", "1234", nil)
+	respDto := client.SignInByEmailPassCode("test@example.com", "1234", dto.SignInOptionsDto{})
 	fmt.Println(respDto)
 }
 ```

@@ -29,6 +29,10 @@ meta:
 go get -u github.com/Authing/authing-golang-sdk/v3
 ```
 
+注：如果在安装过程中出现以下错误，请执行 `go mod tidy`
+
+![](~@imagesZhCn/reference/go-install-error.png)
+
 ## 使用用户认证模块
 
 !!!include(reference/sdk/common/authentication_client_desc.md)!!!
@@ -47,7 +51,6 @@ go get -u github.com/Authing/authing-golang-sdk/v3
 package main
 
 import (
-   "fmt"
    "github.com/Authing/authing-golang-sdk/v3/authentication"
 )
 
@@ -222,7 +225,9 @@ func main() {
 	signInResp := authenticationClient.SignInByEmailPassword(
 		"test@example.com", 
 		"test", 
-		dto.SignInOptionsDto{}
+		dto.SignInOptionsDto{
+			PasswordEncryptType: "none",
+		},
 	)
 
 	// 你可以从 signInResp 中得到用户的 access_token，此 access_token 代表了用户访问接口的凭证
@@ -270,8 +275,6 @@ Authing Go SDK 使用 AK/SK 本地对请求数据的摘要进行签名的鉴权�
 package main
 
 import (
-	"fmt"
-	"github.com/Authing/authing-golang-sdk/v3/dto"
 	"github.com/Authing/authing-golang-sdk/v3/management"
 )
 
@@ -337,7 +340,7 @@ func main() {
 		},
 	}
 	response := client.ListUsers(&request)
-	fmt.Println(getProfileResp)
+	fmt.Println(response)
 }
 ```
 
@@ -394,7 +397,6 @@ Authing Go SDK 方法在请求接口时，不会抛出 [Error](https://go.dev/do
 package main
 
 import (
-	"fmt"
 	"github.com/Authing/authing-golang-sdk/v3/dto"
 	"github.com/Authing/authing-golang-sdk/v3/management"
 )
