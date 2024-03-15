@@ -7600,7 +7600,7 @@ const zhCnNavBar = {
           ]
         },
         {
-          title: '微信小程序',
+          title: '小程序',
           path: '/reference/sdk/miniapp/',
           children: [
             {
