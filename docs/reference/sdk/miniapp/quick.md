@@ -1,7 +1,7 @@
 # 开始集成
 
 ::: hint-info
-Authing 微信小程序 SDK，五分钟接入微信小程序授权登录。
+Authing 微信 or 抖音小程序 SDK，五分钟接入微信 or 抖音小程序授权登录。
 :::
 
 ## 第一步：创建应用
@@ -12,14 +12,17 @@ Authing 微信小程序 SDK，五分钟接入微信小程序授权登录。
   <li>进入<a href="https://console.authing.cn/" target="blank">控制台</a>；</li>
   <li>展开左侧 <strong>应用</strong> 菜单，点击 <strong>自建应用</strong> 菜单；</li>
   <li>点击右上角 <strong>创建自建应用</strong> 按钮；</li>
-  <li>填写 <strong>应用名称</strong>、<strong>认证地址</strong>、选择 <strong>小程序应用</strong>；</li>
+  <li>选择 <strong>小程序应用</strong>、填写 <strong>应用名称</strong><strong>认证地址</strong>；</li>
   <li>点击 <strong>创建</strong>。</li>
 </ul>
 
 ![sdk-for-app-1](./images/sdk-for-app-1.png)
-## 第二步：创建社会化身份源
+## 第二步：小程序平台配置
 
-1. 在[微信小程序后台](https://mp.weixin.qq.com/wxamp/index/index?lang=zh_CN&token=678159627)的 <strong>开发 -> 开发管理 -> 开发设置</strong> 页面获取 <strong>APPID(小程序 ID)</strong> 和 <strong>AppSecrect(小程序密钥)</strong>。
+
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信小程序配置方法
+在[微信小程序后台](https://mp.weixin.qq.com/wxamp/index/index?lang=zh_CN&token=678159627)的 <strong>开发 -> 开发管理 -> 开发设置</strong> 页面获取 <strong>APPID(小程序 ID)</strong> 和 <strong>AppSecrect(小程序密钥)</strong>。
 
 ![sdk-for-app-3](./images/sdk-for-app-3.png)
 
@@ -29,12 +32,34 @@ Authing 微信小程序 SDK，五分钟接入微信小程序授权登录。
 
 ![sdk-wechat-request-domain](./images/sdk-wechat-request-domain.png)
 
-2. 在 Authing 控制台 <strong>身份源管理 -> 社会化身份源 -> 创建社会化身份源 -> 微信 -> 小程序</strong> 创建一个微信社会化身份源，并填写以下信息：
+:::
 
-    - <strong>唯一标识</strong>：因为这是此连接的唯一标识，所以设置之后不能修改。
-    - <strong>显示名称</strong>
-    - <strong>小程序 ID</strong>
-    - <strong>小程序密钥</strong>
+::: tab 抖音小程序配置方法
+在[抖音小程序后台](https://developer.open-douyin.com/)的 <strong>我的应用 -> 小程序 -> 开发 -> 开发设置 -> 秘钥管理</strong> 页面获取 <strong>APPID(小程序 ID)</strong> 和 <strong>AppSecrect(小程序密钥)</strong>。
+
+![sdk-douyin-APPID](./images/sdk-douyin-APPID.png)
+
+我的应用 -> 小程序 -> 开发 -> 开发设置 -> 域名管理</strong> 页面配置 **服务器域名**，添加 `request 合法域名`。
+
+如果你使用的是 Authing 公有云服务，`request 合法域名` 添加 `https://core.authing.cn`；如果是私有化部署，请填写你的私有化服务端地址。
+
+![sdk-douyin-request-domain](./images/sdk-douyin-request-domain.png)
+
+:::
+
+::::
+
+## 第三步：创建社会化身份源
+
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信小程序配置方法
+
+1. 在 Authing 控制台 <strong>身份源管理 -> 社会化身份源 -> 创建社会化身份源 -> 微信 -> 小程序</strong> 创建一个微信社会化身份源，并填写以下信息：
+
+- <strong>唯一标识</strong>：因为这是此连接的唯一标识，所以设置之后不能修改。
+- <strong>显示名称</strong>
+- <strong>小程序 ID</strong>
+- <strong>小程序密钥</strong>
 
 ![sdk-for-app-4](./images/sdk-for-app-4.png)
 
@@ -42,11 +67,33 @@ Authing 微信小程序 SDK，五分钟接入微信小程序授权登录。
 
 ![sdk-for-app-5](./images/sdk-for-app-5.png)
 
-3. 在当前页面选择 **使用此身份源的应用** 并点击 **保存** 按钮再次保存。
+2. 在当前页面选择 **使用此身份源的应用** 并点击 **保存** 按钮再次保存。
 
 ![sdk-for-app-6](./images/sdk-for-app-6.png)
+:::
+::: tab 抖音小程序配置方法
+1. 在 Authing 控制台 <strong>身份源管理 -> 社会化身份源 -> 创建社会化身份源 -> 抖音 -> 小程序</strong> 创建一个抖音社会化身份源，并填写以下信息：
 
-## 第三步：安装 SDK
+- <strong>唯一标识</strong>：因为这是此连接的唯一标识，所以设置之后不能修改。
+- <strong>显示名称</strong>
+- <strong>小程序 ID</strong>
+- <strong>小程序密钥</strong>
+
+![sdk-douyin-shenfenyuan](./images/sdk-douyin-shenfenyuan.png)
+
+<p>以上内容填写完成后，点击 <strong>创建</strong> 按钮进行保存。</p>
+
+![sdk-douyin-shenfenyuan-submit](./images/sdk-douyin-shenfenyuan-submit.png)
+
+2. 在当前页面选择 **使用此身份源的应用** 并点击 **保存** 按钮再次保存。
+
+![sdk-douyin-shenfenyuan-select](./images/sdk-douyin-shenfenyuan-select.png)
+
+:::
+::::
+
+
+## 第四步：安装 SDK
 
 :::: tabs :options="{ useUrlFragment: false }"
 ::: tab 微信原生小程序
@@ -54,6 +101,13 @@ Authing 微信小程序 SDK，五分钟接入微信小程序授权登录。
 # 原生小程序 npm 支持：
 # https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html
 npm install --save @authing/miniapp-wx
+```
+:::
+::: tab 抖音原生小程序
+``` shell
+# 原生小程序 npm 支持：
+# https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/developer-instrument/development-assistance/npm
+npm install --save @authing/miniapp-tt
 ```
 :::
 
@@ -86,12 +140,39 @@ npm install --save @authing/miniapp-sm2encrypt
 :::
 ::::
 
-## 第四步：初始化 SDK
+## 第五步：初始化 SDK
 
 :::: tabs :options="{ useUrlFragment: false }"
 ::: tab 微信原生小程序
 ``` typescript
 import { Authing } from '@authing/miniapp-wx'
+
+// 以下两种密码加密方式可以按需使用，选其一即可
+
+// rsa 加密
+import { encryptFunction } from '@authing/miniapp-jsencrypt'
+
+// sm2 加密
+import { encryptFunction } from '@authing/miniapp-sm2encrypt'
+
+const authing = new Authing({
+  appId: 'AUTHING_APP_ID',
+
+  // 公有云部署：Authing 控制台 -> 选择已创建的小程序应用 -> 应用配置 -> 认证配置 -> 认证地址
+  // 私有化部署：填写你的私有服务地址
+  host: 'https://my-authing-app.example.com',
+
+  // 用户池 ID
+  userPoolId: '62e221xxxxxxxxxxx7037a39',
+
+  // 非必传，密码默认将以明文传输
+  encryptFunction
+})
+```
+:::
+::: tab 抖音原生小程序
+``` typescript
+import { Authing } from '@authing/miniapp-tt'
 
 // 以下两种密码加密方式可以按需使用，选其一即可
 
@@ -176,7 +257,7 @@ const authing = new Authing({
 
 ![userPoolId](./images/sdk-for-get-user-pool-id.png)
 
-## 第五步：使用 SDK
+## 第六步：使用 SDK
 
 ### 获取登录态
 
@@ -196,6 +277,27 @@ Promise<[SDKResponse](#SDKResponse)<[LoginState](#LoginState)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="getLoginState">Get Login State</button>
+```
+``` typescript
+// index.js
+Page({
+  async getLoginState () {    
+    const [error, loginState] = await authing.getLoginState()
+
+    if (error) {
+      // 用户未登录，或登录态已过期
+    } else {
+      // 用户已登录，且登录态未过期
+      console.log(loginState)
+    }
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="getLoginState">Get Login State</button>
 ```
 ``` typescript
@@ -257,7 +359,7 @@ export default {
 :::
 ::::
 
-### 微信授权 code 登录
+### 小程序授权 code 登录
 
 >authing.loginByCode
 
@@ -275,6 +377,8 @@ Promise<[SDKResponse](#SDKResponse)<[LoginState](#LoginState)>>
 
 #### 说明
 
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信小程序配置方法
 微信小程序相关接口说明请参考：
 
 - [wx.getUserProfile](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html)
@@ -282,6 +386,20 @@ Promise<[SDKResponse](#SDKResponse)<[LoginState](#LoginState)>>
 - [小程序用户头像昵称获取规则调整公告](https://developers.weixin.qq.com/community/develop/doc/00022c683e8a80b29bed2142b56c01)
 
 微信小程序用户头像昵称获取规则生效后，你可以使用 `authing.updateUserInfo` 引导用户更新头像昵称。
+
+:::
+
+::: tab 抖音小程序配置方法
+抖音小程序相关接口说明请参考：
+
+- [tt.getUserProfile](https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/open-interface/user-information/tt-get-user-profile)
+
+- 你可以使用 `authing.updateUserInfo` 引导用户更新头像昵称。
+
+:::
+
+::::
+
 
 #### 示例代码
 :::: tabs :options="{ useUrlFragment: false }"
@@ -295,6 +413,30 @@ Promise<[SDKResponse](#SDKResponse)<[LoginState](#LoginState)>>
 Page({
   async loginByCode () {
     // 由于微信小程序 wx.login() 获取 code 、 session_key 有效期及相关数据解密的机制
+    // 偶然情况下 res 会是 undefined
+    // 所以需要判断 res 是否为 undefined 再进一步处理剩余业务逻辑
+    // 如果 res 是 undefined，则提示用户再点击一次按钮重新登录即可
+    const [error, res] = await authing.loginByCode({
+      // 你的小程序身份源唯一标识
+      extIdpConnidentifier: 'AUTHING_EXT_IDP_CONN_IDENTIFIER',
+      options: {
+        scope: 'openid profile offline_access'
+      }
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="loginByCode">Login By Code</button>
+```
+``` typescript
+// index.js
+Page({
+  async loginByCode () {
+    // 由抖音小程序 tt.login() 获取 code 、 session_key 有效期及相关数据解密的机制
     // 偶然情况下 res 会是 undefined
     // 所以需要判断 res 是否为 undefined 再进一步处理剩余业务逻辑
     // 如果 res 是 undefined，则提示用户再点击一次按钮重新登录即可
@@ -358,33 +500,45 @@ export default {
 :::
 ::::
 
-### 微信授权手机号码登录
+### 小程序授权手机号码登录
 
 >authing.loginByPhone
 
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信小程序配置方法
 ::: hint-info
 自2023年8月28日起，手机号快速验证组件将需要付费使用。详情参考微信官方文档：
 https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html
+1. 如果当前登录的用户为新用户，且小程序身份源开启『可用于登录注册』时，则当前被授权的手机号**会填充**到用户个人信息中。
+2. 如果当前手机号已被其他用户占用，则当前被授权的手机号**不会填充**到用户个人信息中。
+3. 如果当前登录的用户的个人信息中已有手机号，则当前被授权的手机号**不会填充**到用户个人信息中。
 :::
 
+::: tab 抖音小程序配置方法
 ::: hint-info
 1. 如果当前登录的用户为新用户，且小程序身份源开启『可用于登录注册』时，则当前被授权的手机号**会填充**到用户个人信息中。
 2. 如果当前手机号已被其他用户占用，则当前被授权的手机号**不会填充**到用户个人信息中。
 3. 如果当前登录的用户的个人信息中已有手机号，则当前被授权的手机号**不会填充**到用户个人信息中。
 :::
 
+::::
+
+
 #### 入参
 
 |名称|类型|描述|默认值|必填|
 |-----|----|----|----|----|
 |extIdpConnidentifier|String|Console 控制台中小程序身份源唯一标识| - |是|
-|wechatMiniProgramCodeAndPhonePayload|[WechatMiniProgramCodeAndPhonePayload](#WechatMiniProgramCodeAndPhonePayload)|微信授权信息| - |是|
+|miniProgramCodeAndPhonePayload|[MiniProgramCodeAndPhonePayload](#MiniProgramCodeAndPhonePayload)|微信授权信息| - |是|
 |options|[WxLoginOptions](#WxLoginOptions)|额外数据| - |否|
 
 <strong>
-  <p id="WechatMiniProgramCodeAndPhonePayload">WechatMiniProgramCodeAndPhonePayload</p>
+  <p id="MiniProgramCodeAndPhonePayload">MiniProgramCodeAndPhonePayload</p>
 </strong>
 
+
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信小程序配置方法
 |名称|类型|描述|默认值|必填|
 |-----|----|----|----|----|
 |wxPhoneInfo|[WxPhoneInfo](#WxPhoneInfo)|微信授权手机号信息|-|是|
@@ -395,7 +549,27 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhone
 
 |名称|类型|描述|默认值|必填|
 |-----|----|----|----|----|
-|code|string|微信授权手机号返回的 code|-|是|
+|code|string|授权手机号返回的 code|-|是|
+:::
+
+::: tab 抖音小程序配置方法
+|名称|类型|描述|默认值|必填|
+|-----|----|----|----|----|
+|phoneParams|[PhoneParams](#PhoneParams)|抖音授权手机号信息|-|是|
+
+<strong>
+  <p id="PhoneParams">PhoneParams</p>
+</strong>
+
+|名称|类型|描述|默认值|必填|
+|-----|----|----|----|----|
+|encryptedData|string|唤起手号的 encryptedData|-|是|
+|iv|string|唤起手号的 iv|-|是|
+:::
+
+::::
+
+
 
 #### 出参
 
@@ -419,10 +593,41 @@ Page({
     const { code } = e.detail
     const res = await authing.loginByPhone({
       extIdpConnidentifier: 'EXT_IDP_CONNIDENTIFIER',
-      wechatMiniProgramCodeAndPhonePayload: {
+      miniProgramCodeAndPhonePayload: {
         wxPhoneInfo: {
           code
         }
+      },
+      options: {
+        scope: 'openid profile offline_access'
+      }
+    })
+    console.log('authing.loginByPhone res: ', res)
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button open-type="getPhoneNumber" bindgetphonenumber="loginByPhone">Login By Phone</button>
+```
+``` typescript
+// index.js
+Page({
+  /**
+   * 需要在真机上测试，微信开发者工具不会返回 code
+   * @param {*} e 
+   */
+  async loginByPhone (e) {
+    const { iv, encryptedData } = e.detail;
+    const res = await authing.loginByPhone({
+      extIdpConnidentifier: 'EXT_IDP_CONNIDENTIFIER',
+      miniProgramCodeAndPhonePayload: {
+        phoneParams: {
+          encryptedData,
+          iv,
+        },
       },
       options: {
         scope: 'openid profile offline_access'
@@ -448,10 +653,14 @@ export default class Index extends Component<PropsWithChildren> {
    * @param {*} e 
    */
   async loginByPhone (e) {
-    const { code } = e.detail
+    const { code, iv, encryptedData } = e.detail;
     const res = await authing.loginByPhone({
       extIdpConnidentifier: 'EXT_IDP_CONNIDENTIFIER',
-      wechatMiniProgramCodeAndPhonePayload: {
+      miniProgramCodeAndPhonePayload: {
+        phoneParams: {
+          encryptedData,
+          iv,
+        },
         wxPhoneInfo: {
           code
         }
@@ -477,14 +686,18 @@ export default {
      * @param {*} e 
      */
     async loginByPhone (e) {
-      const { code } = e.detail
+      const { code, iv, encryptedData } = e.detail;
       const res = await authing.loginByPhone({
         extIdpConnidentifier: 'EXT_IDP_CONNIDENTIFIER',
-        wechatMiniProgramCodeAndPhonePayload: {
-          wxPhoneInfo: {
-            code
-          }
-        },
+				miniProgramCodeAndPhonePayload: {
+					phoneParams: {
+						encryptedData,
+						iv,
+					},
+					wxPhoneInfo: {
+						code
+					}
+				},
         options: {
           scope: 'openid profile offline_access'
         }
@@ -528,6 +741,33 @@ Promise<[SDKResponse](#SDKResponse)<[LoginState](#LoginState)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="loginByPassword">Login By Password</button>
+```
+``` typescript
+// index.js
+Page({
+  async loginByPassword () {
+    const [error, res] = await authing.loginByPassword({
+      passwordPayload: {
+        // 你的用户密码
+        password: 'USER_PASSWORD',
+        // 你的用户名
+        username: 'USER_NAME'
+      },
+      options: {
+        // 如果使用 rsa，则需要安装 @authing/miniapp-jsencrypt 并在初始化 SDK 时传入 encryptFunction 
+        // 如果使用 sm2，则需要安装 @authing/miniapp-sm2encrypt 并在初始化 SDK 时传入 encryptFunction 
+        passwordEncryptType: 'sm2',
+        scope: 'offline_access openid profile'
+      }
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="loginByPassword">Login By Password</button>
 ```
 ``` typescript
@@ -641,6 +881,23 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="sendEmailCode">sendEmailCode</button>
+```
+``` typescript
+// index.js
+Page({
+  async sendEmailCode () {
+    const [error, res] = await authing.sendEmailCode({
+      email: 'YOUR_EMAIL_ADDRESS',
+      channel: 'CHANNEL_LOGIN'
+    })
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -701,6 +958,25 @@ Promise<[SDKResponse](#SDKResponse)<[SimpleResponseData](#SimpleResponseData)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="sendSms">Send Sms</button>
+```
+``` typescript
+// index.js
+Page({
+  async sendSms () {
+    const [error, res] = await authing.sendSms({
+      phoneNumber: '131xxxxxxxx',
+      phoneCountryCode: '+86',
+      // 指定 channel 为 CHANNEL_LOGIN，发送登录所用的验证码
+      channel: 'CHANNEL_LOGIN'
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="sendSms">Send Sms</button>
 ```
 ``` typescript
@@ -889,6 +1165,20 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="refreshToken">Refresh Token</button>
+```
+``` typescript
+// index.js
+Page({
+  async refreshToken () {
+    const [error, res] = await authing.refreshToken()
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -942,6 +1232,30 @@ Promise<[SDKResponse](#SDKResponse)<[GetUserPhoneResponseData](#GetUserPhoneResp
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhone">Get Phone</button>
+```
+``` typescript
+// index.js
+Page({
+  /**
+   * 需要在真机上测试，微信开发者工具不会返回 code
+   * @param {*} e 
+   */
+  async getPhone (e) {
+    const { code } = e.detail
+
+    const [error, res] = await authing.getPhone({
+      // 你的小程序身份源唯一标识
+      extIdpConnidentifier: 'AUTHING_EXT_IDP_CONN_IDENTIFIER',
+      code
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button open-type="getPhoneNumber" bindgetphonenumber="getPhone">Get Phone</button>
 ```
 ``` typescript
@@ -1053,6 +1367,26 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="updatePassword">Update Password</button>
+```
+``` typescript
+// index.js
+Page({
+  async updatePassword () {
+    const [error, res] = await authing.updatePassword({
+      newPassword: 'USER_NEW_PASSWORD',
+      oldPassword: 'USER_OLD_PASSWORD',
+      // 如果使用 rsa，则需要安装 @authing/miniapp-jsencrypt 并在初始化 SDK 时传入 encryptFunction 
+      // 如果使用 sm2，则需要安装 @authing/miniapp-sm2encrypt 并在初始化 SDK 时传入 encryptFunction
+      passwordEncryptType: 'sm2'
+    })
+  },
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1115,6 +1449,22 @@ Promise<[SDKResponse](#SDKResponse)<[UserInfo](#UserInfo)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="getUserInfo">Get User Info</button>
+```
+``` js
+// index.js
+Page({
+  async getUserInfo () {
+    const [error, res] = await authing.getUserInfo({
+      withCustomData: true
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="getUserInfo">Get User Info</button>
 ```
 ``` js
@@ -1193,6 +1543,20 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="updateAvatar">Update Avatar</button>
+```
+``` typescript
+// index.js
+Page({
+  async updateAvatar () {
+    const [error, res] = await authing.updateAvatar()
+  },
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1243,6 +1607,22 @@ Promise<[SDKResponse](#SDKResponse)<[UserInfo](#UserInfo)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="updateUserInfo">Update User Info</button>
+```
+``` typescript
+// index.js
+Page({
+  async updateUserInfo () {
+    const [error, res] = await authing.updateUserInfo({
+      address: 'YOUR_ADDRESS'
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="updateUserInfo">Update User Info</button>
 ```
 ``` typescript
@@ -1314,6 +1694,23 @@ Promise<[SDKResponse](#SDKResponse)<[SimpleResponseData](#SimpleResponseData)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="bindEmail">BindEmail</button>
+```
+``` typescript
+// index.js
+Page({
+  async bindEmail () {
+    const [error, res] = await authing.bindEmail({
+      email: 'YOUR_EMAIL_ADDRESS',
+      passCode: 'YOUR_EMAIL_CODE'
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="bindEmail">BindEmail</button>
 ```
 ``` typescript
@@ -1416,6 +1813,28 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="updateEmailRequest">updateEmailRequest</button>
+```
+``` typescript
+// index.js
+Page({
+  async updateEmailRequest () {
+    const [error, res] = await authing.updateEmailRequest({
+      verifyMethod: 'EMAIL_PASSCODE',
+      emailPassCodePayload: {
+        newEmail: 'YOUR_EMAIL_ADDRESS',
+        newEmailPassCode: '',
+        oldEmail: 'YOUR_EMAIL_ADDRESS',
+        oldEmailPassCode: ''
+      }
+    })
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1498,6 +1917,22 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="updateEmail">updateEmail</button>
+```
+``` typescript
+// index.js
+Page({
+  async updateEmail () {
+    const [error, res] = await authing.updateEmail({
+      updateEmailToken: 'Token' // 发起修改邮箱的验证请求 SDK 获取
+    })
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1557,6 +1992,23 @@ Promise<[SDKResponse](#SDKResponse)<[SimpleResponseData](#SimpleResponseData)>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="bindPhone">bindPhone</button>
+```
+``` typescript
+// index.js
+Page({
+  async bindPhone () {
+    const [error, res] = await authing.bindPhone({
+      phoneNumber: 'YOUR_PHONE_NUMBER',
+      passCode: '',
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="bindPhone">bindPhone</button>
 ```
 ``` typescript
@@ -1671,6 +2123,26 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="deleteAccountRequest">deleteAccountRequest</button>
+```
+``` typescript
+// index.js
+Page({
+  async deleteAccountRequest () {
+    const [error, res] = await authing.deleteAccountRequest({
+      verifyMethod: 'EMAIL_PASSCODE',
+      emailPassCodePayload: {
+        email: 'YOUR_EMAIL_ADDRESS',
+        passCode: ''
+      }
+    })
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1750,6 +2222,22 @@ Page({
 })
 ```
 :::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="deleteAccount">deleteAccount</button>
+```
+``` typescript
+// index.js
+Page({
+  async deleteAccount () {
+    const [error, res] = await authing.deleteAccount({
+      deleteAccountToken: 'Token' // 发起删除账号请求 SDK 获取
+    })
+  }
+})
+```
+:::
 ::: tab Taro
 ``` tsx
 export default class Index extends Component<PropsWithChildren> {
@@ -1787,6 +2275,8 @@ export default {
 :::
 ::::
 
+
+
 ### 退出登录
 
 > authing.logout
@@ -1806,6 +2296,20 @@ Promise<SDKResponse<boolean>>
 ::: tab 微信原生小程序
 ``` html
 <!-- index.wxml -->
+<button bindtap="logout">Logout</button>
+```
+``` typescript
+// index.js
+Page({
+  async logout () {
+    const [error, res] = await authing.logout()
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
 <button bindtap="logout">Logout</button>
 ```
 ``` typescript
@@ -1849,6 +2353,191 @@ export default {
 ```
 :::
 ::::
+
+
+
+### 登录用户状态信息
+
+> authing.saveLoginState
+
+#### 入参
+
+|名称|类型|描述|默认值|必填|
+|-----|----|----|----|----|
+|access_token|String|登录获取的 access_token |-|是|
+|expires_in|Number|登录获取的 expires_in |-|是|
+|expires_at|Number|登录获取的 expires_at|-|是|
+|id_token|Number|登录获取的 id_token|-|是|
+|scope|Number|登录获取的 scope|-|是|
+|token_type|Number|登录获取的 token_type|-|是|
+|refresh_token|Number|登录获取的 refresh_token|-|否|
+
+
+#### 出参
+
+``` typescript
+Promise<SDKResponse<boolean>>
+```
+
+#### 示例代码
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信原生小程序
+``` html
+<!-- index.wxml -->
+<button bindtap="saveLoginState">saveLoginState</button>
+```
+``` typescript
+// index.js
+Page({
+  async saveLoginState () {
+    const [, loginState] = await authing.getLoginState()
+
+    const res = await authing.saveLoginState({
+      ...loginState
+    })
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="saveLoginState">saveLoginState</button>
+```
+``` typescript
+// index.js
+Page({
+  async saveLoginState () {
+    const [, loginState] = await authing.getLoginState()
+
+    const res = await authing.saveLoginState({
+      ...loginState
+    })
+  }
+})
+```
+:::
+::: tab Taro
+``` tsx
+export default class Index extends Component<PropsWithChildren> {
+  render () {
+    return (
+      <View className='index'>
+          <Button onClick={() => this.saveLoginState()}>saveLoginState</Button>
+      </View>
+    )
+  }
+  
+  async saveLoginState () {
+    const [, loginState] = await authing.getLoginState()
+    const res = await authing.saveLoginState({
+      ...loginState
+    })
+  }
+}
+```
+:::
+::: tab uni-app
+```html
+<button @click="saveLoginState">saveLoginState</button>
+```
+``` typescript
+export default {
+  methods: {
+      async saveLoginState () {
+        const [, loginState] = await authing.getLoginState()
+        const res = await authing.saveLoginState({
+          ...loginState
+        })
+      }
+  }
+}
+```
+:::
+::::
+
+
+### 平台绑定
+
+> authing.bindPlatformByCode
+
+
+#### 入参
+
+|名称|类型|描述|默认值|必填|
+|-----|----|----|----|----|
+|extIdpConnidentifier|String|Console 控制台中小程序身份源唯一标识|-|是|
+
+
+#### 出参
+
+``` typescript
+Promise<SDKResponse<boolean>>
+```
+
+#### 示例代码
+:::: tabs :options="{ useUrlFragment: false }"
+::: tab 微信原生小程序
+``` html
+<!-- index.wxml -->
+<button bindtap="bindPlatformByCode">bindPlatformByCode</button>
+```
+``` typescript
+// index.js
+Page({
+  async bindPlatformByCode () {
+    const res = await authing.bindPlatformByCode({  extIdpConnidentifier: EXT_IDP_CONNIDENTIFIER})
+  }
+})
+```
+:::
+::: tab 抖音原生小程序
+``` html
+<!-- index.ttml -->
+<button bindtap="bindPlatformByCode">bindPlatformByCode</button>
+```
+``` typescript
+// index.js
+Page({
+  async bindPlatformByCode () {
+    const res = await authing.bindPlatformByCode({  extIdpConnidentifier: EXT_IDP_CONNIDENTIFIER})
+  }
+})
+```
+:::
+::: tab Taro
+``` tsx
+export default class Index extends Component<PropsWithChildren> {
+  render () {
+    return (
+      <View className='index'>
+          <Button onClick={() => this.bindPlatformByCode()}>bindPlatformByCode</Button>
+      </View>
+    )
+  }
+  
+  async bindPlatformByCode () {
+    const res = await authing.bindPlatformByCode({  extIdpConnidentifier: EXT_IDP_CONNIDENTIFIER})
+  }
+}
+```
+:::
+::: tab uni-app
+```html
+<button @click="bindPlatformByCode">bindPlatformByCode</button>
+```
+``` typescript
+export default {
+  methods: {
+      async bindPlatformByCode () {
+        const res = await authing.bindPlatformByCode({  extIdpConnidentifier: AUTHING_EXT_IDP_CONN_IDENTIFIER})
+      }
+  }
+}
+```
+:::
+::::
+
 
 ## 示例代码
 
