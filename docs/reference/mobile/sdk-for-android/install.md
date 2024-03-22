@@ -4,16 +4,18 @@
 
 Authing Android SDK 包含用户认证模块，用户认证模块（AuthClient）以终端用户（End User）的身份进行请求，提供了登录、注册、登出、管理用户资料、获取授权资源等所有用户**自助完成**的操作。
 
+**基本信息**
 
-
-**代码地址**
-
-| 条目     | 说明                                                         |
-| -------- | ------------------------------------------------------------ |
-| 支持版本 | Android 7.0 +                                                |
-| 仓库地址 | [https://github.com/Authing/authing-android-sdk](https://github.com/Authing/authing-android-sdk) |
-
-
+| 条目         | 说明                                                                                     |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| 支持版本     | Android 7.0 +                                                                            |
+| 仓库地址     | [https://github.com/Authing/guard-android](https://github.com/Authing/guard-android)     |
+| SDK 名称     | Guard Android SDK                                                                        |
+| 开发者       | 北京蒸汽记忆科技有限公司                                                                 |
+| 版本         | 2.0.0                                                                                    |
+| 主要功能     | 包含基本登录组件的封装，如账密登录、手机号验证码登录，以及对 Authing 登录认证 API 的封装 |
+| 个人信息收集 | 本 SDK 不收集个人隐私信息                                                                |
+| 合规使用说明 | 参考[合规使用指南](/reference/mobile/sdk-for-android/compliance-guidelines.md)           |
 
 **开始之前**
 
@@ -27,8 +29,6 @@ Authing Android SDK 包含用户认证模块，用户认证模块（AuthClient�
 
 <img src="./images/create_client_application.png" alt="drawing" width="620"/>
 
-
-
 ## 安装
 
 ### 第一步：新建 Android 工程
@@ -39,23 +39,22 @@ Authing Android SDK 包含用户认证模块，用户认证模块（AuthClient�
 
 <img src="./images/create_project2.png" alt="drawing" width="800"/>
 
-
 ::: hint-info
 注意：Minimum SDK 版本 Android 7.0。
 :::
 
 ### 第二步：添加 Gradle 依赖
 
-在工程根目录的 build.gradle	(V4.2+以后的版本 AndroidStudio 创建的新工程在 setting.gradle) 文件里面需包含 `mavenCentral`：
+在工程根目录的 build.gradle (V4.2+以后的版本 AndroidStudio 创建的新工程在 setting.gradle) 文件里面需包含 `mavenCentral`：
 
- ```groovy
- buildscript {
-    repositories {
-        mavenCentral()
-        // other repositories
-    }
- }
- ```
+```groovy
+buildscript {
+   repositories {
+       mavenCentral()
+       // other repositories
+   }
+}
+```
 
 在主工程的 build.gradle 文件里面添加依赖：
 
@@ -77,8 +76,6 @@ Authing.init(context, "AUTHING_APP_ID");
 注意：AUTHING_APP_ID 是应用 ID，不是用户池 ID，请先 [前往控制台获取](https://docs.pre.authing.cn/v2/guides/app-new/create-app/app-configuration.html)。
 :::
 
-
-
 ## 错误处理
 
 Authing Android API SDK 方法在请求接口时，不会抛出 Exception（网络错误除外）。除非特殊说明，所有的方法返回值都会包含两个状态码`statusCode` 和 `apiCode`：
@@ -89,8 +86,6 @@ Authing Android API SDK 方法在请求接口时，不会抛出 Exception（网�
 
 详细的 `statusCode` 列表和 `apiCode` 请见[错误码](https://docs.authing.cn/v3/reference/other/error-code.html)。
 
-
-
 ## 私有化部署
 
 <LastUpdated/>
@@ -98,14 +93,12 @@ Authing Android API SDK 方法在请求接口时，不会抛出 Exception（网�
 如果你使用的是私有化部署的 Authing IDaaS 服务，需要指定此 Authing 私有化实例的 `host`，需要在调用 Authing.init() **之前**先调用:
 
 ```java
-Authing.setHost(String host)；   
+Authing.setHost(String host)；
 ```
 
-- *`host`* 是[私有化域名](https://docs.authing.cn/v2/guides/customize/domain/customized-domain.html)，如：`mycompany.com`
+- _`host`_ 是[私有化域名](https://docs.authing.cn/v2/guides/customize/domain/customized-domain.html)，如：`mycompany.com`
 
 如果你不清楚如何获取，可以联系为你们提供 Authing IDaaS 服务的管理人员，通常是 IT 部门或信息化部门。
-
-
 
 ## 获取帮助
 
