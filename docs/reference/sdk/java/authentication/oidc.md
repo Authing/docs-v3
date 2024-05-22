@@ -53,6 +53,7 @@ authenticationClient.buildAuthorizeUrl(IOidcParams options)
 - `options.responseMode` \<String\> 响应类型，选填，可选值为 `query`、`fragment`、`form_post`；默认为 `query`，即通过浏览器重定向发送 code 到回调地址。
 - `options.responseType` \<String\> 响应类型，选填，可选值为 `code`、`code id_token token`、`code id_token`、`code id_token`、`code token`、`id_token token`、`id_token`、`none`；默认为 `code`，授权码模式。
 - `options.redirectUri` \<String\> 回调地址，必填，默认为 SDK 初始化时的 redirectUri 参数。
+- `options.tenantId` \<String\> 租户 ID，选填。
 
 ### 示例
 
@@ -145,20 +146,20 @@ UserInfo userInfo = authenticationClient.getUserInfoByAccessToken("Access Token"
 
 字段解释：
 
-| 字段名                 | 翻译                                    |
-| :--------------------- | :-------------------------------------- |
-| sub                    | subject 的缩写，唯一标识，一般为用户 ID |
-| name                   | 姓名                                    |
-| nickname               | 昵称                                    |
-| given_name             | 名字                                    |
-| family_name            | 姓氏                                    |
-| birthdate              | 生日                                    |
-| gender                 | 性别                                    |
-| picture                | 头像                                    |
-| updated_at             | 信息更新时间                            |
-| zoneinfo               | 时区                                    |
-| preferred_username     | 希望被称呼的名字                        |
-| locale                 | 区域                                    |
+| 字段名             | 翻译                                    |
+| :----------------- | :-------------------------------------- |
+| sub                | subject 的缩写，唯一标识，一般为用户 ID |
+| name               | 姓名                                    |
+| nickname           | 昵称                                    |
+| given_name         | 名字                                    |
+| family_name        | 姓氏                                    |
+| birthdate          | 生日                                    |
+| gender             | 性别                                    |
+| picture            | 头像                                    |
+| updated_at         | 信息更新时间                            |
+| zoneinfo           | 时区                                    |
+| preferred_username | 希望被称呼的名字                        |
+| locale             | 区域                                    |
 
 ## 刷新 Access Token
 
@@ -345,7 +346,7 @@ BuildLogoutUrlParams params = new BuildLogoutUrlParams();
 String logoutUrl = authenticationClient.buildLogoutUrl(params);
 ```
 
-使用 OIDC 协议标准链接退出登录，需在 authenticationClientOptions 中 setProtocol（默认OIDC） ，需要传入当前用户的 **Id token**，且登出回调地址**必须与控制台配置的一致**：
+使用 OIDC 协议标准链接退出登录，需在 authenticationClientOptions 中 setProtocol（默认 OIDC） ，需要传入当前用户的 **Id token**，且登出回调地址**必须与控制台配置的一致**：
 
 ```java
 // 拼接符合 OIDC 协议标准的登出链接

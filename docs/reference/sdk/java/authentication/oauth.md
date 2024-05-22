@@ -53,6 +53,7 @@ authenticationClient.buildAuthorizeUrl(IOauthParams options)
 - `options.state` \<String\> 随机字符串，选填，默认自动生成。
 - `options.responseType` \<String\> 响应类型，选填，可选值为 `code`、`code id_token token`、`code id_token`、`code id_token`、`code token`、`id_token token`、`id_token`、`none`；默认为 `code`，授权码模式。
 - `options.redirectUri` \<String\> 回调地址，必填，默认为 SDK 初始化时的 redirectUri 参数。
+- `options.tenantId` \<String\> 租户 ID，选填。
 
 ### 示例
 
