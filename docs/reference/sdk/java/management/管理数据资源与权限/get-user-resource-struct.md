@@ -101,6 +101,9 @@
         "code": "tree11",
         "name": "tree11",
         "value": "test11Value",
+        "extendFieldValue": {
+          "str": "str_value"
+        },
         "actions": ["get","delete"],
         "children": [{
           "code": "tree111",
@@ -230,6 +233,9 @@ public class GetUserResourceStructTest {
               "code": "code1",
               "name": "子节点1",
               "value": "子节点值",
+              "extendFieldValue": {
+                "str": "str_value"
+              },
               "actions": [
                 "Create"
               ],
@@ -303,4 +309,4 @@ public class GetUserResourceStructTest {
 | value    | string      | 否                                  | 树资源节点 Value                                                    | `示例资源策略节点`                                                                                                                                                                    |
 | actions  | array       | 是                                  | 树数据资源策略节点的权限操作列表                                               | `read`                                                                                                                                                                        |
 | children | TreeStructs | 否                                  | 子节点数据,子节点数据最多五个层级,嵌套类型：<a href="#TreeStructs">TreeStructs</a>。 | `[{"code":"code1","name":"子节点1","value":"子节点值","enabled":false,"action":"create","children":[{"code":"code2","name":"子节点2","value":"子节点2值","enabled":true,"action":"get"}]}]` |
-
+|extendFieldValue| map | 否 | 扩展字段值 | `{"str":"str_value"}` |

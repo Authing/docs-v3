@@ -955,6 +955,26 @@ const zhCnNavBar = {
                       path: '/reference/sdk/java/management/管理数据资源与权限/check-data-resource-exists'
                     },
                     {
+                      title: '创建数据资源扩展字段',
+                      path: '/reference/sdk/java/management/管理数据资源与权限/create-dnef'
+                    },
+                    {
+                      title: '批量创建数据资源扩展字段',
+                      path: '/reference/sdk/java/management/管理数据资源与权限/batch-create-dnef'
+                    },
+                    {
+                      title: '删除数据资源扩展字段',
+                      path: '/reference/sdk/java/management/管理数据资源与权限/delete-dnef'
+                    },
+                    {
+                      title: '修改数据资源扩展字段',
+                      path: '/reference/sdk/java/management/管理数据资源与权限/update-dnef'
+                    },
+                    {
+                      title: '获取数据资源扩展字段列表',
+                      path: '/reference/sdk/java/management/管理数据资源与权限/get-dnef-list'
+                    },
+                    {
                       title: '创建数据策略',
                       path: '/reference/sdk/java/management/管理数据资源与权限/create-data-policy'
                     },

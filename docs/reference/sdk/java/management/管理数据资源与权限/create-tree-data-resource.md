@@ -27,6 +27,7 @@
 | resourceName | string | 是 | - | 数据资源名称, 权限空间内唯一  | `示例数据资源名称` |
 | namespaceCode | string | 是 | - | 数据策略所在的权限空间 Code  | `code1` |
 | description | string | 否 | - | 数据资源描述  | `示例数据资源描述` |
+| extendFieldList | <a href="#Dnef">Dnef[]</a> | 否 | - | 数据资源扩展字段  |  |
 
 
 
@@ -40,10 +41,15 @@ import cn.authing.sdk.java.client.ManagementClient;
 import cn.authing.sdk.java.dto.CreateTreeDataResourceDto;
 import cn.authing.sdk.java.dto.CreateTreeDataResourceResponseDto;
 import cn.authing.sdk.java.dto.DataResourceTreeStructs;
+import cn.authing.sdk.java.dto.Dnef;
+import cn.authing.sdk.java.dto.DnefConfig;
 import cn.authing.sdk.java.model.ManagementClientOptions;
 import cn.authing.sdk.java.util.JsonUtils;
+import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.map.MapUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CreateDataResourceByTreeTest {
@@ -69,8 +75,9 @@ public class CreateDataResourceByTreeTest {
         DataResourceTreeStructs struct = new DataResourceTreeStructs();
         struct.setCode("tree1");
         struct.setName("树节点1");
+        struct.setExtendFieldValue(MapUtil.of("str", "str_value"));
         struct.setValue("树节点1描述");
-        List<DataResourceTreeStructs> children = new ArrayList<>();
+        List<Object> children = new ArrayList<>();
         DataResourceTreeStructs child = new DataResourceTreeStructs();
         child.setName("树节点11");
         child.setCode("tree11");
@@ -80,8 +87,39 @@ public class CreateDataResourceByTreeTest {
         treeList.add(struct);
         reqDto.setStruct(treeList);
         reqDto.setDescription("示例树数据资源描述");
+        // 设置扩展字段（可选）
+        reqDto.setExtendFieldList(buildDnef());
         CreateTreeDataResourceResponseDto response = client.createDataResourceByTree(reqDto);
         System.out.println(JsonUtils.serialize(response));
+    }
+
+    /**
+     * 构建扩展字段
+     */
+    private static List<Dnef> buildDnef() {
+        List<Dnef> dnefs = new ArrayList<>();
+        Dnef str = new Dnef();
+        str.setKey("str");
+        str.setLabel("str_label");
+        str.setValueType(Dnef.ValueType.STRING);
+        str.setDescription("string");
+        dnefs.add(str);
+
+        Dnef select = new Dnef();
+        select.setKey("select");
+        select.setLabel("select_label");
+        select.setValueType(Dnef.ValueType.SELECT);
+        select.setDescription("select");
+        List<DnefConfig.Option> options = ListUtil.of(
+          new DnefConfig.Option("option1"),
+          new DnefConfig.Option("option2"),
+          new DnefConfig.Option("option3")
+        );
+        DnefConfig config = new DnefConfig(options);
+        select.setConfig(config);
+        dnefs.add(select);
+
+        return dnefs;
     }
 }
 
@@ -120,9 +158,25 @@ public class CreateDataResourceByTreeTest {
       "code": "123",
       "name": "数据资源",
       "value": "示例数据资源节点",
-      "children": "[{\"code\":\"code1\",\"name\":\"子节点1\",\"value\":\"子节点值\",\"children\":[{\"code\":\"code2\",\"name\":\"子节点2\",\"value\":\"子节点2值\"}]}]"
+      "children": [
+        {
+          "code": "code1",
+          "name": "子节点1",
+          "value": "子节点值",
+          "children": [
+            {
+              "code": "code2",
+              "name": "子节点2",
+              "value": "子节点2值"
+            }
+          ]
+        }
+      ]
     },
-    "actions": "[\"read\",\"get\"]"
+    "actions": [
+      "read",
+      "get"
+    ]
   }
 }
 ```
@@ -138,6 +192,7 @@ public class CreateDataResourceByTreeTest {
 | name | string | 是 | 数据资源节点名称 ，同层级唯一   |  `数据资源` |
 | value | string | 否 | 数据资源节点 Value   |  `示例数据资源节点` |
 | children | array | 否 | 数据资源节点的子节点,子节点层级最多支持五个层级   |  `[{"code":"code1","name":"子节点1","value":"子节点值","children":[{"code":"code2","name":"子节点2","value":"子节点2值"}]}]` |
+| extendFieldValue | map | 否 | 扩展字段值   |  `{"str":"str_value"}` |
 
 
 ### <a id="CreateTreeDataResourceRespDto"></a> CreateTreeDataResourceRespDto
@@ -150,7 +205,7 @@ public class CreateDataResourceByTreeTest {
 | description | string | 否 | 数据资源描述   |  `示例数据资源描述` |
 | struct | array | 是 | 树数据资源节点 嵌套类型：<a href="#DataResourceTreeStructs">DataResourceTreeStructs</a>。数组长度限制：50。  |  |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
-
+| extendFieldList | <a href="#Dnef">Dnef[]</a> | 否 | 数据资源扩展字段 |  |
 
 ### <a id="DataResourceTreeStructs"></a> DataResourceTreeStructs
 
@@ -161,4 +216,20 @@ public class CreateDataResourceByTreeTest {
 | value | string | 否 | 数据资源节点 Value   |  `示例数据资源节点` |
 | children | array | 否 | 数据资源节点的子节点,子节点层级最多支持五个层级   |  `[{"code":"code1","name":"子节点1","value":"子节点值","children":[{"code":"code2","name":"子节点2","value":"子节点2值"}]}]` |
 
+### <a id="Dnef"></a> Dnef
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| key | string | 是 | 扩展字段 Key   |  `str` |
+| valueType | ValueType | 是 | 扩展字段值类型  |  `STRING`（文本）、`SELECT`（单选） |
+| label | string | 是 | 扩展字段显示名称   |  `str_label` |
+| config | <a href="#DnefConfig">DnefConfig</a> | 否 | 字段配置，单选类型字段必传   | |
 
+### <a id="DnefConfig"></a> DnefConfig
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| options | <a href="#Option">Option[]</a> | 是 | 单选类型字段选项列表   | |
+
+### <a id="Option"></a> Option
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| value | string | 是 | 选项值   |  `option1` |
