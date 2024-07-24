@@ -113,5 +113,25 @@ public class GetDataResourceTest {
 | struct |  | 是 | 数据资源结构，支持字符串（STRING）、树结构（TREE）和数组结构（ARRAY）。   |  |
 | namespaceCode | string | 是 | 数据策略所在的权限空间 Code   |  `code1` |
 | actions | array | 是 | 数据资源权限操作列表 数组长度限制：50。  |  `["read","get"]` |
+| extendFieldList | <a href="#Dnef">Dnef[]</a> | 否 | 数据资源扩展字段（目前仅支持树类型资源）  |  |
+
+### <a id="Dnef"></a> Dnef
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| key | string | 是 | 扩展字段 Key   |  `str` |
+| valueType | ValueType | 是 | 扩展字段值类型  |  `STRING`（文本）、`SELECT`（单选） |
+| label | string | 是 | 扩展字段显示名称   |  `str_label` |
+| config | <a href="#DnefConfig">DnefConfig</a> | 否 | 字段配置，单选类型字段必传   | |
+
+
+### <a id="DnefConfig"></a> DnefConfig
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| options | <a href="#Option">Option[]</a> | 是 | 单选类型字段选项列表   | |
+
+### <a id="Option"></a> Option
+| 名称 | 类型 | <div style="width:80px">是否必填</div> | <div style="width:300px">描述</div> | <div style="width:200px">示例值</div> |
+| ---- |  ---- | ---- | ---- | ---- |
+| value | string | 是 | 选项值   |  `option1` |
 
 

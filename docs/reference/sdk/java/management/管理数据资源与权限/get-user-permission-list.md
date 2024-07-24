@@ -86,7 +86,10 @@
                     "get"
                   ], 
                   "nodeName": "treeChildrenName1", 
-                  "nodeValue": "treeChildrenValue1"
+                  "nodeValue": "treeChildrenValue1",
+                  "nodeExtendFieldValue": {
+                    "str": "str_value"
+                  }
                 }, 
                 {
                   "nodePath": "/treeChildrenCode/treeChildrenCode2", 
@@ -430,5 +433,6 @@ public class GetUserPermissionListTest {
 | nodeName | string | 是 | 树资源节点名称   |  `示例树资源节点名称` |
 | nodeActions | array | 是 | 树资源节点操作权限列表   |  `["read","get"]` |
 | nodeValue | string | 否 | 树资源节点 Value   |  `示例树资源节点 Value` |
+| nodeExtendFieldValue | map | 否 | 扩展字段值   |  `{"str":"str_value"}` |
 
 
