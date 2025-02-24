@@ -17,7 +17,7 @@
 
 > 单页 Web 应用和客户端应用隐藏，默认为 `none`，不允许修改；后端应用和标准 Web 应用可以修改此配置项。
 
-![](https://files.authing.co/api-explorer/tokenAuthMethod.jpg)
+![]({{ $themeConfig.filesUrl }}/api-explorer/tokenAuthMethod.jpg)
 
 #### 换取 token 身份验证方式为 none 时
 

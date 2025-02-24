@@ -3,9 +3,8 @@
     <div
       class="content-layout-container footer-container"
       :class="{
-        'content-layout-container__without-sidebar': $frontmatter.noSidebar,
-      }"
-    >
+        'content-layout-container__without-sidebar': $frontmatter.noSidebar
+      }">
       <a class="footer-logo" :href="$site.themeConfig.officeSiteUrl">
         <img width="100px" :src="$withBase($site.themeConfig.logo)" />
       </a>
@@ -28,40 +27,34 @@
       <FooterCollapse
         v-for="(item, index) of sections"
         :key="index"
-        :sectionInfo="item"
-      />
+        :sectionInfo="item" />
 
       <div>
         <FooterCollapse
           :sectionInfo="{
-            title: $themeLocaleConfig.company,
-          }"
-        >
+            title: $themeLocaleConfig.company
+          }">
           <template #collapseContent>
             <div
               v-if="footerLocaleConfig.contactPhone"
-              class="footer-text-wrapper"
-            >
+              class="footer-text-wrapper">
               {{ footerLocaleConfig.contactPhone }}
             </div>
             <div
               v-if="footerLocaleConfig.contactEmail"
-              class="footer-text-wrapper"
-            >
-              <a :href="`mailto:${ footerLocaleConfig.contactEmail }`">
+              class="footer-text-wrapper">
+              <a :href="`mailto:${footerLocaleConfig.contactEmail}`">
                 {{ footerLocaleConfig.contactEmail }}
               </a>
             </div>
             <div
               v-if="footerLocaleConfig.contactAddress"
-              class="footer-text-wrapper text-paragh"
-            >
+              class="footer-text-wrapper text-paragh">
               {{ footerLocaleConfig.contactAddress }}
             </div>
             <div
               v-if="footerLocaleConfig.contactChenduAddress"
-              class="footer-text-wrapper text-paragh"
-            >
+              class="footer-text-wrapper text-paragh">
               {{ footerLocaleConfig.contactChenduAddress }}
             </div>
           </template></FooterCollapse
@@ -75,9 +68,10 @@
         </p>
         <p v-if="footerLocaleConfig.beian" class="footer-icp-record">
           <img
-            src="//files.authing.co/authing-website/icon-beian-gov.png"
-            alt="beian"
-          />{{ footerLocaleConfig.beian }}
+            :src="
+              $themeConfig.filesUrl + '/authing-website/icon-beian-gov.png'
+            "
+            alt="beian" />{{ footerLocaleConfig.beian }}
         </p>
         <p class="footer-company-name">{{ footerLocaleConfig.companyName }}</p>
         <div v-if="socials && socials.length" class="footer-social-container">
@@ -86,8 +80,7 @@
             v-for="(item, index) of socials"
             :key="index"
             target="_blank"
-            :href="item.link"
-          >
+            :href="item.link">
             <IconFont :type="item.icon" />
           </a>
         </div>
@@ -97,10 +90,10 @@
 </template>
 
 <script>
-import NavLink from '@theme/components/NavLink'
-import LangSelectOutline from '@theme/components/LangSelectOutline.vue'
-import IconFont from '@theme/components/IconFont/index.vue'
-import FooterCollapse from '@theme/components/Footer/Collapse.vue'
+import NavLink from '@theme/components/NavLink';
+import LangSelectOutline from '@theme/components/LangSelectOutline.vue';
+import IconFont from '@theme/components/IconFont/index.vue';
+import FooterCollapse from '@theme/components/Footer/Collapse.vue';
 
 export default {
   name: 'Footer',
@@ -108,24 +101,24 @@ export default {
     NavLink,
     IconFont,
     FooterCollapse,
-    LangSelectOutline,
+    LangSelectOutline
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
     footerLocaleConfig() {
-      return this.$themeLocaleConfig.footer
+      return this.$themeLocaleConfig.footer;
     },
     sections() {
-      return this.footerLocaleConfig.sections
+      return this.footerLocaleConfig.sections;
     },
     socials() {
-      return this.footerLocaleConfig.socials
-    },
+      return this.footerLocaleConfig.socials;
+    }
   },
-  methods: {},
-}
+  methods: {}
+};
 </script>
 
 <style lang="stylus">

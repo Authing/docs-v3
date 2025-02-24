@@ -290,7 +290,7 @@ Authing CSharp SDK 使用 AK/SK 本地对请求数据的摘要进行签名的鉴
 
 在 [Authing 控制台](https://console.authing.cn)的**设置** -> **基础设置** -> **密钥管理**页面，可以获取到用户池 ID（UserPool Id）和用户池密钥（UserPool Secret），如下图所示：
 
-![](https://files.authing.co/authing-docs-v2/20220328-182903.png)
+![]({{ $themeConfig.filesUrl }}/authing-docs-v2/20220328-182903.png)
 
 </details>
 

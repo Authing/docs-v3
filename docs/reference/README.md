@@ -9,8 +9,7 @@ Authing API Explorer 已于 2023 年 2 月 12 日正式上线，面向 Authing �
 
 ## 新版 API & SDK 特性
 
-![](https://files.authing.co/api-explorer/what-is-authing.jpg)
-
+![]({{ $themeConfig.filesUrl }}/api-explorer/what-is-authing.jpg)
 Authing 的产品演进到了第三代，但无论到了第几代，核心的**以开发者为中心**都是贯穿全产品线的重要**产品设计哲学**。也就是说，不论将来 Authing 的产品如何演进，定位如何变化，「以开发者为中心」将像鱼骨一样，不论伸出多少分支，总有一个「主线」贯穿全程。
 
 ::: hint-success
@@ -22,25 +21,25 @@ Authing By developers, for developers.
 1. 覆盖全面：累计达 200 余个 API，覆盖终端用户、控制台几乎所有使用场景。
 2. 提升安全性：修复历史安全漏洞；新增 AK/SK 机制进行鉴权，防中间人拦截、防重放攻击。
 3. 开发者友好：
+
 - 配套丰富的全新 API 文档，方便开发者更快上手。
 - 每个接口、每个参数、每个返回值都有类型和说明。
 - 一致的 API 设计语言，更加语义化，使用起来更加流畅。
 - 提供面向开发者的 [API Explorer](https://api-explorer.authing.cn/) 在线调试中心，高效满足开发者的 API 调试、API 学习等需求。
-4. 提高生产力： 完全遵循 [OpenAPI](https://swagger.io/specification/) 规范，使用 OpenAPI 标准定义接口描述、参数、返回值，基于这此元数据可以进行任意二次开发，如生成文档、SDK 等。
 
+4. 提高生产力： 完全遵循 [OpenAPI](https://swagger.io/specification/) 规范，使用 OpenAPI 标准定义接口描述、参数、返回值，基于这此元数据可以进行任意二次开发，如生成文档、SDK 等。
 
 ### 各语言新版 SDK
 
 1. 覆盖全面：提供新版前端 JavaScript SDK、移动端安卓/iOS SDK、后端 Java、Node.js、Go、Python、PHP、C# SDK。
 2. 提升安全性：采用 AK/SK 机制在本地对请求数据进行签名，防中间人拦截、防重放攻击。
 3. 开发者友好：
+
 - 配套全新的 SDK 文档，方便开发者更快上手。
 - 不同 SDK 之间初始化、方法命名、请求参数、返回结果均保持一致，给到开发者完全一致的使用体验。
 - 类型注解更加完善，每个方法每个参数每个返回值都有类型注解。
 
-
 ## 开启全新的开发体验
-
 
 Authing V3 API & SDK 将管理员操作场景和终端用户使用场景做了区分，分为以下两个模块：
 

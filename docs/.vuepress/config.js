@@ -6,7 +6,11 @@ const webpack = require('webpack');
 
 const gaEnabled = config && config.ga && config.ga.enabled;
 const gTrackingId = config && config.ga && config.ga.gTrackingId;
-
+const filesUrl =
+  (config && config.static && config.static.filesUrl) ||
+  'https://files.authing.co';
+const cdnUrl =
+  (config && config.static && config.static.cdnUrl) || 'https://cdn.authing.co';
 const head = [
   [
     'link',
@@ -110,7 +114,9 @@ module.exports = {
   },
   head,
   themeConfig: {
-    logo: 'https://files.authing.co/authing-console/authing-logo-new-20210924.svg',
+    filesUrl: filesUrl,
+    cdnUrl: cdnUrl,
+    logo: `${filesUrl}/authing-console/authing-logo-new-20210924.svg`,
     officeSiteDomain: 'authing.cn',
     officeSiteUrl: 'https://authing.cn',
     consoleDomain: 'https://console.authing.cn',

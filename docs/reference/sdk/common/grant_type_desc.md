@@ -9,7 +9,7 @@
 3. 你的应用服务后端将获取到的授权码发送到 Authing 服务器，获取 AccessToken 和 IdToken，如果需要，还会返回 Refresh Token。
 4. 你的应用后端现在可以通过 IdToken 知道用户的身份，后续可以保存用户会话信息。并可以重定向到前端其他页面，使用 AccessToken 调用你的后端 API 等等。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/1-3.f80500ca.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl +'/authing-docs-v2/1.3.96/assets/img/1-3.f80500ca.png'" alt="drawing" />
 
 #### 授权码 + PKCE 模式
 
@@ -22,7 +22,7 @@
 3. 你的应用将**授权码**和**校验码**发送到 Authing 获取 **AccessToken** 和 **IdToken**，如果需要，还会返回 Refresh token。
 4. 你的应用前端现在通过 IdToken 知道了用户的身份，后续使用 Access token 换取用户信息，重定向到前端其他页面，使用 AccessToken 调用你的后端 API。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/pkce-2.7ef745c5.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl + '/authing-docs-v2/1.3.96/assets/img/pkce-2.7ef745c5.png'" alt="drawing" />
 
 #### 隐式模式
 
@@ -35,7 +35,7 @@
 3. 你的应用从 URL 中取出 AccessToken 和 IdToken。
 4. 你的应用可以将 AccessToken 与 IdToken 保存，以便后续使用，例如携带 AccessToken 访问资源服务器，携带 IdToken 请求服务端从而服务端能够辨别用户身份。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/implicit-flow.fdb49293.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl +'/authing-docs-v2/1.3.96/assets/img/implicit-flow.fdb49293.png'" alt="drawing" />
 
 #### 混合模式
 
@@ -51,7 +51,7 @@
 5. 你的应用可以将 code 发送给后端。
 6. 应用后端可以利用 code 获取用户的 AccessToken、IdToken 以及 refresh token。之后可以保存用户信息，使用 AccessToken 调用资源方的其他 API 等等。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/hybrid-flow.53529f18.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl +'/authing-docs-v2/1.3.96/assets/img/hybrid-flow.53529f18.png'" alt="drawing" />
 
 #### Client Credentials 模式
 
@@ -62,7 +62,7 @@ Client Credentials 模式用于进行服务器对服务器间的授权（M2M 授
 1. 资源调用方将他的凭证 AK、SK 以及需要请求的权限 scope 发送到 Authing 授权端点。
 2. 如果凭证正确，并且调用方具备资源权限，Authing 为其颁发 AccessToken。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/client-credentials-flow.1434552a.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl +'/authing-docs-v2/1.3.96/assets/img/client-credentials-flow.1434552a.png'" alt="drawing" />
 
 #### 密码模式
 
@@ -74,4 +74,4 @@ Client Credentials 模式用于进行服务器对服务器间的授权（M2M 授
 2. 你的应用将用户账密发送到 Authing。
 3. 如果账密正确，Authing 返回 token。
 
-<img src="https://cdn.authing.co/authing-docs-v2/1.3.96/assets/img/password-flow.99e74271.png" alt="drawing" />
+<img :src="$themeConfig.cdnUrl + '/authing-docs-v2/1.3.96/assets/img/client-credentials-flow.1434552a.png'" alt="drawing" />

@@ -4,8 +4,7 @@
       :style="{
         borderTopColor: cardInfo.color
       }"
-      class="sdk-card-top-bar"
-    ></div>
+      class="sdk-card-top-bar"></div>
     <div class="sdk-card-content-container">
       <h3 class="sdk-app-title">
         {{ cardInfo.title }}
@@ -24,14 +23,14 @@
             :key="index"
             :title="sdk.name"
             :to="sdk.link"
-            class="sdk-link-item"
-          >
+            class="sdk-link-item">
             <img
               width="24px"
               height="24px"
               :alt="sdk.name"
-              :src="require(`@theme/assets/images/reference/${sdk.icon}.svg`)"
-            />
+              :src="
+                require(`@theme/assets/images/reference/${sdk.icon}.svg`)
+              " />
           </RouterLink>
           <div class="sdk-icon-gutter"></div>
         </template>
@@ -41,7 +40,7 @@
 </template>
 
 <script>
-import IconFont from "@theme/components/IconFont/index.vue";
+import IconFont from '@theme/components/IconFont/index.vue';
 export default {
   components: {
     IconFont
@@ -60,16 +59,15 @@ export default {
     return {
       mockData: [
         {
-          link: "dd",
-          icon:
-            "https://files.authing.co/authing-website/home-logo-cnpc-new.png"
+          link: 'dd',
+          icon: "${themeConfig.filesUrl}+'/authing-website/home-logo-cnpc-new.png'"
         }
       ]
     };
   },
   computed: {
     sdkData() {
-      return this.cardInfo.sdks.map(sdkKey => this.sdkConfig[sdkKey]);
+      return this.cardInfo.sdks.map((sdkKey) => this.sdkConfig[sdkKey]);
     }
   }
 };
