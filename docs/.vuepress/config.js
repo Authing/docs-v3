@@ -11,6 +11,10 @@ const filesUrl =
   'https://files.authing.co';
 const cdnUrl =
   (config && config.static && config.static.cdnUrl) || 'https://cdn.authing.co';
+
+const favicon =
+  (config && config.static && config.static.favicon) ||
+  'https://authing.cn/favicon.ico';
 const head = [
   [
     'link',
@@ -18,7 +22,7 @@ const head = [
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      href: 'https://authing.cn/favicon.ico'
+      href: favicon
     }
   ],
   [

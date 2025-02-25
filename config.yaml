@@ -4,3 +4,4 @@ ga:
 static:
   filesUrl: 'http://docs.t-uum.cxmt.com/v3'
   cdnUrl: 'http://docs.t-uum.cxmt.com/v3'
+  favicon: 'http://docs.t-uum.cxmt.com/v3/favicon.ico'
